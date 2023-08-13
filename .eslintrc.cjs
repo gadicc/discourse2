@@ -17,4 +17,5 @@ module.exports = {
     "no-global-assign": 0,
     "no-undef": 0,
   },
+  ignorePatterns: ["src/schema.d.ts"],
 };
