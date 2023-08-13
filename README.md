@@ -23,6 +23,9 @@ const result = await discourse.listLatestTopics();
 console.log(result);
 ```
 
+You can discover the API through TypeScript text completion, or
+at https://docs.discourse.org/.
+
 ## TODO
 
 - [ ] Validation

@@ -7,7 +7,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    environment: default
+    # environment: default
 
     permissions:
       # https://github.com/semantic-release/semantic-release/issues/2469
@@ -51,7 +51,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.6.0
         with:
           auth: ${{ secrets.GH_TOKEN_GISTS }}
-          gistID: 26d0f88b04b6883e1a6bba5b9b344fab
+          gistID: db6d371d39faab64858178a049c8e80b
           filename: jest-coverage-comment__main.json
           label: Coverage
           message: ${{ steps.coverageComment.outputs.coverage }}%
