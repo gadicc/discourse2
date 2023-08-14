@@ -23,8 +23,16 @@ const result = await discourse.listLatestTopics();
 console.log(result);
 ```
 
-You can discover the API through TypeScript text completion, or
-at https://docs.discourse.org/.
+## Notes
+
+1. You can discover the API through TypeScript text completion, or
+   at https://docs.discourse.org/.
+
+1. Some endpoints (like `listLatestTopics`) require auth headers in their
+   OpenAPI spec, but not in practice (provided the requested resource is a
+   publicly visible one). For this reason, if auth headers are required (by
+   spec) but not provided, we'll try the call anyway and let the endpoint
+   decide.
 
 ## TODO
 

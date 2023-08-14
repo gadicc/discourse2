@@ -1,5 +1,46 @@
+import Ajv from "ajv";
+import type { ValidateFunction } from "ajv";
+import ajvErrors from "ajv-errors";
+
 import spec from "./openapi.json";
 import DiscourseAPIGenerated from "./generated";
+
+const ajv = new Ajv({
+  // All rules, all errors.  Don't end early after first error.
+  allErrors: true,
+});
+ajvErrors(ajv /*, {singleError: true} */);
+
+const compiled = new Map<object, ValidateFunction>();
+function getValidator(schema: object) {
+  let validator = compiled.get(schema);
+  if (!validator) {
+    validator = ajv.compile(schema);
+    compiled.set(schema, validator);
+  }
+  return validator;
+}
+
+const paramatersSchemas = new Map<object, object>();
+function paramatersSchema(params: { name: string; schema: object }[]) {
+  let schema = paramatersSchemas.get(params);
+  if (!schema) {
+    schema = {
+      type: "object",
+      additionalProperties: {
+        not: true,
+        errorMessage: "Unknown parameter ${0#}",
+      },
+      properties: Object.fromEntries(
+        params.map((param) => {
+          return [param.name, param.schema];
+        }),
+      ),
+    };
+    paramatersSchemas.set(params, schema);
+  }
+  return schema;
+}
 
 const byOperationId: {
   [key: string]: { path: string; method: string; data: any };
@@ -19,6 +60,14 @@ export class HTTPError extends Error {
   }
 }
 
+export class ParamaterValidationError extends Error {
+  errors: typeof ajv.errors;
+  constructor(message: string, errors: typeof ajv.errors) {
+    super(message);
+    this.errors = errors;
+  }
+}
+
 export default class DiscourseAPI extends DiscourseAPIGenerated {
   private url: string;
   private "Api-Key"?: string;
@@ -26,7 +75,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
   constructor(
     url: string,
-    opts: { "Api-Key"?: string; "Api-Username"?: string },
+    opts: { "Api-Key"?: string; "Api-Username"?: string } = {},
   ) {
     super();
     this.url = url;
@@ -40,9 +89,26 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     // console.log(operationName, params);
 
-    // validate params
+    if (operation.data.parameters) {
+      const validate = getValidator(
+        paramatersSchema(operation.data.parameters),
+      );
+      const valid = validate(params || {});
+      if (!valid) {
+        const errors = validate.errors;
+        // console.log("errors", errors);
+        const message = ajv.errorsText(errors);
+        const error = new ParamaterValidationError(message, errors);
+        throw error;
+      }
+    } else {
+      throw new Error(
+        operationName +
+          " accepts no parameters, but given: " +
+          JSON.stringify(params),
+      );
+    }
 
-    // TODO headers
     const headers: { [key: string]: string } = {};
     const query: { [key: string]: string } = {};
     const path: { [key: string]: string } = {};
@@ -57,6 +123,11 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
       } else if (param.in === "path") {
         path[param.name] = params && params[param.name];
       }
+    }
+
+    if (!headers["Api-Key"]) {
+      delete headers["Api-Key"];
+      delete headers["Api-Username"];
     }
 
     const url = (this.url + operation.path).replace(

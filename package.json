@@ -55,6 +55,8 @@
   },
   "prettier": {},
   "dependencies": {
+    "ajv": "8.12.0",
+    "ajv-errors": "3.0.0",
     "debug": "^4.3.4"
   },
   "release": {
