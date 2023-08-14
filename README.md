@@ -4,7 +4,7 @@ The complete Discourse API (strongly typed).
 
 Copyright (c) 2023 by Gadi Cohen. [MIT Licensed](./LICENSE.txt).
 
-![npm](https://img.shields.io/npm/v/discourse2) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/gadicc/discourse2/release.yml) ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gadicc/26d0f88b04b6883e1a6bba5b9b344fab/raw/jest-coverage-comment__main.json) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+![npm](https://img.shields.io/npm/v/discourse2) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/gadicc/discourse2/release.yml) ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gadicc/db6d371d39faab64858178a049c8e80b/raw/jest-coverage-comment__main.json) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 <img src="./assets/discourse-completion.png" alt="discourse completion" width="700"/>
 <img src="./assets/discourse-getTopic-type.png" alt="discourse getTopic type" width="500"/>
