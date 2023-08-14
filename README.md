@@ -34,9 +34,25 @@ console.log(result);
    spec) but not provided, we'll try the call anyway and let the endpoint
    decide.
 
+1. Currently, **the response is not validated**, because unfortunately,
+   the returned data often does not validate against the OpenAPI schema (`additionalProperties`, missing `required` props, wrong types).
+
+   I'm still deciding what to do with about this, feedback (in an issue)
+   would be greatly appreciated. In theory I'd like to make this a
+   configurable option, but if we don't validate, we really should be
+   returning the data as an `unknown` type so the user performs their
+   own validation, which is a pain, and you'll lose typescript completion.
+   However, on the flip side, what we do now is return a type that is
+   wrong, and TypeScript won't warn about missing (but now required)
+   checks.
+
+1. Installed Discourse extensions / plugins may affect the result! It
+   can add additional properties, etc. Likewise, running older versions
+   of Discourse may return data that doesn't match the current spec.
+
 ## TODO
 
-- [ ] Validation
+- [x] Validation (params; re response, see note above)
 
 ## Development
 

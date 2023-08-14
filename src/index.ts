@@ -68,6 +68,14 @@ export class ParamaterValidationError extends Error {
   }
 }
 
+export class ResponseValidationError extends Error {
+  errors: typeof ajv.errors;
+  constructor(message: string, errors: typeof ajv.errors) {
+    super(message);
+    this.errors = errors;
+  }
+}
+
 export default class DiscourseAPI extends DiscourseAPIGenerated {
   private url: string;
   private "Api-Key"?: string;
@@ -151,6 +159,32 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     }
 
     const json = JSON.parse(text);
+
+    /*
+    const schema =
+      operation.data.responses["200"].content["application/json"].schema;
+    schema.type = "object";
+
+    const validate = getValidator(schema);
+    const valid = validate(json);
+    if (!valid) {
+      const errors = validate.errors;
+      if (errors && true) {
+        const filteredErrors = errors.filter((error) => {
+          if (error.keyword === "required") return false;
+          if (error.keyword === "additionalProperties") return false;
+          return true;
+        });
+        console.log("filtee", filteredErrors);
+        if (filteredErrors.length === 0) return json;
+      }
+      // console.log(json);
+      // console.log("errors", errors);
+      const message = ajv.errorsText(errors);
+      const error = new ResponseValidationError(message, errors);
+      throw error;
+    }
+    */
 
     return json;
   }
