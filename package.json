@@ -22,10 +22,7 @@
     "url": "git+https://github.com/gadicc/discourse2.git"
   },
   "keywords": [
-    "jest",
-    "mock",
-    "fetch",
-    "cache"
+    "discourse"
   ],
   "author": "Gadi Cohen <dragon@wastelands.net>",
   "license": "MIT",
