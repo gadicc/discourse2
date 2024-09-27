@@ -91,7 +91,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     if (opts["Api-Username"]) this["Api-Username"] = opts["Api-Username"];
   }
 
-  async _exec<T>(operationName: string, params?: any) {
+  async _exec<T>(operationName: string, params = {} as any) {
     const operation = byOperationId[operationName];
     if (!operation) throw new Error("Unknown operation: " + operationName);
 
