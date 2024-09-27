@@ -24,24 +24,29 @@ function indent(stringWithNewLines: string) {
 
       methodString += indent(operationId + "(");
 
-      let type = null;
+      console.log(operationId);
+
+      let required = false;
+      const types = [] as string[];
+
       if (methodData.parameters) {
-        let required = false;
         for (const parameter of methodData.parameters) {
-          if (!type && parameter.in !== "header") type = parameter.in;
+          if (parameter.in === "header") continue;
           if (!required && parameter.required) required = true;
-        }
-        if (type) {
-          methodString +=
-            "params" +
-            (required ? "?" : "") +
-            ": operations['" +
-            operationId +
-            "']['parameters']['" +
-            type +
-            "']";
+          if (types.indexOf(parameter.in) === -1) types.push(parameter.in);
         }
       }
+
+      if (types.length)
+        methodString +=
+          "params" +
+          (required ? "" : "?") +
+          ": " +
+          types
+            .map(
+              (type) => `operations['${operationId}']['parameters']['${type}']`,
+            )
+            .join(" & ");
 
       methodString += ")";
 
@@ -62,7 +67,7 @@ function indent(stringWithNewLines: string) {
           "']>('" +
           operationId +
           "'" +
-          (type ? ", params" : "") +
+          (types.length ? ", params" : "") +
           ")" +
           (returnType ? " as unknown as " + returnType : "") +
           ";\n",

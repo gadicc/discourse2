@@ -20,14 +20,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Send download backup email
    */
-  sendDownloadBackupEmail(params?: operations['sendDownloadBackupEmail']['parameters']['path']){
+  sendDownloadBackupEmail(params: operations['sendDownloadBackupEmail']['parameters']['path']){
     return this._exec<operations['sendDownloadBackupEmail']>('sendDownloadBackupEmail', params);
   }
 
   /**
    * Download backup
    */
-  downloadBackup(params?: operations['downloadBackup']['parameters']['path']){
+  downloadBackup(params: operations['downloadBackup']['parameters']['path'] & operations['downloadBackup']['parameters']['query']){
     return this._exec<operations['downloadBackup']>('downloadBackup', params);
   }
 
@@ -48,14 +48,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Update badge
    */
-  updateBadge(params?: operations['updateBadge']['parameters']['path']): Promise<operations['updateBadge']['responses']['200']['content']['application/json']> {
+  updateBadge(params: operations['updateBadge']['parameters']['path']): Promise<operations['updateBadge']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateBadge']>('updateBadge', params) as unknown as Promise<operations['updateBadge']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Delete badge
    */
-  deleteBadge(params?: operations['deleteBadge']['parameters']['path']){
+  deleteBadge(params: operations['deleteBadge']['parameters']['path']){
     return this._exec<operations['deleteBadge']>('deleteBadge', params);
   }
 
@@ -69,28 +69,28 @@ export default class DiscourseAPIGenerated {
   /**
    * Retrieves a list of categories
    */
-  listCategories(params: operations['listCategories']['parameters']['query']): Promise<operations['listCategories']['responses']['200']['content']['application/json']> {
+  listCategories(params?: operations['listCategories']['parameters']['query']): Promise<operations['listCategories']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listCategories']>('listCategories', params) as unknown as Promise<operations['listCategories']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Updates a category
    */
-  updateCategory(params?: operations['updateCategory']['parameters']['path']): Promise<operations['updateCategory']['responses']['200']['content']['application/json']> {
+  updateCategory(params: operations['updateCategory']['parameters']['path']): Promise<operations['updateCategory']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateCategory']>('updateCategory', params) as unknown as Promise<operations['updateCategory']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * List topics
    */
-  listCategoryTopics(params?: operations['listCategoryTopics']['parameters']['path']): Promise<operations['listCategoryTopics']['responses']['200']['content']['application/json']> {
+  listCategoryTopics(params: operations['listCategoryTopics']['parameters']['path']): Promise<operations['listCategoryTopics']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listCategoryTopics']>('listCategoryTopics', params) as unknown as Promise<operations['listCategoryTopics']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Show category
    */
-  getCategory(params?: operations['getCategory']['parameters']['path']): Promise<operations['getCategory']['responses']['200']['content']['application/json']> {
+  getCategory(params: operations['getCategory']['parameters']['path']): Promise<operations['getCategory']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getCategory']>('getCategory', params) as unknown as Promise<operations['getCategory']['responses']['200']['content']['application/json']> ;
   }
 
@@ -104,42 +104,42 @@ export default class DiscourseAPIGenerated {
   /**
    * Delete a group
    */
-  deleteGroup(params?: operations['deleteGroup']['parameters']['path']): Promise<operations['deleteGroup']['responses']['200']['content']['application/json']> {
+  deleteGroup(params: operations['deleteGroup']['parameters']['path']): Promise<operations['deleteGroup']['responses']['200']['content']['application/json']> {
     return this._exec<operations['deleteGroup']>('deleteGroup', params) as unknown as Promise<operations['deleteGroup']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update a group
    */
-  updateGroup(params?: operations['updateGroup']['parameters']['path']): Promise<operations['updateGroup']['responses']['200']['content']['application/json']> {
+  updateGroup(params: operations['updateGroup']['parameters']['path']): Promise<operations['updateGroup']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateGroup']>('updateGroup', params) as unknown as Promise<operations['updateGroup']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a group
    */
-  getGroup(params?: operations['getGroup']['parameters']['path']): Promise<operations['getGroup']['responses']['200']['content']['application/json']> {
+  getGroup(params: operations['getGroup']['parameters']['path']): Promise<operations['getGroup']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getGroup']>('getGroup', params) as unknown as Promise<operations['getGroup']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * List group members
    */
-  listGroupMembers(params?: operations['listGroupMembers']['parameters']['path']): Promise<operations['listGroupMembers']['responses']['200']['content']['application/json']> {
+  listGroupMembers(params: operations['listGroupMembers']['parameters']['path']): Promise<operations['listGroupMembers']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listGroupMembers']>('listGroupMembers', params) as unknown as Promise<operations['listGroupMembers']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Add group members
    */
-  addGroupMembers(params?: operations['addGroupMembers']['parameters']['path']): Promise<operations['addGroupMembers']['responses']['200']['content']['application/json']> {
+  addGroupMembers(params: operations['addGroupMembers']['parameters']['path']): Promise<operations['addGroupMembers']['responses']['200']['content']['application/json']> {
     return this._exec<operations['addGroupMembers']>('addGroupMembers', params) as unknown as Promise<operations['addGroupMembers']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Remove group members
    */
-  removeGroupMembers(params?: operations['removeGroupMembers']['parameters']['path']): Promise<operations['removeGroupMembers']['responses']['200']['content']['application/json']> {
+  removeGroupMembers(params: operations['removeGroupMembers']['parameters']['path']): Promise<operations['removeGroupMembers']['responses']['200']['content']['application/json']> {
     return this._exec<operations['removeGroupMembers']>('removeGroupMembers', params) as unknown as Promise<operations['removeGroupMembers']['responses']['200']['content']['application/json']> ;
   }
 
@@ -155,6 +155,13 @@ export default class DiscourseAPIGenerated {
    */
   createInvite(): Promise<operations['createInvite']['responses']['200']['content']['application/json']> {
     return this._exec<operations['createInvite']>('createInvite') as unknown as Promise<operations['createInvite']['responses']['200']['content']['application/json']> ;
+  }
+
+  /**
+   * Create multiple invites
+   */
+  createMultipleInvites(): Promise<operations['createMultipleInvites']['responses']['200']['content']['application/json']> {
+    return this._exec<operations['createMultipleInvites']>('createMultipleInvites') as unknown as Promise<operations['createMultipleInvites']['responses']['200']['content']['application/json']> ;
   }
 
   /**
@@ -188,35 +195,35 @@ export default class DiscourseAPIGenerated {
   /**
    * Retrieve a single post
    */
-  getPost(params?: operations['getPost']['parameters']['path']): Promise<operations['getPost']['responses']['200']['content']['application/json']> {
+  getPost(params: operations['getPost']['parameters']['path']): Promise<operations['getPost']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getPost']>('getPost', params) as unknown as Promise<operations['getPost']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update a single post
    */
-  updatePost(params?: operations['updatePost']['parameters']['path']): Promise<operations['updatePost']['responses']['200']['content']['application/json']> {
+  updatePost(params: operations['updatePost']['parameters']['path']): Promise<operations['updatePost']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updatePost']>('updatePost', params) as unknown as Promise<operations['updatePost']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * delete a single post
    */
-  deletePost(params?: operations['deletePost']['parameters']['path']){
+  deletePost(params: operations['deletePost']['parameters']['path']){
     return this._exec<operations['deletePost']>('deletePost', params);
   }
 
   /**
    * List replies to a post
    */
-  postReplies(params?: operations['postReplies']['parameters']['path']): Promise<operations['postReplies']['responses']['200']['content']['application/json']> {
+  postReplies(params: operations['postReplies']['parameters']['path']): Promise<operations['postReplies']['responses']['200']['content']['application/json']> {
     return this._exec<operations['postReplies']>('postReplies', params) as unknown as Promise<operations['postReplies']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Lock a post from being edited
    */
-  lockPost(params?: operations['lockPost']['parameters']['path']): Promise<operations['lockPost']['responses']['200']['content']['application/json']> {
+  lockPost(params: operations['lockPost']['parameters']['path']): Promise<operations['lockPost']['responses']['200']['content']['application/json']> {
     return this._exec<operations['lockPost']>('lockPost', params) as unknown as Promise<operations['lockPost']['responses']['200']['content']['application/json']> ;
   }
 
@@ -230,21 +237,21 @@ export default class DiscourseAPIGenerated {
   /**
    * Get a list of private messages for a user
    */
-  listUserPrivateMessages(params?: operations['listUserPrivateMessages']['parameters']['path']): Promise<operations['listUserPrivateMessages']['responses']['200']['content']['application/json']> {
+  listUserPrivateMessages(params: operations['listUserPrivateMessages']['parameters']['path']): Promise<operations['listUserPrivateMessages']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listUserPrivateMessages']>('listUserPrivateMessages', params) as unknown as Promise<operations['listUserPrivateMessages']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a list of private messages sent for a user
    */
-  getUserSentPrivateMessages(params?: operations['getUserSentPrivateMessages']['parameters']['path']): Promise<operations['getUserSentPrivateMessages']['responses']['200']['content']['application/json']> {
+  getUserSentPrivateMessages(params: operations['getUserSentPrivateMessages']['parameters']['path']): Promise<operations['getUserSentPrivateMessages']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getUserSentPrivateMessages']>('getUserSentPrivateMessages', params) as unknown as Promise<operations['getUserSentPrivateMessages']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Search for a term
    */
-  search(params: operations['search']['parameters']['query']): Promise<operations['search']['responses']['200']['content']['application/json']> {
+  search(params?: operations['search']['parameters']['query']): Promise<operations['search']['responses']['200']['content']['application/json']> {
     return this._exec<operations['search']>('search', params) as unknown as Promise<operations['search']['responses']['200']['content']['application/json']> ;
   }
 
@@ -253,6 +260,13 @@ export default class DiscourseAPIGenerated {
    */
   getSite(): Promise<operations['getSite']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getSite']>('getSite') as unknown as Promise<operations['getSite']['responses']['200']['content']['application/json']> ;
+  }
+
+  /**
+   * Get site basic info
+   */
+  getSiteBasicInfo(): Promise<operations['getSiteBasicInfo']['responses']['200']['content']['application/json']> {
+    return this._exec<operations['getSiteBasicInfo']>('getSiteBasicInfo') as unknown as Promise<operations['getSiteBasicInfo']['responses']['200']['content']['application/json']> ;
   }
 
   /**
@@ -272,14 +286,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Get a single tag group
    */
-  getTagGroup(params?: operations['getTagGroup']['parameters']['path']): Promise<operations['getTagGroup']['responses']['200']['content']['application/json']> {
+  getTagGroup(params: operations['getTagGroup']['parameters']['path']): Promise<operations['getTagGroup']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getTagGroup']>('getTagGroup', params) as unknown as Promise<operations['getTagGroup']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update tag group
    */
-  updateTagGroup(params?: operations['updateTagGroup']['parameters']['path']): Promise<operations['updateTagGroup']['responses']['200']['content']['application/json']> {
+  updateTagGroup(params: operations['updateTagGroup']['parameters']['path']): Promise<operations['updateTagGroup']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateTagGroup']>('updateTagGroup', params) as unknown as Promise<operations['updateTagGroup']['responses']['200']['content']['application/json']> ;
   }
 
@@ -293,56 +307,56 @@ export default class DiscourseAPIGenerated {
   /**
    * Get a specific tag
    */
-  getTag(params?: operations['getTag']['parameters']['path']): Promise<operations['getTag']['responses']['200']['content']['application/json']> {
+  getTag(params: operations['getTag']['parameters']['path']): Promise<operations['getTag']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getTag']>('getTag', params) as unknown as Promise<operations['getTag']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get specific posts from a topic
    */
-  getSpecificPostsFromTopic(params?: operations['getSpecificPostsFromTopic']['parameters']['path']): Promise<operations['getSpecificPostsFromTopic']['responses']['200']['content']['application/json']> {
+  getSpecificPostsFromTopic(params: operations['getSpecificPostsFromTopic']['parameters']['path']): Promise<operations['getSpecificPostsFromTopic']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getSpecificPostsFromTopic']>('getSpecificPostsFromTopic', params) as unknown as Promise<operations['getSpecificPostsFromTopic']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a single topic
    */
-  getTopic(params?: operations['getTopic']['parameters']['path']): Promise<operations['getTopic']['responses']['200']['content']['application/json']> {
+  getTopic(params: operations['getTopic']['parameters']['path']): Promise<operations['getTopic']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getTopic']>('getTopic', params) as unknown as Promise<operations['getTopic']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Remove a topic
    */
-  removeTopic(params?: operations['removeTopic']['parameters']['path']){
+  removeTopic(params: operations['removeTopic']['parameters']['path']){
     return this._exec<operations['removeTopic']>('removeTopic', params);
   }
 
   /**
    * Update a topic
    */
-  updateTopic(params?: operations['updateTopic']['parameters']['path']): Promise<operations['updateTopic']['responses']['200']['content']['application/json']> {
+  updateTopic(params: operations['updateTopic']['parameters']['path']): Promise<operations['updateTopic']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateTopic']>('updateTopic', params) as unknown as Promise<operations['updateTopic']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Invite to topic
    */
-  inviteToTopic(params?: operations['inviteToTopic']['parameters']['path']): Promise<operations['inviteToTopic']['responses']['200']['content']['application/json']> {
+  inviteToTopic(params: operations['inviteToTopic']['parameters']['path']): Promise<operations['inviteToTopic']['responses']['200']['content']['application/json']> {
     return this._exec<operations['inviteToTopic']>('inviteToTopic', params) as unknown as Promise<operations['inviteToTopic']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Bookmark topic
    */
-  bookmarkTopic(params?: operations['bookmarkTopic']['parameters']['path']){
+  bookmarkTopic(params: operations['bookmarkTopic']['parameters']['path']){
     return this._exec<operations['bookmarkTopic']>('bookmarkTopic', params);
   }
 
   /**
    * Update the status of a topic
    */
-  updateTopicStatus(params?: operations['updateTopicStatus']['parameters']['path']): Promise<operations['updateTopicStatus']['responses']['200']['content']['application/json']> {
+  updateTopicStatus(params: operations['updateTopicStatus']['parameters']['path']): Promise<operations['updateTopicStatus']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateTopicStatus']>('updateTopicStatus', params) as unknown as Promise<operations['updateTopicStatus']['responses']['200']['content']['application/json']> ;
   }
 
@@ -363,28 +377,28 @@ export default class DiscourseAPIGenerated {
   /**
    * Set notification level
    */
-  setNotificationLevel(params?: operations['setNotificationLevel']['parameters']['path']): Promise<operations['setNotificationLevel']['responses']['200']['content']['application/json']> {
+  setNotificationLevel(params: operations['setNotificationLevel']['parameters']['path']): Promise<operations['setNotificationLevel']['responses']['200']['content']['application/json']> {
     return this._exec<operations['setNotificationLevel']>('setNotificationLevel', params) as unknown as Promise<operations['setNotificationLevel']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update topic timestamp
    */
-  updateTopicTimestamp(params?: operations['updateTopicTimestamp']['parameters']['path']): Promise<operations['updateTopicTimestamp']['responses']['200']['content']['application/json']> {
+  updateTopicTimestamp(params: operations['updateTopicTimestamp']['parameters']['path']): Promise<operations['updateTopicTimestamp']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateTopicTimestamp']>('updateTopicTimestamp', params) as unknown as Promise<operations['updateTopicTimestamp']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Create topic timer
    */
-  createTopicTimer(params?: operations['createTopicTimer']['parameters']['path']): Promise<operations['createTopicTimer']['responses']['200']['content']['application/json']> {
+  createTopicTimer(params: operations['createTopicTimer']['parameters']['path']): Promise<operations['createTopicTimer']['responses']['200']['content']['application/json']> {
     return this._exec<operations['createTopicTimer']>('createTopicTimer', params) as unknown as Promise<operations['createTopicTimer']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get topic by external_id
    */
-  getTopicByExternalId(params?: operations['getTopicByExternalId']['parameters']['path']){
+  getTopicByExternalId(params: operations['getTopicByExternalId']['parameters']['path']){
     return this._exec<operations['getTopicByExternalId']>('getTopicByExternalId', params);
   }
 
@@ -440,7 +454,7 @@ export default class DiscourseAPIGenerated {
   /**
    * List badges for a user
    */
-  listUserBadges(params?: operations['listUserBadges']['parameters']['path']): Promise<operations['listUserBadges']['responses']['200']['content']['application/json']> {
+  listUserBadges(params: operations['listUserBadges']['parameters']['path']): Promise<operations['listUserBadges']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listUserBadges']>('listUserBadges', params) as unknown as Promise<operations['listUserBadges']['responses']['200']['content']['application/json']> ;
   }
 
@@ -454,133 +468,133 @@ export default class DiscourseAPIGenerated {
   /**
    * Get a single user by username
    */
-  getUser(params?: operations['getUser']['parameters']['path']): Promise<operations['getUser']['responses']['200']['content']['application/json']> {
+  getUser(params: operations['getUser']['parameters']['path']): Promise<operations['getUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getUser']>('getUser', params) as unknown as Promise<operations['getUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update a user
    */
-  updateUser(params?: operations['updateUser']['parameters']['path']): Promise<operations['updateUser']['responses']['200']['content']['application/json']> {
+  updateUser(params: operations['updateUser']['parameters']['path']): Promise<operations['updateUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateUser']>('updateUser', params) as unknown as Promise<operations['updateUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a user by external_id
    */
-  getUserExternalId(params?: operations['getUserExternalId']['parameters']['path']): Promise<operations['getUserExternalId']['responses']['200']['content']['application/json']> {
+  getUserExternalId(params: operations['getUserExternalId']['parameters']['path']): Promise<operations['getUserExternalId']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getUserExternalId']>('getUserExternalId', params) as unknown as Promise<operations['getUserExternalId']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a user by identity provider external ID
    */
-  getUserIdentiyProviderExternalId(params?: operations['getUserIdentiyProviderExternalId']['parameters']['path']): Promise<operations['getUserIdentiyProviderExternalId']['responses']['200']['content']['application/json']> {
+  getUserIdentiyProviderExternalId(params: operations['getUserIdentiyProviderExternalId']['parameters']['path']): Promise<operations['getUserIdentiyProviderExternalId']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getUserIdentiyProviderExternalId']>('getUserIdentiyProviderExternalId', params) as unknown as Promise<operations['getUserIdentiyProviderExternalId']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update avatar
    */
-  updateAvatar(params?: operations['updateAvatar']['parameters']['path']): Promise<operations['updateAvatar']['responses']['200']['content']['application/json']> {
+  updateAvatar(params: operations['updateAvatar']['parameters']['path']): Promise<operations['updateAvatar']['responses']['200']['content']['application/json']> {
     return this._exec<operations['updateAvatar']>('updateAvatar', params) as unknown as Promise<operations['updateAvatar']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Update email
    */
-  updateEmail(params?: operations['updateEmail']['parameters']['path']){
+  updateEmail(params: operations['updateEmail']['parameters']['path']){
     return this._exec<operations['updateEmail']>('updateEmail', params);
   }
 
   /**
    * Update username
    */
-  updateUsername(params?: operations['updateUsername']['parameters']['path']){
+  updateUsername(params: operations['updateUsername']['parameters']['path']){
     return this._exec<operations['updateUsername']>('updateUsername', params);
   }
 
   /**
    * Get a public list of users
    */
-  listUsersPublic(params?: operations['listUsersPublic']['parameters']['query']): Promise<operations['listUsersPublic']['responses']['200']['content']['application/json']> {
+  listUsersPublic(params: operations['listUsersPublic']['parameters']['query']): Promise<operations['listUsersPublic']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listUsersPublic']>('listUsersPublic', params) as unknown as Promise<operations['listUsersPublic']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a user by id
    */
-  adminGetUser(params?: operations['adminGetUser']['parameters']['path']): Promise<operations['adminGetUser']['responses']['200']['content']['application/json']> {
+  adminGetUser(params: operations['adminGetUser']['parameters']['path']): Promise<operations['adminGetUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['adminGetUser']>('adminGetUser', params) as unknown as Promise<operations['adminGetUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Delete a user
    */
-  deleteUser(params?: operations['deleteUser']['parameters']['path']): Promise<operations['deleteUser']['responses']['200']['content']['application/json']> {
+  deleteUser(params: operations['deleteUser']['parameters']['path']): Promise<operations['deleteUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['deleteUser']>('deleteUser', params) as unknown as Promise<operations['deleteUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Activate a user
    */
-  activateUser(params?: operations['activateUser']['parameters']['path']): Promise<operations['activateUser']['responses']['200']['content']['application/json']> {
+  activateUser(params: operations['activateUser']['parameters']['path']): Promise<operations['activateUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['activateUser']>('activateUser', params) as unknown as Promise<operations['activateUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Deactivate a user
    */
-  deactivateUser(params?: operations['deactivateUser']['parameters']['path']): Promise<operations['deactivateUser']['responses']['200']['content']['application/json']> {
+  deactivateUser(params: operations['deactivateUser']['parameters']['path']): Promise<operations['deactivateUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['deactivateUser']>('deactivateUser', params) as unknown as Promise<operations['deactivateUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Suspend a user
    */
-  suspendUser(params?: operations['suspendUser']['parameters']['path']): Promise<operations['suspendUser']['responses']['200']['content']['application/json']> {
+  suspendUser(params: operations['suspendUser']['parameters']['path']): Promise<operations['suspendUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['suspendUser']>('suspendUser', params) as unknown as Promise<operations['suspendUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Silence a user
    */
-  silenceUser(params?: operations['silenceUser']['parameters']['path']): Promise<operations['silenceUser']['responses']['200']['content']['application/json']> {
+  silenceUser(params: operations['silenceUser']['parameters']['path']): Promise<operations['silenceUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['silenceUser']>('silenceUser', params) as unknown as Promise<operations['silenceUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Anonymize a user
    */
-  anonymizeUser(params?: operations['anonymizeUser']['parameters']['path']): Promise<operations['anonymizeUser']['responses']['200']['content']['application/json']> {
+  anonymizeUser(params: operations['anonymizeUser']['parameters']['path']): Promise<operations['anonymizeUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['anonymizeUser']>('anonymizeUser', params) as unknown as Promise<operations['anonymizeUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Log a user out
    */
-  logOutUser(params?: operations['logOutUser']['parameters']['path']): Promise<operations['logOutUser']['responses']['200']['content']['application/json']> {
+  logOutUser(params: operations['logOutUser']['parameters']['path']): Promise<operations['logOutUser']['responses']['200']['content']['application/json']> {
     return this._exec<operations['logOutUser']>('logOutUser', params) as unknown as Promise<operations['logOutUser']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Refresh gravatar
    */
-  refreshGravatar(params?: operations['refreshGravatar']['parameters']['path']): Promise<operations['refreshGravatar']['responses']['200']['content']['application/json']> {
+  refreshGravatar(params: operations['refreshGravatar']['parameters']['path']): Promise<operations['refreshGravatar']['responses']['200']['content']['application/json']> {
     return this._exec<operations['refreshGravatar']>('refreshGravatar', params) as unknown as Promise<operations['refreshGravatar']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a list of users
    */
-  adminListUsers(params?: operations['adminListUsers']['parameters']['path']): Promise<operations['adminListUsers']['responses']['200']['content']['application/json']> {
+  adminListUsers(params: operations['adminListUsers']['parameters']['path'] & operations['adminListUsers']['parameters']['query']): Promise<operations['adminListUsers']['responses']['200']['content']['application/json']> {
     return this._exec<operations['adminListUsers']>('adminListUsers', params) as unknown as Promise<operations['adminListUsers']['responses']['200']['content']['application/json']> ;
   }
 
   /**
    * Get a list of user actions
    */
-  listUserActions(params?: operations['listUserActions']['parameters']['query']): Promise<operations['listUserActions']['responses']['200']['content']['application/json']> {
+  listUserActions(params: operations['listUserActions']['parameters']['query']): Promise<operations['listUserActions']['responses']['200']['content']['application/json']> {
     return this._exec<operations['listUserActions']>('listUserActions', params) as unknown as Promise<operations['listUserActions']['responses']['200']['content']['application/json']> ;
   }
 
@@ -594,14 +608,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Change password
    */
-  changePassword(params?: operations['changePassword']['parameters']['path']){
+  changePassword(params: operations['changePassword']['parameters']['path']){
     return this._exec<operations['changePassword']>('changePassword', params);
   }
 
   /**
    * Get email addresses belonging to a user
    */
-  getUserEmails(params?: operations['getUserEmails']['parameters']['path']): Promise<operations['getUserEmails']['responses']['200']['content']['application/json']> {
+  getUserEmails(params: operations['getUserEmails']['parameters']['path']): Promise<operations['getUserEmails']['responses']['200']['content']['application/json']> {
     return this._exec<operations['getUserEmails']>('getUserEmails', params) as unknown as Promise<operations['getUserEmails']['responses']['200']['content']['application/json']> ;
   }
 

@@ -13,7 +13,7 @@
     "prepublishOnly": "yarn build",
     "coverage": "jest --coverage",
     "ci": "yarn coverage && yarn tsc && yarn lint",
-    "schema:fetch": "wget -o src/openapi.json https://docs.discourse.org/openapi.json",
+    "schema:fetch": "curl -o src/openapi.json https://docs.discourse.org/openapi.json",
     "schema:ts": "yarn openapi-typescript src/openapi.json -o src/schema.d.ts",
     "generate": "yarn ts-node src/generate.ts"
   },

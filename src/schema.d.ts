@@ -77,6 +77,10 @@ export interface paths {
     /** Create an invite */
     post: operations["createInvite"];
   };
+  "/invites/create-multiple.json": {
+    /** Create multiple invites */
+    post: operations["createMultipleInvites"];
+  };
   "/notifications.json": {
     /** Get the notifications that belong to the current user */
     get: operations["getNotifications"];
@@ -136,6 +140,13 @@ export interface paths {
      * @description Can be used to fetch all categories and subcategories
      */
     get: operations["getSite"];
+  };
+  "/site/basic-info.json": {
+    /**
+     * Get site basic info
+     * @description Can be used to fetch basic info about a site
+     */
+    get: operations["getSiteBasicInfo"];
   };
   "/tag_groups.json": {
     /** Get a list of tag groups */
@@ -542,6 +553,7 @@ export interface operations {
                 auto_revoke: boolean;
                 show_posts: boolean;
                 i18n_name?: string | null;
+                image_upload_id: number | null;
                 badge_type_id: number;
               })[];
             badge_types: {
@@ -608,6 +620,7 @@ export interface operations {
               multiple_grant: boolean;
               icon: string;
               image_url: string | null;
+              image_upload_id: number | null;
               listable: boolean;
               enabled: boolean;
               badge_grouping_id: number;
@@ -666,6 +679,7 @@ export interface operations {
               multiple_grant: boolean;
               icon: string;
               image_url: string | null;
+              image_upload_id: number | null;
               listable: boolean;
               enabled: boolean;
               badge_grouping_id: number;
@@ -733,6 +747,7 @@ export interface operations {
                   can_edit: boolean;
                   topic_template: string | null;
                   has_children: boolean;
+                  subcategory_count: number | null;
                   sort_order: string | null;
                   sort_ascending: string | null;
                   show_subcategory_list: boolean;
@@ -754,6 +769,7 @@ export interface operations {
                   uploaded_logo: string | null;
                   uploaded_logo_dark: string | null;
                   uploaded_background: string | null;
+                  uploaded_background_dark: string | null;
                 })[];
             };
           };
@@ -810,7 +826,8 @@ export interface operations {
               can_edit: boolean;
               topic_template: string | null;
               form_template_ids?: unknown[];
-              has_children: string | null;
+              has_children: boolean | null;
+              subcategory_count: number | null;
               sort_order: string | null;
               sort_ascending: string | null;
               show_subcategory_list: boolean;
@@ -851,6 +868,7 @@ export interface operations {
               uploaded_logo: string | null;
               uploaded_logo_dark: string | null;
               uploaded_background: string | null;
+              uploaded_background_dark: string | null;
             };
           };
         };
@@ -907,12 +925,13 @@ export interface operations {
               description_excerpt: string | null;
               topic_url: string | null;
               read_restricted: boolean;
-              permission: string | null;
+              permission: number | null;
               notification_level: number;
               can_edit: boolean;
               topic_template: string | null;
               form_template_ids: unknown[];
-              has_children: string | null;
+              has_children: boolean | null;
+              subcategory_count: number | null;
               sort_order: string | null;
               sort_ascending: string | null;
               show_subcategory_list: boolean;
@@ -953,6 +972,7 @@ export interface operations {
               uploaded_logo: string | null;
               uploaded_logo_dark: string | null;
               uploaded_background: string | null;
+              uploaded_background_dark: string | null;
             };
           };
         };
@@ -1017,7 +1037,7 @@ export interface operations {
                       extras: string;
                       description: string;
                       user_id: number;
-                      primary_group_id: string | null;
+                      primary_group_id: number | null;
                     })[];
                 })[];
             };
@@ -1057,7 +1077,8 @@ export interface operations {
               can_edit: boolean;
               topic_template: string | null;
               form_template_ids?: unknown[];
-              has_children: string | null;
+              has_children: boolean | null;
+              subcategory_count: number | null;
               sort_order: string | null;
               sort_ascending: string | null;
               show_subcategory_list: boolean;
@@ -1098,6 +1119,7 @@ export interface operations {
               uploaded_logo: string | null;
               uploaded_logo_dark: string | null;
               uploaded_background: string | null;
+              uploaded_background_dark: string | null;
             };
           };
         };
@@ -1253,7 +1275,7 @@ export interface operations {
               smtp_enabled?: boolean;
               smtp_server: string | null;
               smtp_port: string | null;
-              smtp_ssl: string | null;
+              smtp_ssl_mode: number | null;
               imap_enabled?: boolean;
               imap_updated_at?: string | null;
               imap_updated_by?: Record<string, never> | null;
@@ -1580,6 +1602,104 @@ export interface operations {
       };
     };
   };
+  /** Create multiple invites */
+  createMultipleInvites: {
+    parameters: {
+      header: {
+        "Api-Key": string;
+        "Api-Username": string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description pass 1 email per invite to be generated. other properties
+           * will be shared by each invite.
+           * @example [
+           *   "not-a-user-yet-1@example.com",
+           *   "not-a-user-yet-2@example.com"
+           * ]
+           */
+          email?: string;
+          /** @default false */
+          skip_email?: boolean;
+          /** @description optional, for email invites */
+          custom_message?: string;
+          /**
+           * @description optional, for link invites
+           * @default 1
+           * @example 5
+           */
+          max_redemptions_allowed?: number;
+          topic_id?: number;
+          /**
+           * @description Optional, either this or `group_names`. Comma separated
+           * list for multiple ids.
+           * @example 42,43
+           */
+          group_ids?: string;
+          /**
+           * @description Optional, either this or `group_ids`. Comma separated
+           * list for multiple names.
+           * @example foo,bar
+           */
+          group_names?: string;
+          /**
+           * @description optional, if not supplied, the invite_expiry_days site
+           * setting is used
+           */
+          expires_at?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description success response */
+      200: {
+        content: {
+          "application/json": {
+            /** @example 42 */
+            num_successfully_created_invitations?: number;
+            /** @example 42 */
+            num_failed_invitations?: number;
+            /** @example [] */
+            failed_invitations?: unknown[];
+            /**
+             * @example [
+             *   {
+             *     "id": 42,
+             *     "link": "http://example.com/invites/9045fd767efe201ca60c6658bcf14158",
+             *     "email": "not-a-user-yet-1@example.com",
+             *     "emailed": true,
+             *     "custom_message": "Hello world!",
+             *     "topics": [],
+             *     "groups": [],
+             *     "created_at": "2021-01-01T12:00:00.000Z",
+             *     "updated_at": "2021-01-01T12:00:00.000Z",
+             *     "expires_at": "2021-02-01T12:00:00.000Z",
+             *     "expired": false
+             *   },
+             *   {
+             *     "id": 42,
+             *     "link": "http://example.com/invites/c6658bcf141589045fd767efe201ca60",
+             *     "email": "not-a-user-yet-2@example.com",
+             *     "emailed": true,
+             *     "custom_message": "Hello world!",
+             *     "topics": [],
+             *     "groups": [],
+             *     "created_at": "2021-01-01T12:00:00.000Z",
+             *     "updated_at": "2021-01-01T12:00:00.000Z",
+             *     "expires_at": "2021-02-01T12:00:00.000Z",
+             *     "expired": false
+             *   }
+             * ]
+             */
+            successful_invitations?: unknown[];
+          };
+        };
+      };
+    };
+  };
   /** Get the notifications that belong to the current user */
   getNotifications: {
     responses: {
@@ -1593,7 +1713,7 @@ export interface operations {
                 notification_type?: number;
                 read?: boolean;
                 created_at?: string;
-                post_number?: string | null;
+                post_number?: number | null;
                 topic_id?: number | null;
                 slug?: string | null;
                 data?: {
@@ -1682,7 +1802,7 @@ export interface operations {
                 flair_url?: string | null;
                 flair_bg_color?: string | null;
                 flair_color?: string | null;
-                flair_group_id?: string | null;
+                flair_group_id?: number | null;
                 version?: number;
                 can_edit?: boolean;
                 can_delete?: boolean;
@@ -1706,7 +1826,7 @@ export interface operations {
                 edit_reason?: string | null;
                 can_view_edit_history?: boolean;
                 wiki?: boolean;
-                reviewable_id?: string | null;
+                reviewable_id?: number | null;
                 reviewable_score_count?: number;
                 reviewable_score_pending_count?: number;
               })[];
@@ -1793,7 +1913,7 @@ export interface operations {
             flair_url: string | null;
             flair_bg_color: string | null;
             flair_color: string | null;
-            flair_group_id?: string | null;
+            flair_group_id?: number | null;
             version: number;
             can_edit: boolean;
             can_delete: boolean;
@@ -1818,7 +1938,7 @@ export interface operations {
             edit_reason: string | null;
             can_view_edit_history: boolean;
             wiki: boolean;
-            reviewable_id: string | null;
+            reviewable_id: number | null;
             reviewable_score_count: number;
             reviewable_score_pending_count: number;
             mentioned_users?: unknown[];
@@ -1842,7 +1962,7 @@ export interface operations {
       };
     };
     responses: {
-      /** @description single post */
+      /** @description single reviewable post */
       200: {
         content: {
           "application/json": {
@@ -1860,7 +1980,7 @@ export interface operations {
             incoming_link_count: number;
             reads: number;
             readers_count: number;
-            score: Record<string, never>;
+            score: number;
             yours: boolean;
             topic_id: number;
             topic_slug: string;
@@ -1869,7 +1989,7 @@ export interface operations {
             flair_url: string | null;
             flair_bg_color: string | null;
             flair_color: string | null;
-            flair_group_id?: string | null;
+            flair_group_id?: number | null;
             version: number;
             can_edit: boolean;
             can_delete: boolean;
@@ -1898,7 +2018,7 @@ export interface operations {
             edit_reason: string | null;
             can_view_edit_history: boolean;
             wiki: boolean;
-            reviewable_id: string | null;
+            reviewable_id: number | null;
             reviewable_score_count: number;
             reviewable_score_pending_count: number;
             mentioned_users?: unknown[];
@@ -1947,7 +2067,7 @@ export interface operations {
               incoming_link_count: number;
               reads: number;
               readers_count: number;
-              score: Record<string, never>;
+              score: number;
               yours: boolean;
               topic_id: number;
               topic_slug: string;
@@ -1956,7 +2076,7 @@ export interface operations {
               flair_url: string | null;
               flair_bg_color: string | null;
               flair_color: string | null;
-              flair_group_id?: string | null;
+              flair_group_id?: number | null;
               version: number;
               can_edit: boolean;
               can_delete: boolean;
@@ -1982,7 +2102,7 @@ export interface operations {
               edit_reason: string | null;
               can_view_edit_history: boolean;
               wiki: boolean;
-              reviewable_id: string | null;
+              reviewable_id: number | null;
               reviewable_score_count: number;
               reviewable_score_pending_count: number;
               mentioned_users?: unknown[];
@@ -2060,7 +2180,7 @@ export interface operations {
               flair_url: string | null;
               flair_bg_color: string | null;
               flair_color: string | null;
-              flair_group_id?: string | null;
+              flair_group_id?: number | null;
               version: number;
               can_edit: boolean;
               can_delete: boolean;
@@ -2089,7 +2209,7 @@ export interface operations {
               edit_reason: string | null;
               can_view_edit_history: boolean;
               wiki: boolean;
-              reviewable_id: string | null;
+              reviewable_id: number | null;
               reviewable_score_count: number;
               reviewable_score_pending_count: number;
             })[];
@@ -2197,7 +2317,7 @@ export interface operations {
             can_view_edit_history?: boolean;
             wiki?: boolean;
             notice?: Record<string, never>;
-            reviewable_id?: string | null;
+            reviewable_id?: number | null;
             reviewable_score_count?: number;
             reviewable_score_pending_count?: number;
           };
@@ -2267,13 +2387,13 @@ export interface operations {
                       extras?: string;
                       description?: string;
                       user_id?: number;
-                      primary_group_id?: string | null;
+                      primary_group_id?: number | null;
                     })[];
                   participants?: ({
                       extras?: string;
                       description?: string | null;
                       user_id?: number;
-                      primary_group_id?: string | null;
+                      primary_group_id?: number | null;
                     })[];
                 })[];
             };
@@ -2344,7 +2464,7 @@ export interface operations {
                       extras?: string;
                       description?: string;
                       user_id?: number;
-                      primary_group_id?: string | null;
+                      primary_group_id?: number | null;
                     })[];
                   participants?: unknown[];
                 })[];
@@ -2412,6 +2532,9 @@ export interface operations {
               more_full_page_results: string | null;
               can_create_topic: boolean;
               error: string | null;
+              extra?: {
+                categories?: unknown[] | null;
+              };
               post_ids: unknown[];
               user_ids: unknown[];
               category_ids: unknown[];
@@ -2457,6 +2580,7 @@ export interface operations {
               watching_first_post: number;
               topic_reminder: number;
               liked_consolidated: number;
+              linked_consolidated: number;
               post_approved: number;
               code_review_commit_approved: number;
               membership_request_accepted: number;
@@ -2471,6 +2595,7 @@ export interface operations {
               chat_invitation: number;
               chat_group_mention: number;
               chat_quoted?: number;
+              chat_watched_thread?: number;
               assigned?: number;
               question_answer_user_commented?: number;
               following?: number;
@@ -2497,7 +2622,6 @@ export interface operations {
               post_menu: number;
               topic_notification_levels: number;
               suggested_topics: number;
-              admin_guide: number;
             };
             groups: ({
                 id: number;
@@ -2519,7 +2643,11 @@ export interface operations {
                 description: string;
                 short_description: string;
                 is_flag: boolean;
-                is_custom_flag: boolean;
+                require_message: boolean;
+                enabled: boolean;
+                applies_to: unknown[];
+                is_used: boolean;
+                position?: number;
               })[];
             topic_flag_types: ({
                 id: number | null;
@@ -2528,7 +2656,11 @@ export interface operations {
                 description: string;
                 short_description: string;
                 is_flag: boolean;
-                is_custom_flag: boolean;
+                require_message: boolean;
+                enabled: boolean;
+                applies_to: unknown[];
+                is_used: boolean;
+                position?: number;
               })[];
             can_create_tag: boolean;
             can_tag_topics: boolean;
@@ -2576,6 +2708,7 @@ export interface operations {
                 notification_level: number;
                 topic_template: string | null;
                 has_children: boolean;
+                subcategory_count: number | null;
                 sort_order: string | null;
                 sort_ascending: string | null;
                 show_subcategory_list: boolean;
@@ -2597,6 +2730,7 @@ export interface operations {
                 uploaded_logo: string | null;
                 uploaded_logo_dark: string | null;
                 uploaded_background: string | null;
+                uploaded_background_dark: string | null;
                 can_edit: boolean;
                 custom_fields?: {
                   [key: string]: unknown;
@@ -2613,7 +2747,35 @@ export interface operations {
             auth_providers: unknown[];
             whispers_allowed_groups_names?: unknown[];
             denied_emojis?: unknown[];
+            valid_flag_applies_to_types?: unknown[];
             navigation_menu_site_top_tags?: unknown[];
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Get site basic info
+   * @description Can be used to fetch basic info about a site
+   */
+  getSiteBasicInfo: {
+    responses: {
+      /** @description success response */
+      200: {
+        content: {
+          "application/json": {
+            logo_url: string;
+            logo_small_url: string;
+            apple_touch_icon_url: string;
+            favicon_url: string;
+            title: string;
+            description: string;
+            header_primary_color: string;
+            header_background_color: string;
+            login_required: boolean;
+            locale: string;
+            include_in_discourse_discover: boolean;
+            mobile_logo_url: string;
           };
         };
       };
@@ -2820,7 +2982,7 @@ export interface operations {
                       extras?: string;
                       description?: string;
                       user_id?: number;
-                      primary_group_id?: string | null;
+                      primary_group_id?: number | null;
                     })[];
                 })[];
             };
@@ -3084,7 +3246,6 @@ export interface operations {
             show_read_indicator: boolean;
             thumbnails: string | null;
             slow_mode_enabled_until: string | null;
-            summarizable: boolean;
             details: {
               can_edit: boolean;
               notification_level: number;
@@ -3117,7 +3278,7 @@ export interface operations {
                   flair_url: string | null;
                   flair_color: string | null;
                   flair_bg_color: string | null;
-                  flair_group_id?: string | null;
+                  flair_group_id?: number | null;
                   admin: boolean;
                   moderator: boolean;
                   trust_level: number;
@@ -3360,7 +3521,7 @@ export interface operations {
                       extras?: string;
                       description?: string;
                       user_id?: number;
-                      primary_group_id?: string | null;
+                      primary_group_id?: number | null;
                     })[];
                 })[];
             };
@@ -3437,7 +3598,7 @@ export interface operations {
                       extras?: string | null;
                       description?: string;
                       user_id?: number;
-                      primary_group_id?: string | null;
+                      primary_group_id?: number | null;
                     })[];
                 })[];
             };
@@ -3541,7 +3702,7 @@ export interface operations {
             duration?: string | null;
             based_on_last_post?: boolean;
             closed?: boolean;
-            category_id?: string | null;
+            category_id?: number | null;
           };
         };
       };
@@ -3664,6 +3825,14 @@ export interface operations {
              * @example https://file-uploads.s3.us-west-2.amazonaws.com/temp/site/uploads/default/123/456.jpg?x-amz-acl=private&x-amz-meta-sha1-checksum=sha1&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AAAAus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211221T011246Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=12345678
              */
             url?: string;
+            /**
+             * @description A map of headers that must be sent with the PUT request.
+             * @example {
+             *   "x-amz-acl": "private",
+             *   "x-amz-meta-sha1-checksum": "sha1"
+             * }
+             */
+            signed_headers?: Record<string, never>;
             /**
              * @description A unique string that identifies the external upload.
              * This must be stored and then sent in the /complete-external-upload
@@ -4097,7 +4266,7 @@ export interface operations {
       };
     };
     responses: {
-      /** @description user response */
+      /** @description user with primary group response */
       200: {
         content: {
           "application/json": {
@@ -4113,7 +4282,9 @@ export interface operations {
               ignored: boolean;
               muted: boolean;
               can_ignore_user: boolean;
+              can_ignore_users?: boolean;
               can_mute_user: boolean;
+              can_mute_users?: boolean;
               can_send_private_messages: boolean;
               can_send_private_message_to_user: boolean;
               trust_level: number;
@@ -4131,9 +4302,9 @@ export interface operations {
               };
               time_read: number;
               recent_time_read: number;
-              primary_group_id: string | null;
+              primary_group_id: number | null;
               primary_group_name: string | null;
-              flair_group_id: string | null;
+              flair_group_id: number | null;
               flair_name: string | null;
               flair_url: string | null;
               flair_bg_color: string | null;
@@ -4144,7 +4315,7 @@ export interface operations {
               can_edit_username: boolean;
               can_edit_email: boolean;
               can_edit_name: boolean;
-              uploaded_avatar_id: string | null;
+              uploaded_avatar_id: number | null;
               has_title_badges: boolean;
               pending_count: number;
               pending_posts_count?: number;
@@ -4176,6 +4347,11 @@ export interface operations {
               can_change_website: boolean;
               can_change_tracking_preferences: boolean;
               user_api_keys: string | null;
+              user_passkeys?: unknown[];
+              sidebar_tags?: unknown[];
+              sidebar_category_ids?: unknown[];
+              display_sidebar_tags?: boolean;
+              can_pick_theme_with_custom_homepage?: boolean;
               user_auth_tokens: {
                   id: number;
                   client_ip: string;
@@ -4285,6 +4461,7 @@ export interface operations {
                 sidebar_show_count_of_new_items?: boolean;
                 watched_precedence_over_muted?: boolean | null;
                 seen_popups?: unknown[] | null;
+                topics_unread_when_closed: boolean;
               };
             };
           };
@@ -4351,7 +4528,9 @@ export interface operations {
               ignored: boolean;
               muted: boolean;
               can_ignore_user: boolean;
+              can_ignore_users?: boolean;
               can_mute_user: boolean;
+              can_mute_users?: boolean;
               can_send_private_messages: boolean;
               can_send_private_message_to_user: boolean;
               trust_level: number;
@@ -4369,9 +4548,9 @@ export interface operations {
               };
               time_read: number;
               recent_time_read: number;
-              primary_group_id: string | null;
+              primary_group_id: number | null;
               primary_group_name: string | null;
-              flair_group_id: string | null;
+              flair_group_id: number | null;
               flair_name: string | null;
               flair_url: string | null;
               flair_bg_color: string | null;
@@ -4382,7 +4561,7 @@ export interface operations {
               can_edit_username: boolean;
               can_edit_email: boolean;
               can_edit_name: boolean;
-              uploaded_avatar_id: string | null;
+              uploaded_avatar_id: number | null;
               has_title_badges: boolean;
               pending_count: number;
               pending_posts_count?: number;
@@ -4414,6 +4593,11 @@ export interface operations {
               can_change_website: boolean;
               can_change_tracking_preferences: boolean;
               user_api_keys: string | null;
+              user_passkeys?: unknown[];
+              sidebar_tags?: unknown[];
+              sidebar_category_ids?: unknown[];
+              display_sidebar_tags?: boolean;
+              can_pick_theme_with_custom_homepage?: boolean;
               user_auth_tokens: {
                   id: number;
                   client_ip: string;
@@ -4523,6 +4707,7 @@ export interface operations {
                 sidebar_show_count_of_new_items?: boolean;
                 watched_precedence_over_muted?: boolean | null;
                 seen_popups?: unknown[] | null;
+                topics_unread_when_closed: boolean;
               };
             };
           };
@@ -4563,7 +4748,9 @@ export interface operations {
               ignored: boolean;
               muted: boolean;
               can_ignore_user: boolean;
+              can_ignore_users?: boolean;
               can_mute_user: boolean;
+              can_mute_users?: boolean;
               can_send_private_messages: boolean;
               can_send_private_message_to_user: boolean;
               trust_level: number;
@@ -4581,9 +4768,9 @@ export interface operations {
               };
               time_read: number;
               recent_time_read: number;
-              primary_group_id: string | null;
+              primary_group_id: number | null;
               primary_group_name: string | null;
-              flair_group_id: string | null;
+              flair_group_id: number | null;
               flair_name: string | null;
               flair_url: string | null;
               flair_bg_color: string | null;
@@ -4594,7 +4781,7 @@ export interface operations {
               can_edit_username: boolean;
               can_edit_email: boolean;
               can_edit_name: boolean;
-              uploaded_avatar_id: string | null;
+              uploaded_avatar_id: number | null;
               has_title_badges: boolean;
               pending_count: number;
               pending_posts_count?: number;
@@ -4626,6 +4813,11 @@ export interface operations {
               can_change_website: boolean;
               can_change_tracking_preferences: boolean;
               user_api_keys: string | null;
+              user_passkeys?: unknown[];
+              sidebar_tags?: unknown[];
+              sidebar_category_ids?: unknown[];
+              display_sidebar_tags?: boolean;
+              can_pick_theme_with_custom_homepage?: boolean;
               user_auth_tokens: {
                   id: number;
                   client_ip: string;
@@ -4735,6 +4927,7 @@ export interface operations {
                 sidebar_show_count_of_new_items?: boolean;
                 watched_precedence_over_muted?: boolean | null;
                 seen_popups?: unknown[] | null;
+                topics_unread_when_closed: boolean;
               };
             };
           };
@@ -4882,7 +5075,6 @@ export interface operations {
             created_at_age: number | null;
             trust_level: number;
             manual_locked_trust_level: string | null;
-            flag_level: number;
             title: string | null;
             time_read: number;
             staged: boolean;
@@ -4914,7 +5106,7 @@ export interface operations {
             full_suspend_reason: string | null;
             silence_reason: string | null;
             post_edits_count?: number | null;
-            primary_group_id: string | null;
+            primary_group_id: number | null;
             badge_count: number;
             warnings_received_count: number;
             bounce_score: number | null;
@@ -4923,6 +5115,7 @@ export interface operations {
             can_disable_second_factor: boolean;
             can_delete_sso_record: boolean;
             api_key_count: number;
+            similar_users_count?: number;
             single_sign_on_record: string | null;
             approved_by: {
               id: number;
@@ -4990,7 +5183,7 @@ export interface operations {
                 flair_url: string | null;
                 flair_bg_color: string | null;
                 flair_color: string | null;
-                flair_group_id?: string | null;
+                flair_group_id?: number | null;
                 bio_raw: string | null;
                 bio_cooked: string | null;
                 bio_excerpt: string | null;
@@ -5130,8 +5323,8 @@ export interface operations {
       content: {
         "application/json": {
           /** @example 2022-06-01T08:00:00.000Z */
-          silenced_till?: string;
-          reason?: string;
+          silenced_till: string;
+          reason: string;
           /** @description Will send an email with this message when present */
           message?: string;
           /** @example delete */
@@ -5263,7 +5456,6 @@ export interface operations {
               created_at_age: number | null;
               trust_level: number;
               manual_locked_trust_level: string | null;
-              flag_level: number;
               title: string | null;
               time_read: number;
               staged: boolean;

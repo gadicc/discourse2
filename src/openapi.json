@@ -251,6 +251,12 @@
                               "null"
                             ]
                           },
+                          "image_upload_id": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
                           "badge_type_id": {
                             "type": "integer"
                           }
@@ -276,7 +282,8 @@
                           "target_posts",
                           "auto_revoke",
                           "show_posts",
-                          "badge_type_id"
+                          "badge_type_id",
+                          "image_upload_id"
                         ]
                       }
                     },
@@ -476,6 +483,12 @@
                             "null"
                           ]
                         },
+                        "image_upload_id": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
                         "listable": {
                           "type": "boolean"
                         },
@@ -543,7 +556,8 @@
                         "target_posts",
                         "auto_revoke",
                         "show_posts",
-                        "badge_type_id"
+                        "badge_type_id",
+                        "image_upload_id"
                       ]
                     }
                   },
@@ -660,6 +674,12 @@
                             "null"
                           ]
                         },
+                        "image_upload_id": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
                         "listable": {
                           "type": "boolean"
                         },
@@ -727,7 +747,8 @@
                         "target_posts",
                         "auto_revoke",
                         "show_posts",
-                        "badge_type_id"
+                        "badge_type_id",
+                        "image_upload_id"
                       ]
                     }
                   },
@@ -882,7 +903,13 @@
                         },
                         "has_children": {
                           "type": [
-                            "string",
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "subcategory_count": {
+                          "type": [
+                            "integer",
                             "null"
                           ]
                         },
@@ -1057,6 +1084,12 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "uploaded_background_dark": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
                       "required": [
@@ -1078,6 +1111,7 @@
                         "can_edit",
                         "topic_template",
                         "has_children",
+                        "subcategory_count",
                         "sort_order",
                         "sort_ascending",
                         "show_subcategory_list",
@@ -1107,7 +1141,8 @@
                         "search_priority",
                         "uploaded_logo",
                         "uploaded_logo_dark",
-                        "uploaded_background"
+                        "uploaded_background",
+                        "uploaded_background_dark"
                       ]
                     }
                   },
@@ -1288,6 +1323,12 @@
                               "has_children": {
                                 "type": "boolean"
                               },
+                              "subcategory_count": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
                               "sort_order": {
                                 "type": [
                                   "string",
@@ -1373,6 +1414,12 @@
                                   "string",
                                   "null"
                                 ]
+                              },
+                              "uploaded_background_dark": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               }
                             },
                             "required": [
@@ -1394,6 +1441,7 @@
                               "can_edit",
                               "topic_template",
                               "has_children",
+                              "subcategory_count",
                               "sort_order",
                               "sort_ascending",
                               "show_subcategory_list",
@@ -1412,7 +1460,8 @@
                               "subcategory_ids",
                               "uploaded_logo",
                               "uploaded_logo_dark",
-                              "uploaded_background"
+                              "uploaded_background",
+                              "uploaded_background_dark"
                             ]
                           }
                         }
@@ -1519,7 +1568,7 @@
                         },
                         "permission": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -1541,7 +1590,13 @@
                         },
                         "has_children": {
                           "type": [
-                            "string",
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "subcategory_count": {
+                          "type": [
+                            "integer",
                             "null"
                           ]
                         },
@@ -1716,6 +1771,12 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "uploaded_background_dark": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
                       "required": [
@@ -1738,6 +1799,7 @@
                         "topic_template",
                         "form_template_ids",
                         "has_children",
+                        "subcategory_count",
                         "sort_order",
                         "sort_ascending",
                         "show_subcategory_list",
@@ -1767,7 +1829,8 @@
                         "search_priority",
                         "uploaded_logo",
                         "uploaded_logo_dark",
-                        "uploaded_background"
+                        "uploaded_background",
+                        "uploaded_background_dark"
                       ]
                     }
                   },
@@ -2042,7 +2105,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -2212,7 +2275,13 @@
                         },
                         "has_children": {
                           "type": [
-                            "string",
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "subcategory_count": {
+                          "type": [
+                            "integer",
                             "null"
                           ]
                         },
@@ -2387,6 +2456,12 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "uploaded_background_dark": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       },
                       "required": [
@@ -2408,6 +2483,7 @@
                         "can_edit",
                         "topic_template",
                         "has_children",
+                        "subcategory_count",
                         "sort_order",
                         "sort_ascending",
                         "show_subcategory_list",
@@ -2437,7 +2513,8 @@
                         "search_priority",
                         "uploaded_logo",
                         "uploaded_logo_dark",
-                        "uploaded_background"
+                        "uploaded_background",
+                        "uploaded_background_dark"
                       ]
                     }
                   },
@@ -3103,9 +3180,9 @@
                             "null"
                           ]
                         },
-                        "smtp_ssl": {
+                        "smtp_ssl_mode": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -3272,7 +3349,7 @@
                         "automatic_membership_email_domains",
                         "smtp_server",
                         "smtp_port",
-                        "smtp_ssl",
+                        "smtp_ssl_mode",
                         "imap_server",
                         "imap_port",
                         "imap_ssl",
@@ -3963,6 +4040,141 @@
         }
       }
     },
+    "/invites/create-multiple.json": {
+      "post": {
+        "summary": "Create multiple invites",
+        "tags": [
+          "Invites"
+        ],
+        "operationId": "createMultipleInvites",
+        "parameters": [
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Username",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "num_successfully_created_invitations": {
+                      "type": "integer",
+                      "example": 42
+                    },
+                    "num_failed_invitations": {
+                      "type": "integer",
+                      "example": 42
+                    },
+                    "failed_invitations": {
+                      "type": "array",
+                      "items": {},
+                      "example": []
+                    },
+                    "successful_invitations": {
+                      "type": "array",
+                      "example": [
+                        {
+                          "id": 42,
+                          "link": "http://example.com/invites/9045fd767efe201ca60c6658bcf14158",
+                          "email": "not-a-user-yet-1@example.com",
+                          "emailed": true,
+                          "custom_message": "Hello world!",
+                          "topics": [],
+                          "groups": [],
+                          "created_at": "2021-01-01T12:00:00.000Z",
+                          "updated_at": "2021-01-01T12:00:00.000Z",
+                          "expires_at": "2021-02-01T12:00:00.000Z",
+                          "expired": false
+                        },
+                        {
+                          "id": 42,
+                          "link": "http://example.com/invites/c6658bcf141589045fd767efe201ca60",
+                          "email": "not-a-user-yet-2@example.com",
+                          "emailed": true,
+                          "custom_message": "Hello world!",
+                          "topics": [],
+                          "groups": [],
+                          "created_at": "2021-01-01T12:00:00.000Z",
+                          "updated_at": "2021-01-01T12:00:00.000Z",
+                          "expires_at": "2021-02-01T12:00:00.000Z",
+                          "expired": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": [
+                      "not-a-user-yet-1@example.com",
+                      "not-a-user-yet-2@example.com"
+                    ],
+                    "description": "pass 1 email per invite to be generated. other properties\nwill be shared by each invite."
+                  },
+                  "skip_email": {
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "custom_message": {
+                    "type": "string",
+                    "description": "optional, for email invites"
+                  },
+                  "max_redemptions_allowed": {
+                    "type": "integer",
+                    "example": 5,
+                    "default": 1,
+                    "description": "optional, for link invites"
+                  },
+                  "topic_id": {
+                    "type": "integer"
+                  },
+                  "group_ids": {
+                    "type": "string",
+                    "description": "Optional, either this or `group_names`. Comma separated\nlist for multiple ids.",
+                    "example": "42,43"
+                  },
+                  "group_names": {
+                    "type": "string",
+                    "description": "Optional, either this or `group_ids`. Comma separated\nlist for multiple names.",
+                    "example": "foo,bar"
+                  },
+                  "expires_at": {
+                    "type": "string",
+                    "description": "optional, if not supplied, the invite_expiry_days site\nsetting is used"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/notifications.json": {
       "get": {
         "summary": "Get the notifications that belong to the current user",
@@ -4000,7 +4212,7 @@
                           },
                           "post_number": {
                             "type": [
-                              "string",
+                              "integer",
                               "null"
                             ]
                           },
@@ -4249,7 +4461,7 @@
                           },
                           "flair_group_id": {
                             "type": [
-                              "string",
+                              "integer",
                               "null"
                             ]
                           },
@@ -4335,7 +4547,7 @@
                           },
                           "reviewable_id": {
                             "type": [
-                              "string",
+                              "integer",
                               "null"
                             ]
                           },
@@ -4427,7 +4639,7 @@
                       "type": "integer"
                     },
                     "score": {
-                      "type": "integer"
+                      "type": "number"
                     },
                     "yours": {
                       "type": "boolean"
@@ -4476,7 +4688,7 @@
                     },
                     "flair_group_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     },
@@ -4570,7 +4782,7 @@
                     },
                     "reviewable_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     },
@@ -4721,7 +4933,7 @@
         ],
         "responses": {
           "200": {
-            "description": "single post",
+            "description": "single reviewable post",
             "content": {
               "application/json": {
                 "schema": {
@@ -4773,7 +4985,7 @@
                       "type": "integer"
                     },
                     "score": {
-                      "type": ""
+                      "type": "number"
                     },
                     "yours": {
                       "type": "boolean"
@@ -4816,7 +5028,7 @@
                     },
                     "flair_group_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     },
@@ -4919,7 +5131,7 @@
                     },
                     "reviewable_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     },
@@ -5074,7 +5286,7 @@
                           "type": "integer"
                         },
                         "score": {
-                          "type": ""
+                          "type": "number"
                         },
                         "yours": {
                           "type": "boolean"
@@ -5117,7 +5329,7 @@
                         },
                         "flair_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -5214,7 +5426,7 @@
                         },
                         "reviewable_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -5444,7 +5656,7 @@
                         "type": "integer"
                       },
                       "score": {
-                        "type": "integer"
+                        "type": "number"
                       },
                       "yours": {
                         "type": "boolean"
@@ -5493,7 +5705,7 @@
                       },
                       "flair_group_id": {
                         "type": [
-                          "string",
+                          "integer",
                           "null"
                         ]
                       },
@@ -5603,7 +5815,7 @@
                       },
                       "reviewable_id": {
                         "type": [
-                          "string",
+                          "integer",
                           "null"
                         ]
                       },
@@ -5953,7 +6165,7 @@
                     },
                     "reviewable_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     },
@@ -6194,7 +6406,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -6220,7 +6432,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -6442,7 +6654,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -6562,6 +6774,17 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "extra": {
+                          "type": "object",
+                          "properties": {
+                            "categories": {
+                              "type": [
+                                "array",
+                                "null"
+                              ]
+                            }
+                          }
                         },
                         "post_ids": {
                           "type": "array",
@@ -6706,6 +6929,9 @@
                         "liked_consolidated": {
                           "type": "integer"
                         },
+                        "linked_consolidated": {
+                          "type": "integer"
+                        },
                         "post_approved": {
                           "type": "integer"
                         },
@@ -6748,6 +6974,9 @@
                         "chat_quoted": {
                           "type": "integer"
                         },
+                        "chat_watched_thread": {
+                          "type": "integer"
+                        },
                         "assigned": {
                           "type": "integer"
                         },
@@ -6788,6 +7017,7 @@
                         "watching_first_post",
                         "topic_reminder",
                         "liked_consolidated",
+                        "linked_consolidated",
                         "post_approved",
                         "code_review_commit_approved",
                         "membership_request_accepted",
@@ -6873,9 +7103,6 @@
                         },
                         "suggested_topics": {
                           "type": "integer"
-                        },
-                        "admin_guide": {
-                          "type": "integer"
                         }
                       },
                       "required": [
@@ -6883,8 +7110,7 @@
                         "topic_timeline",
                         "post_menu",
                         "topic_notification_levels",
-                        "suggested_topics",
-                        "admin_guide"
+                        "suggested_topics"
                       ]
                     },
                     "groups": {
@@ -6979,8 +7205,20 @@
                           "is_flag": {
                             "type": "boolean"
                           },
-                          "is_custom_flag": {
+                          "require_message": {
                             "type": "boolean"
+                          },
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "applies_to": {
+                            "type": "array"
+                          },
+                          "is_used": {
+                            "type": "boolean"
+                          },
+                          "position": {
+                            "type": "integer"
                           }
                         },
                         "required": [
@@ -6990,7 +7228,10 @@
                           "description",
                           "short_description",
                           "is_flag",
-                          "is_custom_flag"
+                          "require_message",
+                          "enabled",
+                          "applies_to",
+                          "is_used"
                         ]
                       }
                     },
@@ -7024,8 +7265,20 @@
                           "is_flag": {
                             "type": "boolean"
                           },
-                          "is_custom_flag": {
+                          "require_message": {
                             "type": "boolean"
+                          },
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "applies_to": {
+                            "type": "array"
+                          },
+                          "is_used": {
+                            "type": "boolean"
+                          },
+                          "position": {
+                            "type": "integer"
                           }
                         },
                         "required": [
@@ -7035,7 +7288,10 @@
                           "description",
                           "short_description",
                           "is_flag",
-                          "is_custom_flag"
+                          "require_message",
+                          "enabled",
+                          "applies_to",
+                          "is_used"
                         ]
                       }
                     },
@@ -7228,6 +7484,12 @@
                           "has_children": {
                             "type": "boolean"
                           },
+                          "subcategory_count": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
                           "sort_order": {
                             "type": [
                               "string",
@@ -7321,6 +7583,12 @@
                               "null"
                             ]
                           },
+                          "uploaded_background_dark": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
                           "can_edit": {
                             "type": "boolean"
                           },
@@ -7354,6 +7622,7 @@
                           "notification_level",
                           "topic_template",
                           "has_children",
+                          "subcategory_count",
                           "sort_order",
                           "sort_ascending",
                           "show_subcategory_list",
@@ -7372,6 +7641,7 @@
                           "uploaded_logo",
                           "uploaded_logo_dark",
                           "uploaded_background",
+                          "uploaded_background_dark",
                           "can_edit"
                         ]
                       }
@@ -7414,6 +7684,9 @@
                     "denied_emojis": {
                       "type": "array"
                     },
+                    "valid_flag_applies_to_types": {
+                      "type": "array"
+                    },
                     "navigation_menu_site_top_tags": {
                       "type": "array"
                     }
@@ -7449,6 +7722,80 @@
                     "archetypes",
                     "user_fields",
                     "auth_providers"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/site/basic-info.json": {
+      "get": {
+        "summary": "Get site basic info",
+        "tags": [
+          "Site"
+        ],
+        "operationId": "getSiteBasicInfo",
+        "description": "Can be used to fetch basic info about a site",
+        "responses": {
+          "200": {
+            "description": "success response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "logo_url": {
+                      "type": "string"
+                    },
+                    "logo_small_url": {
+                      "type": "string"
+                    },
+                    "apple_touch_icon_url": {
+                      "type": "string"
+                    },
+                    "favicon_url": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "header_primary_color": {
+                      "type": "string"
+                    },
+                    "header_background_color": {
+                      "type": "string"
+                    },
+                    "login_required": {
+                      "type": "boolean"
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "include_in_discourse_discover": {
+                      "type": "boolean"
+                    },
+                    "mobile_logo_url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "logo_url",
+                    "logo_small_url",
+                    "apple_touch_icon_url",
+                    "favicon_url",
+                    "title",
+                    "description",
+                    "header_primary_color",
+                    "header_background_color",
+                    "login_required",
+                    "locale",
+                    "include_in_discourse_discover",
+                    "mobile_logo_url"
                   ]
                 }
               }
@@ -8009,7 +8356,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -8130,7 +8477,7 @@
                                 "type": "integer"
                               },
                               "score": {
-                                "type": "integer"
+                                "type": "number"
                               },
                               "yours": {
                                 "type": "boolean"
@@ -8396,7 +8743,7 @@
                                 "type": "integer"
                               },
                               "score": {
-                                "type": "integer"
+                                "type": "number"
                               },
                               "yours": {
                                 "type": "boolean"
@@ -9033,9 +9380,6 @@
                         "null"
                       ]
                     },
-                    "summarizable": {
-                      "type": "boolean"
-                    },
                     "details": {
                       "type": "object",
                       "additionalProperties": false,
@@ -9153,7 +9497,7 @@
                               },
                               "flair_group_id": {
                                 "type": [
-                                  "string",
+                                  "integer",
                                   "null"
                                 ]
                               },
@@ -9305,7 +9649,6 @@
                     "show_read_indicator",
                     "thumbnails",
                     "slow_mode_enabled_until",
-                    "summarizable",
                     "details"
                   ]
                 }
@@ -9884,7 +10227,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -10119,7 +10462,7 @@
                                     },
                                     "primary_group_id": {
                                       "type": [
-                                        "string",
+                                        "integer",
                                         "null"
                                       ]
                                     }
@@ -10348,7 +10691,7 @@
                     },
                     "category_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     }
@@ -10557,6 +10900,14 @@
                       "type": "string",
                       "description": "A presigned PUT URL which must be used to upload\nthe file binary blob to.",
                       "example": "https://file-uploads.s3.us-west-2.amazonaws.com/temp/site/uploads/default/123/456.jpg?x-amz-acl=private&x-amz-meta-sha1-checksum=sha1&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AAAAus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211221T011246Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=12345678"
+                    },
+                    "signed_headers": {
+                      "type": "object",
+                      "description": "A map of headers that must be sent with the PUT request.",
+                      "example": {
+                        "x-amz-acl": "private",
+                        "x-amz-meta-sha1-checksum": "sha1"
+                      }
                     },
                     "unique_identifier": {
                       "type": "string",
@@ -11422,7 +11773,7 @@
         ],
         "responses": {
           "200": {
-            "description": "user response",
+            "description": "user with primary group response",
             "content": {
               "application/json": {
                 "schema": {
@@ -11472,7 +11823,13 @@
                         "can_ignore_user": {
                           "type": "boolean"
                         },
+                        "can_ignore_users": {
+                          "type": "boolean"
+                        },
                         "can_mute_user": {
+                          "type": "boolean"
+                        },
+                        "can_mute_users": {
                           "type": "boolean"
                         },
                         "can_send_private_messages": {
@@ -11544,7 +11901,7 @@
                         },
                         "primary_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -11556,7 +11913,7 @@
                         },
                         "flair_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -11607,7 +11964,7 @@
                         },
                         "uploaded_avatar_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -11724,6 +12081,21 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "user_passkeys": {
+                          "type": "array"
+                        },
+                        "sidebar_tags": {
+                          "type": "array"
+                        },
+                        "sidebar_category_ids": {
+                          "type": "array"
+                        },
+                        "display_sidebar_tags": {
+                          "type": "boolean"
+                        },
+                        "can_pick_theme_with_custom_homepage": {
+                          "type": "boolean"
                         },
                         "user_auth_tokens": {
                           "type": "array",
@@ -12185,6 +12557,9 @@
                                 "array",
                                 "null"
                               ]
+                            },
+                            "topics_unread_when_closed": {
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -12219,7 +12594,8 @@
                             "text_size_seq",
                             "title_count_mode",
                             "timezone",
-                            "skip_new_user_tips"
+                            "skip_new_user_tips",
+                            "topics_unread_when_closed"
                           ]
                         }
                       },
@@ -12470,7 +12846,13 @@
                         "can_ignore_user": {
                           "type": "boolean"
                         },
+                        "can_ignore_users": {
+                          "type": "boolean"
+                        },
                         "can_mute_user": {
+                          "type": "boolean"
+                        },
+                        "can_mute_users": {
                           "type": "boolean"
                         },
                         "can_send_private_messages": {
@@ -12542,7 +12924,7 @@
                         },
                         "primary_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -12554,7 +12936,7 @@
                         },
                         "flair_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -12605,7 +12987,7 @@
                         },
                         "uploaded_avatar_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -12722,6 +13104,21 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "user_passkeys": {
+                          "type": "array"
+                        },
+                        "sidebar_tags": {
+                          "type": "array"
+                        },
+                        "sidebar_category_ids": {
+                          "type": "array"
+                        },
+                        "display_sidebar_tags": {
+                          "type": "boolean"
+                        },
+                        "can_pick_theme_with_custom_homepage": {
+                          "type": "boolean"
                         },
                         "user_auth_tokens": {
                           "type": "array",
@@ -13183,6 +13580,9 @@
                                 "array",
                                 "null"
                               ]
+                            },
+                            "topics_unread_when_closed": {
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -13217,7 +13617,8 @@
                             "text_size_seq",
                             "title_count_mode",
                             "timezone",
-                            "skip_new_user_tips"
+                            "skip_new_user_tips",
+                            "topics_unread_when_closed"
                           ]
                         }
                       },
@@ -13403,7 +13804,13 @@
                         "can_ignore_user": {
                           "type": "boolean"
                         },
+                        "can_ignore_users": {
+                          "type": "boolean"
+                        },
                         "can_mute_user": {
+                          "type": "boolean"
+                        },
+                        "can_mute_users": {
                           "type": "boolean"
                         },
                         "can_send_private_messages": {
@@ -13475,7 +13882,7 @@
                         },
                         "primary_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -13487,7 +13894,7 @@
                         },
                         "flair_group_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -13538,7 +13945,7 @@
                         },
                         "uploaded_avatar_id": {
                           "type": [
-                            "string",
+                            "integer",
                             "null"
                           ]
                         },
@@ -13655,6 +14062,21 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "user_passkeys": {
+                          "type": "array"
+                        },
+                        "sidebar_tags": {
+                          "type": "array"
+                        },
+                        "sidebar_category_ids": {
+                          "type": "array"
+                        },
+                        "display_sidebar_tags": {
+                          "type": "boolean"
+                        },
+                        "can_pick_theme_with_custom_homepage": {
+                          "type": "boolean"
                         },
                         "user_auth_tokens": {
                           "type": "array",
@@ -14116,6 +14538,9 @@
                                 "array",
                                 "null"
                               ]
+                            },
+                            "topics_unread_when_closed": {
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -14150,7 +14575,8 @@
                             "text_size_seq",
                             "title_count_mode",
                             "timezone",
-                            "skip_new_user_tips"
+                            "skip_new_user_tips",
+                            "topics_unread_when_closed"
                           ]
                         }
                       },
@@ -14664,9 +15090,6 @@
                         "null"
                       ]
                     },
-                    "flag_level": {
-                      "type": "integer"
-                    },
                     "title": {
                       "type": [
                         "string",
@@ -14778,7 +15201,7 @@
                     },
                     "primary_group_id": {
                       "type": [
-                        "string",
+                        "integer",
                         "null"
                       ]
                     },
@@ -14810,6 +15233,9 @@
                       "type": "boolean"
                     },
                     "api_key_count": {
+                      "type": "integer"
+                    },
+                    "similar_users_count": {
                       "type": "integer"
                     },
                     "single_sign_on_record": {
@@ -15095,7 +15521,7 @@
                           },
                           "flair_group_id": {
                             "type": [
-                              "string",
+                              "integer",
                               "null"
                             ]
                           },
@@ -15207,7 +15633,6 @@
                     "created_at_age",
                     "trust_level",
                     "manual_locked_trust_level",
-                    "flag_level",
                     "title",
                     "time_read",
                     "staged",
@@ -15624,7 +16049,11 @@
                     "type": "string",
                     "example": "delete"
                   }
-                }
+                },
+                "required": [
+                  "silenced_till",
+                  "reason"
+                ]
               }
             }
           }
@@ -15946,9 +16375,6 @@
                           "null"
                         ]
                       },
-                      "flag_level": {
-                        "type": "integer"
-                      },
                       "title": {
                         "type": [
                           "string",
@@ -15990,7 +16416,6 @@
                       "created_at_age",
                       "trust_level",
                       "manual_locked_trust_level",
-                      "flag_level",
                       "title",
                       "time_read",
                       "staged",
