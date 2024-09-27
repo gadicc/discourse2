@@ -87,8 +87,8 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
   ) {
     super();
     this.url = url;
-    this["Api-Key"] = opts["Api-Key"];
-    this["Api-Username"] = opts["Api-Username"];
+    if (opts["Api-Key"]) this["Api-Key"] = opts["Api-Key"];
+    if (opts["Api-Username"]) this["Api-Username"] = opts["Api-Username"];
   }
 
   async _exec<T>(operationName: string, params?: any) {
@@ -123,25 +123,36 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     for (const param of operation.data.parameters) {
       if (param.in === "header") {
-        headers[param.name] =
-          (params && params[param.name]) ||
-          this[param.name as "Api-Key" | "Api-Username"];
-      } else if (param.in === "query") {
-        query[param.name] = params && params[param.name];
-      } else if (param.in === "path") {
-        path[param.name] = params && params[param.name];
+        if (params[param.name]) {
+          headers[param.name] = params[param.name];
+        } else if (["Api-Key", "Api-Username"].includes(param.name)) {
+          const name = param.name as "Api-Key" | "Api-Username";
+          const value = this[name];
+          if (typeof value === "string") headers[param.name] = value;
+        }
+      } else if (param.in === "query" && params[param.name] !== undefined) {
+        query[param.name] = params[param.name];
+      } else if (param.in === "path" && params[param.name] !== undefined) {
+        path[param.name] = params[param.name];
       }
     }
 
-    if (!headers["Api-Key"]) {
-      delete headers["Api-Key"];
-      delete headers["Api-Username"];
-    }
+    // Sometimes the OpenAPI doesn't list the Api-Key and Api-Username as parameters
+    // but still requires them.  So, provide them even if not asked.
+    (["Api-Key", "Api-Username"] as const).forEach((name) => {
+      if (!headers[name] && (params[name] || this[name]))
+        headers[name] = this[name]!;
+    });
 
-    const url = (this.url + operation.path).replace(
+    // Substitue path parameters, e.g. /posts/{id} -> /posts/123
+    let url = (this.url + operation.path).replace(
       /\{([^}]+)\}/g,
-      (_, p) => params[p],
+      (_, p) => path[p],
     );
+
+    // Include query parameters
+    if (Object.keys(query).length)
+      url += "?" + new URLSearchParams(query).toString();
 
     const requestInit: RequestInit = {
       method: operation.method,
