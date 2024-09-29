@@ -44,7 +44,7 @@ async function digestMessage(message: string) {
 
   const newMeta = {
     retrievedAt: date.getTime(),
-    retrievedatDate: date.toISOString().split("T")[0],
+    retrievedAtDate: date.toISOString().split("T")[0],
     hash,
     hashShort: hash.slice(0, 7),
   };
@@ -68,7 +68,7 @@ async function digestMessage(message: string) {
 
   const message =
     "fix(pkg): Update OpenAPI schema (" +
-    newMeta.retrievedatDate +
+    newMeta.retrievedAtDate +
     '; "' +
     newMeta.hashShort +
     '")';
