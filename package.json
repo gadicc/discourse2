@@ -15,7 +15,7 @@
     "ci": "yarn coverage && yarn tsc && yarn lint",
     "schema:fetch": "curl -o src/openapi.json https://docs.discourse.org/openapi.json",
     "schema:ts": "yarn openapi-typescript src/openapi.json -o src/schema.d.ts",
-    "generate": "yarn ts-node src/generate.ts"
+    "generate": "yarn tsx src/generate.ts"
   },
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
     "json-schema": "^0.4.0",
     "json-schema-to-typescript": "^13.0.2",
     "openapi-typescript": "^6.4.5",
-    "prettier": "^3.0.0",
+    "prettier": "^3.3.3",
     "semantic-release": "21.0.7",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2"
