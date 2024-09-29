@@ -9,7 +9,7 @@
     "test:all": "yarn test && yarn tsc && yarn lint",
     "lint": "eslint src",
     "prettier": "prettier -w src",
-    "build": "tsc && cp src/schema.d.ts lib",
+    "build": "cp src/schema.d.ts lib && tsc",
     "prepublishOnly": "yarn build",
     "coverage": "jest --coverage",
     "ci": "yarn coverage && yarn tsc && yarn lint",
