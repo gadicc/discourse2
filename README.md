@@ -9,6 +9,8 @@ Copyright (c) 2023 by Gadi Cohen. [MIT Licensed](./LICENSE.txt).
 <img src="./assets/discourse-completion.png" alt="discourse completion" width="700"/>
 <img src="./assets/discourse-getTopic-type.png" alt="discourse getTopic type" width="500"/>
 
+[Live Demo on CodeSandbox](https://codesandbox.io/p/sandbox/discourse2-dht4ym).
+
 ## Quick Start
 
 ```ts
