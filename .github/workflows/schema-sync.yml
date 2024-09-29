@@ -1,6 +1,7 @@
 name: schema-sync
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "20 0,12 * * *"
 
