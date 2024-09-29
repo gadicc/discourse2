@@ -78,7 +78,7 @@ async function digestMessage(message: string) {
     process.env.CI && process.env.CI !== "false" && process.env.CI !== "0";
   if (!CI) {
     console.log(
-      "Environment variable `CI` is not set or is false, skipping git commit.",
+      "Environment variable `CI` is not set or is false, skipping 'git push'.",
     );
     return;
   }
