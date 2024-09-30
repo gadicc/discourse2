@@ -13,6 +13,7 @@ function indent(stringWithNewLines: string) {
 
 (async () => {
   let out = 'import { operations } from "./schema";' + "\n\n";
+  out += "type Prettify<T> = {\n  [K in keyof T]: T[K];\n} & {}\n\n";
   out += "export default class DiscourseAPIGenerated {\n";
   out +=
     "  _exec<T>(operationName: string, params?: any) { throw new Error('Not implemented'); }\n\n";
@@ -44,19 +45,22 @@ function indent(stringWithNewLines: string) {
           ": " +
           types
             .map(
-              (type) => `operations['${operationId}']['parameters']['${type}']`,
+              (type) =>
+                `Prettify<operations['${operationId}']['parameters']['${type}']>`,
             )
             .join(" & ");
 
-      methodString += ")";
+      methodString += ") ";
 
       let returnType = null;
       if (methodData?.responses?.["200"]?.content?.["application/json"]) {
         returnType =
-          "Promise<operations['" +
+          "Promise<Prettify<operations['" +
           operationId +
-          "']['responses']['200']['content']['application/json']> ";
-        methodString += ": " + returnType;
+          "']['responses']['200']['content']['application/json']>> ";
+
+        // We can just rely on the returned type inside the function
+        // methodString += ": " + returnType;
       }
 
       methodString += "{\n";
