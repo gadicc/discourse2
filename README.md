@@ -4,12 +4,19 @@ The complete Discourse API (strongly typed), always up-to-date.
 
 Copyright (c) 2023 by Gadi Cohen. [MIT Licensed](./LICENSE.txt).
 
-![npm](https://img.shields.io/npm/v/discourse2) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgadicc%2Fdiscourse2%2Frefs%2Fheads%2Fmain%2Fsrc%2Fopenapi-meta.json&query=%24.retrievedAtDate&label=Discourse%20API) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/gadicc/discourse2/release.yml) ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gadicc/db6d371d39faab64858178a049c8e80b/raw/jest-coverage-comment__main.json) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+![npm](https://img.shields.io/npm/v/discourse2) ![DiscourseAPI Retrieval Date](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgadicc%2Fdiscourse2%2Frefs%2Fheads%2Fmain%2Fsrc%2Fopenapi-meta.json&query=%24.retrievedAtDate&label=Discourse%20API) ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/gadicc/discourse2/release.yml) ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gadicc/db6d371d39faab64858178a049c8e80b/raw/jest-coverage-comment__main.json) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 <img src="./assets/discourse-completion.png" alt="discourse completion" width="700"/>
 <img src="./assets/discourse-getTopic-type.png" alt="discourse getTopic type" width="500"/>
 
 [Live Demo on CodeSandbox](https://codesandbox.io/p/sandbox/discourse2-dht4ym).
+
+## Features
+
+- The _entire_ Discourse API (that’s published in the OpenAPI spec).
+- _Always up-to-date_: the OpenAPI spec is checked for changes daily, and the package will automatically rebuild and publish itself on changes. The most recent retrieval is shown as a badge at the top of the README: ![DiscourseAPI Retrieval Date](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgadicc%2Fdiscourse2%2Frefs%2Fheads%2Fmain%2Fsrc%2Fopenapi-meta.json&query=%24.retrievedAtDate&label=Discourse%20API)
+- Works in both server and browser* environments (*useful for querying public
+  data _without_ API keys and on relevant origin, e.g. latest topics, etc)
 
 ## Quick Start
 
