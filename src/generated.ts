@@ -198,6 +198,11 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Retrieve a single post
+   * @description This endpoint can be used to get the number of likes on a post using the
+   * `actions_summary` property in the response. `actions_summary` responses
+   * with the id of `2` signify a `like`. If there are no `actions_summary`
+   * items with the id of `2`, that means there are 0 likes. Other ids likely
+   * refer to various different flag types.
    */
   getPost(params: Prettify<operations['getPost']['parameters']['path']>) {
     return this._exec<operations['getPost']>('getPost', params) as unknown as Promise<Prettify<operations['getPost']['responses']['200']['content']['application/json']>> ;
@@ -261,6 +266,7 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Get site info
+   * @description Can be used to fetch all categories and subcategories
    */
   getSite() {
     return this._exec<operations['getSite']>('getSite') as unknown as Promise<Prettify<operations['getSite']['responses']['200']['content']['application/json']>> ;
@@ -268,6 +274,7 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Get site basic info
+   * @description Can be used to fetch basic info about a site
    */
   getSiteBasicInfo() {
     return this._exec<operations['getSiteBasicInfo']>('getSiteBasicInfo') as unknown as Promise<Prettify<operations['getSiteBasicInfo']['responses']['200']['content']['application/json']>> ;
@@ -415,6 +422,25 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Initiates a direct external upload
+   * @description Direct external uploads bypass the usual method of creating uploads
+   * via the POST /uploads route, and upload directly to an external provider,
+   * which by default is S3. This route begins the process, and will return
+   * a unique identifier for the external upload as well as a presigned URL
+   * which is where the file binary blob should be uploaded to.
+
+   * Once the upload is complete to the external service, you must call the
+   * POST /complete-external-upload route using the unique identifier returned
+   * by this route, which will create any required Upload record in the Discourse
+   * database and also move file from its temporary location to the final
+   * destination in the external storage service.
+
+   * You must have the correct permissions and CORS settings configured in your
+   * external provider. We support AWS S3 as the default. See:
+
+   * https://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.
+
+   * An external file store must be set up and `enable_direct_s3_uploads` must
+   * be set to true for this endpoint to function.
    */
   generatePresignedPut() {
     return this._exec<operations['generatePresignedPut']>('generatePresignedPut') as unknown as Promise<Prettify<operations['generatePresignedPut']['responses']['200']['content']['application/json']>> ;
@@ -422,6 +448,22 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Completes a direct external upload
+   * @description Completes an external upload initialized with /get-presigned-put. The
+   * file will be moved from its temporary location in external storage to
+   * a final destination in the S3 bucket. An Upload record will also be
+   * created in the database in most cases.
+
+   * If a sha1-checksum was provided in the initial request it will also
+   * be compared with the uploaded file in storage to make sure the same
+   * file was uploaded. The file size will be compared for the same reason.
+
+   * You must have the correct permissions and CORS settings configured in your
+   * external provider. We support AWS S3 as the default. See:
+
+   * https://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.
+
+   * An external file store must be set up and `enable_direct_s3_uploads` must
+   * be set to true for this endpoint to function.
    */
   completeExternalUpload() {
     return this._exec<operations['completeExternalUpload']>('completeExternalUpload') as unknown as Promise<Prettify<operations['completeExternalUpload']['responses']['200']['content']['application/json']>> ;
@@ -429,6 +471,16 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Creates a multipart external upload
+   * @description Creates a multipart upload in the external storage provider, storing
+   * a temporary reference to the external upload similar to /get-presigned-put.
+
+   * You must have the correct permissions and CORS settings configured in your
+   * external provider. We support AWS S3 as the default. See:
+
+   * https://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.
+
+   * An external file store must be set up and `enable_direct_s3_uploads` must
+   * be set to true for this endpoint to function.
    */
   createMultipartUpload() {
     return this._exec<operations['createMultipartUpload']>('createMultipartUpload') as unknown as Promise<Prettify<operations['createMultipartUpload']['responses']['200']['content']['application/json']>> ;
@@ -436,6 +488,26 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Generates batches of presigned URLs for multipart parts
+   * @description Multipart uploads are uploaded in chunks or parts to individual presigned
+   * URLs, similar to the one generated by /generate-presigned-put. The part
+   * numbers provided must be between 1 and 10000. The total number of parts
+   * will depend on the chunk size in bytes that you intend to use to upload
+   * each chunk. For example a 12MB file may have 2 5MB chunks and a final
+   * 2MB chunk, for part numbers 1, 2, and 3.
+
+   * This endpoint will return a presigned URL for each part number provided,
+   * which you can then use to send PUT requests for the binary chunk corresponding
+   * to that part. When the part is uploaded, the provider should return an
+   * ETag for the part, and this should be stored along with the part number,
+   * because this is needed to complete the multipart upload.
+
+   * You must have the correct permissions and CORS settings configured in your
+   * external provider. We support AWS S3 as the default. See:
+
+   * https://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.
+
+   * An external file store must be set up and `enable_direct_s3_uploads` must
+   * be set to true for this endpoint to function.
    */
   batchPresignMultipartParts() {
     return this._exec<operations['batchPresignMultipartParts']>('batchPresignMultipartParts') as unknown as Promise<Prettify<operations['batchPresignMultipartParts']['responses']['200']['content']['application/json']>> ;
@@ -443,6 +515,17 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Abort multipart upload
+   * @description This endpoint aborts the multipart upload initiated with /create-multipart.
+   * This should be used when cancelling the upload. It does not matter if parts
+   * were already uploaded into the external storage provider.
+
+   * You must have the correct permissions and CORS settings configured in your
+   * external provider. We support AWS S3 as the default. See:
+
+   * https://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.
+
+   * An external file store must be set up and `enable_direct_s3_uploads` must
+   * be set to true for this endpoint to function.
    */
   abortMultipart() {
     return this._exec<operations['abortMultipart']>('abortMultipart') as unknown as Promise<Prettify<operations['abortMultipart']['responses']['200']['content']['application/json']>> ;
@@ -450,6 +533,19 @@ export default class DiscourseAPIGenerated {
 
   /**
    * Complete multipart upload
+   * @description Completes the multipart upload in the external store, and copies the
+   * file from its temporary location to its final location in the store.
+   * All of the parts must have been uploaded to the external storage provider.
+   * An Upload record will be completed in most cases once the file is copied
+   * to its final location.
+
+   * You must have the correct permissions and CORS settings configured in your
+   * external provider. We support AWS S3 as the default. See:
+
+   * https://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.
+
+   * An external file store must be set up and `enable_direct_s3_uploads` must
+   * be set to true for this endpoint to function.
    */
   completeMultipart() {
     return this._exec<operations['completeMultipart']>('completeMultipart') as unknown as Promise<Prettify<operations['completeMultipart']['responses']['200']['content']['application/json']>> ;

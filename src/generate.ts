@@ -1,13 +1,10 @@
 import fs from "fs/promises";
-import camelCase from "camelcase";
-
 import spec from "./openapi.json";
-import { compile } from "json-schema-to-typescript";
 
-function indent(stringWithNewLines: string) {
+function indent(stringWithNewLines: string, indent = "  ") {
   return stringWithNewLines
     .split("\n")
-    .map((line) => (line === "" ? line : "  " + line))
+    .map((line) => (line === "" ? line : indent + line))
     .join("\n");
 }
 
@@ -21,8 +18,16 @@ function indent(stringWithNewLines: string) {
   for (const [path, pathData] of Object.entries(spec.paths)) {
     for (const [method, methodData] of Object.entries(pathData)) {
       const operationId = methodData.operationId;
-      let methodString = indent("/**\n * " + methodData.summary + "\n */\n");
 
+      let comment = "/**\n * " + methodData.summary + "\n";
+      if (methodData.description)
+        comment += indent(
+          "@description " + methodData.description.trim() + "\n",
+          " * ",
+        );
+      comment += " */\n";
+
+      let methodString = indent(comment);
       methodString += indent(operationId + "(");
 
       console.log(operationId);
