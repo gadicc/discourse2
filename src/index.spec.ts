@@ -18,11 +18,18 @@ fetchMock.mockImplementation(cachingMock);
 describe("discourse-api", () => {
   describe("no auth", () => {
     const discourse = discourseNoAuth;
-    it("invalid params", async () => {
-      // @ts-expect-error: runtime invalid params check
-      return expect(discourse.getTopic({ noSuchParam: true })).rejects.toThrow(
-        /Unknown parameter/,
+    it("missing params", async () => {
+      // @ts-expect-error: runtime missing params check
+      return expect(discourse.getTopic()).rejects.toThrow(
+        "data/path must have required property 'id'",
       );
+    });
+
+    it("invalid params", async () => {
+      return expect(
+        // @ts-expect-error: runtime invalid params check
+        discourse.getTopic({ id: "1", noSuchParam: true }),
+      ).rejects.toThrow(/Unknown parameter/);
     });
 
     it("getTopic (public post, no auth)", async () => {

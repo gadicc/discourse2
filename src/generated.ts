@@ -17,15 +17,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Create backup
    */
-  createBackup() {
-    return this._exec<operations['createBackup']>('createBackup') as unknown as Promise<Prettify<operations['createBackup']['responses']['200']['content']['application/json']>> ;
-  }
-
-  /**
-   * Send download backup email
-   */
-  sendDownloadBackupEmail(params: Prettify<operations['sendDownloadBackupEmail']['parameters']['path']>) {
-    return this._exec<operations['sendDownloadBackupEmail']>('sendDownloadBackupEmail', params);
+  createBackup(params: Prettify<NonNullable<operations['createBackup']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createBackup']>('createBackup', params) as unknown as Promise<Prettify<operations['createBackup']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -33,6 +26,13 @@ export default class DiscourseAPIGenerated {
    */
   downloadBackup(params: Prettify<operations['downloadBackup']['parameters']['path']> & Prettify<operations['downloadBackup']['parameters']['query']>) {
     return this._exec<operations['downloadBackup']>('downloadBackup', params);
+  }
+
+  /**
+   * Send download backup email
+   */
+  sendDownloadBackupEmail(params: Prettify<operations['sendDownloadBackupEmail']['parameters']['path']>) {
+    return this._exec<operations['sendDownloadBackupEmail']>('sendDownloadBackupEmail', params);
   }
 
   /**
@@ -45,14 +45,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Create badge
    */
-  createBadge() {
-    return this._exec<operations['createBadge']>('createBadge') as unknown as Promise<Prettify<operations['createBadge']['responses']['200']['content']['application/json']>> ;
+  createBadge(params: Prettify<NonNullable<operations['createBadge']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createBadge']>('createBadge', params) as unknown as Promise<Prettify<operations['createBadge']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Update badge
    */
-  updateBadge(params: Prettify<operations['updateBadge']['parameters']['path']>) {
+  updateBadge(params: Prettify<operations['updateBadge']['parameters']['path']> & Prettify<NonNullable<operations['updateBadge']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateBadge']>('updateBadge', params) as unknown as Promise<Prettify<operations['updateBadge']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -64,13 +64,6 @@ export default class DiscourseAPIGenerated {
   }
 
   /**
-   * Creates a category
-   */
-  createCategory() {
-    return this._exec<operations['createCategory']>('createCategory') as unknown as Promise<Prettify<operations['createCategory']['responses']['200']['content']['application/json']>> ;
-  }
-
-  /**
    * Retrieves a list of categories
    */
   listCategories(params?: Prettify<operations['listCategories']['parameters']['query']>) {
@@ -78,9 +71,16 @@ export default class DiscourseAPIGenerated {
   }
 
   /**
+   * Creates a category
+   */
+  createCategory(params: Prettify<NonNullable<operations['createCategory']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createCategory']>('createCategory', params) as unknown as Promise<Prettify<operations['createCategory']['responses']['200']['content']['application/json']>> ;
+  }
+
+  /**
    * Updates a category
    */
-  updateCategory(params: Prettify<operations['updateCategory']['parameters']['path']>) {
+  updateCategory(params: Prettify<operations['updateCategory']['parameters']['path']> & Prettify<NonNullable<operations['updateCategory']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateCategory']>('updateCategory', params) as unknown as Promise<Prettify<operations['updateCategory']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -101,8 +101,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Create a group
    */
-  createGroup() {
-    return this._exec<operations['createGroup']>('createGroup') as unknown as Promise<Prettify<operations['createGroup']['responses']['200']['content']['application/json']>> ;
+  createGroup(params: Prettify<NonNullable<operations['createGroup']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createGroup']>('createGroup', params) as unknown as Promise<Prettify<operations['createGroup']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -113,17 +113,17 @@ export default class DiscourseAPIGenerated {
   }
 
   /**
-   * Update a group
-   */
-  updateGroup(params: Prettify<operations['updateGroup']['parameters']['path']>) {
-    return this._exec<operations['updateGroup']>('updateGroup', params) as unknown as Promise<Prettify<operations['updateGroup']['responses']['200']['content']['application/json']>> ;
-  }
-
-  /**
    * Get a group
    */
   getGroup(params: Prettify<operations['getGroup']['parameters']['path']>) {
     return this._exec<operations['getGroup']>('getGroup', params) as unknown as Promise<Prettify<operations['getGroup']['responses']['200']['content']['application/json']>> ;
+  }
+
+  /**
+   * Update a group
+   */
+  updateGroup(params: Prettify<operations['updateGroup']['parameters']['path']> & Prettify<NonNullable<operations['updateGroup']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['updateGroup']>('updateGroup', params) as unknown as Promise<Prettify<operations['updateGroup']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -136,14 +136,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Add group members
    */
-  addGroupMembers(params: Prettify<operations['addGroupMembers']['parameters']['path']>) {
+  addGroupMembers(params: Prettify<operations['addGroupMembers']['parameters']['path']> & Prettify<NonNullable<operations['addGroupMembers']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['addGroupMembers']>('addGroupMembers', params) as unknown as Promise<Prettify<operations['addGroupMembers']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Remove group members
    */
-  removeGroupMembers(params: Prettify<operations['removeGroupMembers']['parameters']['path']>) {
+  removeGroupMembers(params: Prettify<operations['removeGroupMembers']['parameters']['path']> & Prettify<NonNullable<operations['removeGroupMembers']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['removeGroupMembers']>('removeGroupMembers', params) as unknown as Promise<Prettify<operations['removeGroupMembers']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -157,15 +157,15 @@ export default class DiscourseAPIGenerated {
   /**
    * Create an invite
    */
-  createInvite() {
-    return this._exec<operations['createInvite']>('createInvite') as unknown as Promise<Prettify<operations['createInvite']['responses']['200']['content']['application/json']>> ;
+  createInvite(params: Prettify<NonNullable<operations['createInvite']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createInvite']>('createInvite', params) as unknown as Promise<Prettify<operations['createInvite']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Create multiple invites
    */
-  createMultipleInvites() {
-    return this._exec<operations['createMultipleInvites']>('createMultipleInvites') as unknown as Promise<Prettify<operations['createMultipleInvites']['responses']['200']['content']['application/json']>> ;
+  createMultipleInvites(params: Prettify<NonNullable<operations['createMultipleInvites']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createMultipleInvites']>('createMultipleInvites', params) as unknown as Promise<Prettify<operations['createMultipleInvites']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -178,8 +178,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Mark notifications as read
    */
-  markNotificationsAsRead() {
-    return this._exec<operations['markNotificationsAsRead']>('markNotificationsAsRead') as unknown as Promise<Prettify<operations['markNotificationsAsRead']['responses']['200']['content']['application/json']>> ;
+  markNotificationsAsRead(params: Prettify<NonNullable<operations['markNotificationsAsRead']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['markNotificationsAsRead']>('markNotificationsAsRead', params) as unknown as Promise<Prettify<operations['markNotificationsAsRead']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -192,8 +192,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Creates a new topic, a new post, or a private message
    */
-  createTopicPostPM() {
-    return this._exec<operations['createTopicPostPM']>('createTopicPostPM') as unknown as Promise<Prettify<operations['createTopicPostPM']['responses']['200']['content']['application/json']>> ;
+  createTopicPostPM(params: Prettify<NonNullable<operations['createTopicPostPM']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createTopicPostPM']>('createTopicPostPM', params) as unknown as Promise<Prettify<operations['createTopicPostPM']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -211,14 +211,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Update a single post
    */
-  updatePost(params: Prettify<operations['updatePost']['parameters']['path']>) {
+  updatePost(params: Prettify<operations['updatePost']['parameters']['path']> & Prettify<NonNullable<operations['updatePost']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updatePost']>('updatePost', params) as unknown as Promise<Prettify<operations['updatePost']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * delete a single post
    */
-  deletePost(params: Prettify<operations['deletePost']['parameters']['path']>) {
+  deletePost(params: Prettify<operations['deletePost']['parameters']['path']> & Prettify<NonNullable<operations['deletePost']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['deletePost']>('deletePost', params);
   }
 
@@ -232,15 +232,15 @@ export default class DiscourseAPIGenerated {
   /**
    * Lock a post from being edited
    */
-  lockPost(params: Prettify<operations['lockPost']['parameters']['path']>) {
+  lockPost(params: Prettify<operations['lockPost']['parameters']['path']> & Prettify<NonNullable<operations['lockPost']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['lockPost']>('lockPost', params) as unknown as Promise<Prettify<operations['lockPost']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Like a post and other actions
    */
-  performPostAction() {
-    return this._exec<operations['performPostAction']>('performPostAction') as unknown as Promise<Prettify<operations['performPostAction']['responses']['200']['content']['application/json']>> ;
+  performPostAction(params: Prettify<NonNullable<operations['performPostAction']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['performPostAction']>('performPostAction', params) as unknown as Promise<Prettify<operations['performPostAction']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -290,8 +290,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Creates a tag group
    */
-  createTagGroup() {
-    return this._exec<operations['createTagGroup']>('createTagGroup') as unknown as Promise<Prettify<operations['createTagGroup']['responses']['200']['content']['application/json']>> ;
+  createTagGroup(params: Prettify<NonNullable<operations['createTagGroup']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createTagGroup']>('createTagGroup', params) as unknown as Promise<Prettify<operations['createTagGroup']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -304,7 +304,7 @@ export default class DiscourseAPIGenerated {
   /**
    * Update tag group
    */
-  updateTagGroup(params: Prettify<operations['updateTagGroup']['parameters']['path']>) {
+  updateTagGroup(params: Prettify<operations['updateTagGroup']['parameters']['path']> & Prettify<NonNullable<operations['updateTagGroup']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateTagGroup']>('updateTagGroup', params) as unknown as Promise<Prettify<operations['updateTagGroup']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -325,7 +325,7 @@ export default class DiscourseAPIGenerated {
   /**
    * Get specific posts from a topic
    */
-  getSpecificPostsFromTopic(params: Prettify<operations['getSpecificPostsFromTopic']['parameters']['path']>) {
+  getSpecificPostsFromTopic(params: Prettify<operations['getSpecificPostsFromTopic']['parameters']['path']> & Prettify<NonNullable<operations['getSpecificPostsFromTopic']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['getSpecificPostsFromTopic']>('getSpecificPostsFromTopic', params) as unknown as Promise<Prettify<operations['getSpecificPostsFromTopic']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -346,14 +346,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Update a topic
    */
-  updateTopic(params: Prettify<operations['updateTopic']['parameters']['path']>) {
+  updateTopic(params: Prettify<operations['updateTopic']['parameters']['path']> & Prettify<NonNullable<operations['updateTopic']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateTopic']>('updateTopic', params) as unknown as Promise<Prettify<operations['updateTopic']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Invite to topic
    */
-  inviteToTopic(params: Prettify<operations['inviteToTopic']['parameters']['path']>) {
+  inviteToTopic(params: Prettify<operations['inviteToTopic']['parameters']['path']> & Prettify<NonNullable<operations['inviteToTopic']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['inviteToTopic']>('inviteToTopic', params) as unknown as Promise<Prettify<operations['inviteToTopic']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -367,7 +367,7 @@ export default class DiscourseAPIGenerated {
   /**
    * Update the status of a topic
    */
-  updateTopicStatus(params: Prettify<operations['updateTopicStatus']['parameters']['path']>) {
+  updateTopicStatus(params: Prettify<operations['updateTopicStatus']['parameters']['path']> & Prettify<NonNullable<operations['updateTopicStatus']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateTopicStatus']>('updateTopicStatus', params) as unknown as Promise<Prettify<operations['updateTopicStatus']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -388,21 +388,21 @@ export default class DiscourseAPIGenerated {
   /**
    * Set notification level
    */
-  setNotificationLevel(params: Prettify<operations['setNotificationLevel']['parameters']['path']>) {
+  setNotificationLevel(params: Prettify<operations['setNotificationLevel']['parameters']['path']> & Prettify<NonNullable<operations['setNotificationLevel']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['setNotificationLevel']>('setNotificationLevel', params) as unknown as Promise<Prettify<operations['setNotificationLevel']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Update topic timestamp
    */
-  updateTopicTimestamp(params: Prettify<operations['updateTopicTimestamp']['parameters']['path']>) {
+  updateTopicTimestamp(params: Prettify<operations['updateTopicTimestamp']['parameters']['path']> & Prettify<NonNullable<operations['updateTopicTimestamp']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateTopicTimestamp']>('updateTopicTimestamp', params) as unknown as Promise<Prettify<operations['updateTopicTimestamp']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Create topic timer
    */
-  createTopicTimer(params: Prettify<operations['createTopicTimer']['parameters']['path']>) {
+  createTopicTimer(params: Prettify<operations['createTopicTimer']['parameters']['path']> & Prettify<NonNullable<operations['createTopicTimer']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['createTopicTimer']>('createTopicTimer', params) as unknown as Promise<Prettify<operations['createTopicTimer']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -416,8 +416,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Creates an upload
    */
-  createUpload() {
-    return this._exec<operations['createUpload']>('createUpload') as unknown as Promise<Prettify<operations['createUpload']['responses']['200']['content']['application/json']>> ;
+  createUpload(params: Prettify<NonNullable<operations['createUpload']['requestBody']>['content']['multipart/form-data']>) {
+    return this._exec<operations['createUpload']>('createUpload', params) as unknown as Promise<Prettify<operations['createUpload']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -442,8 +442,8 @@ export default class DiscourseAPIGenerated {
    * An external file store must be set up and `enable_direct_s3_uploads` must
    * be set to true for this endpoint to function.
    */
-  generatePresignedPut() {
-    return this._exec<operations['generatePresignedPut']>('generatePresignedPut') as unknown as Promise<Prettify<operations['generatePresignedPut']['responses']['200']['content']['application/json']>> ;
+  generatePresignedPut(params: Prettify<NonNullable<operations['generatePresignedPut']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['generatePresignedPut']>('generatePresignedPut', params) as unknown as Promise<Prettify<operations['generatePresignedPut']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -465,8 +465,8 @@ export default class DiscourseAPIGenerated {
    * An external file store must be set up and `enable_direct_s3_uploads` must
    * be set to true for this endpoint to function.
    */
-  completeExternalUpload() {
-    return this._exec<operations['completeExternalUpload']>('completeExternalUpload') as unknown as Promise<Prettify<operations['completeExternalUpload']['responses']['200']['content']['application/json']>> ;
+  completeExternalUpload(params: Prettify<NonNullable<operations['completeExternalUpload']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['completeExternalUpload']>('completeExternalUpload', params) as unknown as Promise<Prettify<operations['completeExternalUpload']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -482,8 +482,8 @@ export default class DiscourseAPIGenerated {
    * An external file store must be set up and `enable_direct_s3_uploads` must
    * be set to true for this endpoint to function.
    */
-  createMultipartUpload() {
-    return this._exec<operations['createMultipartUpload']>('createMultipartUpload') as unknown as Promise<Prettify<operations['createMultipartUpload']['responses']['200']['content']['application/json']>> ;
+  createMultipartUpload(params: Prettify<NonNullable<operations['createMultipartUpload']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createMultipartUpload']>('createMultipartUpload', params) as unknown as Promise<Prettify<operations['createMultipartUpload']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -509,8 +509,8 @@ export default class DiscourseAPIGenerated {
    * An external file store must be set up and `enable_direct_s3_uploads` must
    * be set to true for this endpoint to function.
    */
-  batchPresignMultipartParts() {
-    return this._exec<operations['batchPresignMultipartParts']>('batchPresignMultipartParts') as unknown as Promise<Prettify<operations['batchPresignMultipartParts']['responses']['200']['content']['application/json']>> ;
+  batchPresignMultipartParts(params: Prettify<NonNullable<operations['batchPresignMultipartParts']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['batchPresignMultipartParts']>('batchPresignMultipartParts', params) as unknown as Promise<Prettify<operations['batchPresignMultipartParts']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -527,8 +527,8 @@ export default class DiscourseAPIGenerated {
    * An external file store must be set up and `enable_direct_s3_uploads` must
    * be set to true for this endpoint to function.
    */
-  abortMultipart() {
-    return this._exec<operations['abortMultipart']>('abortMultipart') as unknown as Promise<Prettify<operations['abortMultipart']['responses']['200']['content']['application/json']>> ;
+  abortMultipart(params: Prettify<NonNullable<operations['abortMultipart']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['abortMultipart']>('abortMultipart', params) as unknown as Promise<Prettify<operations['abortMultipart']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -547,8 +547,8 @@ export default class DiscourseAPIGenerated {
    * An external file store must be set up and `enable_direct_s3_uploads` must
    * be set to true for this endpoint to function.
    */
-  completeMultipart() {
-    return this._exec<operations['completeMultipart']>('completeMultipart') as unknown as Promise<Prettify<operations['completeMultipart']['responses']['200']['content']['application/json']>> ;
+  completeMultipart(params: Prettify<NonNullable<operations['completeMultipart']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['completeMultipart']>('completeMultipart', params) as unknown as Promise<Prettify<operations['completeMultipart']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -561,8 +561,8 @@ export default class DiscourseAPIGenerated {
   /**
    * Creates a user
    */
-  createUser() {
-    return this._exec<operations['createUser']>('createUser') as unknown as Promise<Prettify<operations['createUser']['responses']['200']['content']['application/json']>> ;
+  createUser(params: Prettify<NonNullable<operations['createUser']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['createUser']>('createUser', params) as unknown as Promise<Prettify<operations['createUser']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
@@ -575,7 +575,7 @@ export default class DiscourseAPIGenerated {
   /**
    * Update a user
    */
-  updateUser(params: Prettify<operations['updateUser']['parameters']['path']>) {
+  updateUser(params: Prettify<operations['updateUser']['parameters']['path']> & Prettify<NonNullable<operations['updateUser']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateUser']>('updateUser', params) as unknown as Promise<Prettify<operations['updateUser']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -596,21 +596,21 @@ export default class DiscourseAPIGenerated {
   /**
    * Update avatar
    */
-  updateAvatar(params: Prettify<operations['updateAvatar']['parameters']['path']>) {
+  updateAvatar(params: Prettify<operations['updateAvatar']['parameters']['path']> & Prettify<NonNullable<operations['updateAvatar']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateAvatar']>('updateAvatar', params) as unknown as Promise<Prettify<operations['updateAvatar']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Update email
    */
-  updateEmail(params: Prettify<operations['updateEmail']['parameters']['path']>) {
+  updateEmail(params: Prettify<operations['updateEmail']['parameters']['path']> & Prettify<NonNullable<operations['updateEmail']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateEmail']>('updateEmail', params);
   }
 
   /**
    * Update username
    */
-  updateUsername(params: Prettify<operations['updateUsername']['parameters']['path']>) {
+  updateUsername(params: Prettify<operations['updateUsername']['parameters']['path']> & Prettify<NonNullable<operations['updateUsername']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['updateUsername']>('updateUsername', params);
   }
 
@@ -631,7 +631,7 @@ export default class DiscourseAPIGenerated {
   /**
    * Delete a user
    */
-  deleteUser(params: Prettify<operations['deleteUser']['parameters']['path']>) {
+  deleteUser(params: Prettify<operations['deleteUser']['parameters']['path']> & Prettify<NonNullable<operations['deleteUser']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['deleteUser']>('deleteUser', params) as unknown as Promise<Prettify<operations['deleteUser']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -652,14 +652,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Suspend a user
    */
-  suspendUser(params: Prettify<operations['suspendUser']['parameters']['path']>) {
+  suspendUser(params: Prettify<operations['suspendUser']['parameters']['path']> & Prettify<NonNullable<operations['suspendUser']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['suspendUser']>('suspendUser', params) as unknown as Promise<Prettify<operations['suspendUser']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Silence a user
    */
-  silenceUser(params: Prettify<operations['silenceUser']['parameters']['path']>) {
+  silenceUser(params: Prettify<operations['silenceUser']['parameters']['path']> & Prettify<NonNullable<operations['silenceUser']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['silenceUser']>('silenceUser', params) as unknown as Promise<Prettify<operations['silenceUser']['responses']['200']['content']['application/json']>> ;
   }
 
@@ -701,14 +701,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Send password reset email
    */
-  sendPasswordResetEmail() {
-    return this._exec<operations['sendPasswordResetEmail']>('sendPasswordResetEmail') as unknown as Promise<Prettify<operations['sendPasswordResetEmail']['responses']['200']['content']['application/json']>> ;
+  sendPasswordResetEmail(params: Prettify<NonNullable<operations['sendPasswordResetEmail']['requestBody']>['content']['application/json']>) {
+    return this._exec<operations['sendPasswordResetEmail']>('sendPasswordResetEmail', params) as unknown as Promise<Prettify<operations['sendPasswordResetEmail']['responses']['200']['content']['application/json']>> ;
   }
 
   /**
    * Change password
    */
-  changePassword(params: Prettify<operations['changePassword']['parameters']['path']>) {
+  changePassword(params: Prettify<operations['changePassword']['parameters']['path']> & Prettify<NonNullable<operations['changePassword']['requestBody']>['content']['application/json']>) {
     return this._exec<operations['changePassword']>('changePassword', params);
   }
 
