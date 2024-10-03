@@ -1,11 +1,11 @@
-name: Release
+name: Test and Release
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
 jobs:
   release:
-    name: Release
+    name: Test and Release
     runs-on: ubuntu-latest
     # environment: default
 
