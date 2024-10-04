@@ -4,7 +4,7 @@ import ajvErrors from "ajv-errors";
 import type { OpenAPIV3_1 } from "openapi-types";
 
 import spec from "./openapi.json";
-import DiscourseAPIGenerated from "./generated";
+import DiscourseAPIGenerated, { Prettify } from "./generated";
 
 type Operation = OpenAPIV3_1.OperationObject;
 type Schema = OpenAPIV3_1.SchemaObject;
@@ -60,11 +60,13 @@ function operationSchema(operation: Operation) {
         const whereSchema = properties[where]!;
         if ("properties" in whereSchema) {
           whereSchema.properties![param.name] = param.schema!;
+
           // Workaround: the spec lists these as required but that's not
           // always the case, e.g. public data.
           const skip =
             where === "header" &&
             ["Api-Key", "Api-Username"].includes(param.name);
+
           if (param.required && !skip) whereSchema.required!.push(param.name);
         }
       }
@@ -74,7 +76,16 @@ function operationSchema(operation: Operation) {
       if (operation.requestBody && "content" in operation.requestBody) {
         const content = operation.requestBody.content;
         if ("properties" in schema) {
-          const contentInner = content["application/json"];
+          const keys = Object.keys(content);
+          if (keys.length === 0)
+            throw new Error("No requestBody content types");
+          else if (keys.length > 1)
+            throw new Error(
+              "Multiple requestBody content types not supported, please report",
+            );
+          const type = keys[0]!;
+
+          const contentInner = content[type];
           if (contentInner) {
             schema.properties!.body = {
               type: "object",
@@ -82,12 +93,19 @@ function operationSchema(operation: Operation) {
             };
             if (
               "required" in contentInner.schema! &&
-              contentInner.schema!.required &&
+              contentInner.schema!.required?.length &&
               !schema.required!.includes("body")
             )
               schema.required!.push("body");
+
+            // This is the only special case in the entire API, so no need
+            // for anything fancy.  Accept ANY value for json-schema validation
+            // and handle the actual validation in the method itself.
+            if (operation.operationId === "createUpload") {
+              schema.properties!.body = {};
+            }
           } else {
-            throw new Error("No application/json content type");
+            throw new Error("No " + type + " content type");
           }
         }
       }
@@ -158,6 +176,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     const query: { [key: string]: string } = {};
     const path: { [key: string]: string } = {};
     const body: { [key: string]: string } = {};
+    let formData;
 
     if ("parameters" in operation.data) {
       const parameters = operation.data.parameters;
@@ -198,15 +217,6 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
       );
     }
 
-    const additionalProperties = Object.keys(params);
-    if (additionalProperties.length)
-      throw new Error(
-        "Unknown parameter(s) for " +
-          operationName +
-          ": " +
-          additionalProperties.join(", "),
-      );
-
     if ("requestBody" in operation.data) {
       if (
         operation.data.requestBody &&
@@ -215,26 +225,35 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         const content = operation.data.requestBody.content;
 
         const keys = Object.keys(content) as Array<keyof typeof content>;
-        if (keys.length > 1)
+        if (keys.length === 0)
+          throw new Error("No requestBody content types for " + operationName);
+        else if (keys.length > 1)
           throw new Error(
             "Multiple requestBody content types not supported, please report",
           );
-        const type = keys[0];
+        const type = keys[0]!;
+
+        const schema = content[type]?.schema;
+        if (!schema) throw new Error("No schema for " + operationName);
+
+        if ("properties" in schema) {
+          const properties = Object.keys(schema.properties || {});
+          for (const property of properties) {
+            if (params[property] !== undefined) {
+              body[property] = params[property];
+              delete params[property];
+            }
+          }
+        } else {
+          throw new Error("Unexpected schema for " + operationName);
+        }
 
         if (type === "application/json") {
           header["content-type"] = type;
-          const schema = content[type]?.schema;
-          if (!schema) throw new Error("No schema for " + operationName);
-
-          if ("properties" in schema) {
-            const properties = Object.keys(schema.properties || {});
-            for (const property of properties) {
-              if (params[property] !== undefined) {
-                body[property] = params[property];
-              }
-            }
-          } else {
-            throw new Error("Unexpected schema for " + operationName);
+        } else if (type === "multipart/form-data") {
+          formData = new FormData();
+          for (const [key, value] of Object.entries(body)) {
+            formData.append(key, value);
           }
         } else {
           throw new Error(
@@ -243,6 +262,15 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         }
       }
     }
+
+    const additionalProperties = Object.keys(params);
+    if (additionalProperties.length)
+      throw new Error(
+        "Unknown parameter(s) for " +
+          operationName +
+          ": " +
+          additionalProperties.join(", "),
+      );
 
     const validate = getValidator(operationSchema(operation.data));
     const valid = validate({ header, path, query, body });
@@ -274,7 +302,10 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     const requestInit: RequestInit = {
       method: operation.method,
       headers: new Headers(header),
-      body: operation.method === "post" ? JSON.stringify(body) : undefined,
+      body:
+        operation.method === "post"
+          ? formData || JSON.stringify(body)
+          : undefined,
     };
 
     // console.log(url, requestInit);
@@ -313,5 +344,22 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     */
 
     return json;
+  }
+
+  // Spec: { file: { type: "string", format: "binary" } }
+  // @ts-expect-error: intentional break of types
+  createUpload(
+    params: Prettify<
+      Omit<Parameters<DiscourseAPIGenerated["createUpload"]>[0], "file"> & {
+        file?: File | Blob;
+      }
+    >,
+  ) {
+    const file = params.file;
+    if (file && !(file instanceof File || file instanceof Blob))
+      throw new Error("file must be a File or Blob, not " + typeof file);
+
+    // @ts-expect-error: intentional break of types
+    return super.createUpload(params);
   }
 }

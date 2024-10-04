@@ -1,6 +1,6 @@
 import { operations } from "./schema";
 
-type Prettify<T> = {
+export type Prettify<T> = {
   [K in keyof T]: T[K];
 } & {}
 

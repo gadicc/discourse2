@@ -175,6 +175,9 @@ the following APIs were supported: (link is to official docs, in same order).
    can add additional properties, etc. Likewise, running older versions
    of Discourse may return data that doesn't match the current spec.
 
+1. **`createUpload()`** has been modified to accept `{ file?: Blob | File }`,
+   vs the original spec of `{ file: { type: "string", format: "binary }}`.
+
 ## TODO
 
 - [x] Validation (params; re response, see note above)

@@ -42,7 +42,7 @@ const methods = [
 
 (async () => {
   let out = 'import { operations } from "./schema";' + "\n\n";
-  out += "type Prettify<T> = {\n  [K in keyof T]: T[K];\n} & {}\n\n";
+  out += "export type Prettify<T> = {\n  [K in keyof T]: T[K];\n} & {}\n\n";
   out += "export default class DiscourseAPIGenerated {\n";
   out +=
     "  _exec<T>(operationName: string, params?: any) { throw new Error('Not implemented'); }\n\n";
