@@ -1,11 +1,12 @@
-import { operations } from "./schema";
+import type { operations } from "./schema.d.ts";
 
 export type Prettify<T> = {
   [K in keyof T]: T[K];
+// deno-lint-ignore ban-types
 } & {}
 
 export default class DiscourseAPIGenerated {
-  _exec<T>(operationName: string, params?: any) { throw new Error('Not implemented'); }
+  _exec<T>(_operationName: string, _params?: unknown) { throw new Error('Not implemented'); }
 
   /**
    * List backups

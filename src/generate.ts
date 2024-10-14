@@ -1,6 +1,5 @@
-import fs from "fs/promises";
-import spec from "./openapi.json";
-import { OpenAPIV3_1 } from "openapi-types";
+import spec from "./openapi.json" with { type: "json" };
+import type { OpenAPIV3_1 } from "openapi-types";
 
 type Operation = OpenAPIV3_1.OperationObject;
 
@@ -17,7 +16,7 @@ type Entry<T> = T extends infer O extends object
   ? { [K in keyof O]: [K, O[K]] }[keyof O]
   : never;
 function objectEntries<T extends object>(obj: T): Entry<T>[] {
-  return Object.entries(obj) as any;
+  return Object.entries(obj) as Entry<T>;
 }
 
 type Method =
@@ -41,44 +40,46 @@ const methods = [
 ] as Method[];
 
 (async () => {
-  let out = 'import { operations } from "./schema";' + "\n\n";
-  out += "export type Prettify<T> = {\n  [K in keyof T]: T[K];\n} & {}\n\n";
+  let out = 'import type { operations } from "./schema.d.ts";' + "\n\n";
+  out +=
+    "export type Prettify<T> = {\n  [K in keyof T]: T[K];\n// deno-lint-ignore ban-types\n} & {}\n\n";
   out += "export default class DiscourseAPIGenerated {\n";
   out +=
-    "  _exec<T>(operationName: string, params?: any) { throw new Error('Not implemented'); }\n\n";
+    "  _exec<T>(_operationName: string, _params?: unknown) { throw new Error('Not implemented'); }\n\n";
 
-  for (const [path, pathData] of objectEntries(spec.paths)) {
+  for (const [_path, pathData] of objectEntries(spec.paths)) {
     for (const method of methods) {
       if (!(method in pathData)) continue;
 
       // Someone smarter than me can figure out a better type-safe way to do this
       let methodData: OpenAPIV3_1.OperationObject;
-      if (method === "get" && "get" in pathData)
+      if (method === "get" && "get" in pathData) {
         methodData = pathData.get as Operation;
-      else if (method === "put" && "put" in pathData)
+      } else if (method === "put" && "put" in pathData) {
         methodData = pathData.put as Operation;
-      else if (method === "post" && "post" in pathData)
+      } else if (method === "post" && "post" in pathData) {
         methodData = pathData.post as Operation;
-      else if (method === "delete" && "delete" in pathData)
+      } else if (method === "delete" && "delete" in pathData) {
         methodData = pathData.delete as Operation;
-      else if (method === "options" && "options" in pathData)
+      } else if (method === "options" && "options" in pathData) {
         methodData = pathData.options as Operation;
-      else if (method === "head" && "head" in pathData)
+      } else if (method === "head" && "head" in pathData) {
         methodData = pathData.head as Operation;
-      else if (method === "patch" && "patch" in pathData)
+      } else if (method === "patch" && "patch" in pathData) {
         methodData = pathData.patch as Operation;
-      else if (method === "trace" && "trace" in pathData)
+      } else if (method === "trace" && "trace" in pathData) {
         methodData = pathData.trace as Operation;
-      else continue;
+      } else continue;
 
       const operationId = methodData.operationId;
 
       let comment = "/**\n * " + methodData.summary + "\n";
-      if (methodData.description)
+      if (methodData.description) {
         comment += indent(
           "@description " + methodData.description.trim() + "\n",
           " * ",
         );
+      }
       comment += " */\n";
 
       let methodString = indent(comment);
@@ -100,9 +101,8 @@ const methods = [
 
       if (methodData.requestBody && !required) required = true;
 
-      if (types.length || methodData.requestBody)
-        methodString +=
-          "params" +
+      if (types.length || methodData.requestBody) {
+        methodString += "params" +
           (required ? "" : "?") +
           ": " +
           types
@@ -111,19 +111,20 @@ const methods = [
                 `Prettify<operations['${operationId}']['parameters']['${type}']>`,
             )
             .join(" & ");
+      }
 
       if (methodData.requestBody) {
         if ("content" in methodData.requestBody) {
           const content = methodData.requestBody.content;
           const keys = Object.keys(content) as Array<keyof typeof content>;
-          if (keys.length > 1)
+          if (keys.length > 1) {
             throw new Error(
               "Multiple requestBody content types not supported, please report",
             );
+          }
           const type = keys[0];
           if (types.length) methodString += " & ";
-          methodString +=
-            "Prettify<NonNullable<operations['" +
+          methodString += "Prettify<NonNullable<operations['" +
             operationId +
             "']['requestBody']>['content']['" +
             type +
@@ -141,8 +142,7 @@ const methods = [
           const content = methodData.responses["200"].content;
           if (content) {
             if ("application/json" in content) {
-              returnType =
-                "Promise<Prettify<operations['" +
+              returnType = "Promise<Prettify<operations['" +
                 operationId +
                 "']['responses']['200']['content']['application/json']>> ";
 
@@ -188,5 +188,7 @@ const methods = [
   }
   out += "}\n";
 
-  await fs.writeFile("src/generated.ts", out);
+  const encoder = new TextEncoder();
+  const data = encoder.encode(out);
+  await Deno.writeFile("src/generated.ts", data);
 })();

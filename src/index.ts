@@ -1,10 +1,10 @@
-import Ajv from "ajv";
+import { Ajv } from "ajv";
 import type { ValidateFunction } from "ajv";
-import ajvErrors from "ajv-errors";
+import _ajvErrors from "ajv-errors";
 import type { OpenAPIV3_1 } from "openapi-types";
 
-import spec from "./openapi.json";
-import DiscourseAPIGenerated, { Prettify } from "./generated";
+import spec from "./openapi.json" with { type: "json" };
+import DiscourseAPIGenerated, { type Prettify } from "./generated.ts";
 
 type Operation = OpenAPIV3_1.OperationObject;
 type Schema = OpenAPIV3_1.SchemaObject;
@@ -13,6 +13,7 @@ const ajv = new Ajv({
   // All rules, all errors.  Don't end early after first error.
   allErrors: true,
 });
+const ajvErrors = _ajvErrors.default;
 ajvErrors(ajv /*, {singleError: true} */);
 
 const compiled = new Map<object, ValidateFunction>();
@@ -63,8 +64,7 @@ function operationSchema(operation: Operation) {
 
           // Workaround: the spec lists these as required but that's not
           // always the case, e.g. public data.
-          const skip =
-            where === "header" &&
+          const skip = where === "header" &&
             ["Api-Key", "Api-Username"].includes(param.name);
 
           if (param.required && !skip) whereSchema.required!.push(param.name);
@@ -77,12 +77,13 @@ function operationSchema(operation: Operation) {
         const content = operation.requestBody.content;
         if ("properties" in schema) {
           const keys = Object.keys(content);
-          if (keys.length === 0)
+          if (keys.length === 0) {
             throw new Error("No requestBody content types");
-          else if (keys.length > 1)
+          } else if (keys.length > 1) {
             throw new Error(
               "Multiple requestBody content types not supported, please report",
             );
+          }
           const type = keys[0]!;
 
           const contentInner = content[type];
@@ -95,8 +96,9 @@ function operationSchema(operation: Operation) {
               "required" in contentInner.schema! &&
               contentInner.schema!.required?.length &&
               !schema.required!.includes("body")
-            )
+            ) {
               schema.required!.push("body");
+            }
 
             // This is the only special case in the entire API, so no need
             // for anything fancy.  Accept ANY value for json-schema validation
@@ -166,7 +168,10 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     if (opts["Api-Username"]) this["Api-Username"] = opts["Api-Username"];
   }
 
-  async _exec<T>(operationName: string, params = {} as any) {
+  override async _exec<T>(
+    operationName: string,
+    params = {} as Record<string, string>,
+  ) {
     const operation = byOperationId[operationName];
     if (!operation) throw new Error("Unknown operation: " + operationName);
 
@@ -175,7 +180,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     const header: { [key: string]: string } = {};
     const query: { [key: string]: string } = {};
     const path: { [key: string]: string } = {};
-    const body: { [key: string]: string } = {};
+    const body: { [key: string]: string | Blob } = {};
     let formData;
 
     if ("parameters" in operation.data) {
@@ -225,12 +230,13 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         const content = operation.data.requestBody.content;
 
         const keys = Object.keys(content) as Array<keyof typeof content>;
-        if (keys.length === 0)
+        if (keys.length === 0) {
           throw new Error("No requestBody content types for " + operationName);
-        else if (keys.length > 1)
+        } else if (keys.length > 1) {
           throw new Error(
             "Multiple requestBody content types not supported, please report",
           );
+        }
         const type = keys[0]!;
 
         const schema = content[type]?.schema;
@@ -253,7 +259,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         } else if (type === "multipart/form-data") {
           formData = new FormData();
           for (const [key, value] of Object.entries(body)) {
-            formData.append(key, value);
+            formData.append(key, value as string | Blob);
           }
         } else {
           throw new Error(
@@ -264,13 +270,14 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     }
 
     const additionalProperties = Object.keys(params);
-    if (additionalProperties.length)
+    if (additionalProperties.length) {
       throw new Error(
         "Unknown parameter(s) for " +
           operationName +
           ": " +
           additionalProperties.join(", "),
       );
+    }
 
     const validate = getValidator(operationSchema(operation.data));
     const valid = validate({ header, path, query, body });
@@ -285,27 +292,28 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     // Sometimes the OpenAPI doesn't list the Api-Key and Api-Username as parameters
     // but still requires them.  So, provide them even if not asked.
     (["Api-Key", "Api-Username"] as const).forEach((name) => {
-      if (!header[name] && (params[name] || this[name]))
+      if (!header[name] && (params[name] || this[name])) {
         header[name] = this[name]!;
+      }
     });
 
     // Substitue path parameters, e.g. /posts/{id} -> /posts/123
     let url = (this.url + operation.path).replace(
       /\{([^}]+)\}/g,
-      (_, p) => path[p] || `{${p}}`,
+      (_, p) => (path[p] as string | undefined) || `{${p}}`,
     );
 
     // Include query parameters
-    if (Object.keys(query).length)
+    if (Object.keys(query).length) {
       url += "?" + new URLSearchParams(query).toString();
+    }
 
     const requestInit: RequestInit = {
       method: operation.method,
       headers: new Headers(header),
-      body:
-        operation.method === "post"
-          ? formData || JSON.stringify(body)
-          : undefined,
+      body: operation.method === "post"
+        ? formData || JSON.stringify(body)
+        : undefined,
     };
 
     // console.log(url, requestInit);
@@ -356,8 +364,9 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     >,
   ) {
     const file = params.file;
-    if (file && !(file instanceof File || file instanceof Blob))
+    if (file && !(file instanceof File || file instanceof Blob)) {
       throw new Error("file must be a File or Blob, not " + typeof file);
+    }
 
     // @ts-expect-error: intentional break of types
     return super.createUpload(params);

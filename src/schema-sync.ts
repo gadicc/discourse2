@@ -1,4 +1,3 @@
-import fs from "fs/promises";
 import util from "node:util";
 import child_process from "node:child_process";
 import meta from "./openapi-meta.json" with { type: "json" };
@@ -7,6 +6,9 @@ import { webcrypto } from "node:crypto";
 const OPENAPI_URL = "https://docs.discourse.org/openapi.json";
 const OPENAPI_PATH = "./src/openapi.json";
 const OPENAPI_META_PATH = "./src/openapi-meta.json"; // must match import above
+
+const ENV_CI = Deno.env.get("CI");
+const CI = ENV_CI && ENV_CI !== "false" && ENV_CI !== "0";
 
 const { subtle } = webcrypto;
 const exec = util.promisify(child_process.exec);
@@ -49,13 +51,17 @@ async function digestMessage(message: string) {
     hashShort: hash.slice(0, 7),
   };
 
-  await fs.writeFile(OPENAPI_PATH, contents);
-  await fs.writeFile(OPENAPI_META_PATH, JSON.stringify(newMeta, null, 2));
+  const encoder = new TextEncoder();
+  await Deno.writeFile(OPENAPI_PATH, encoder.encode(contents));
+  await Deno.writeFile(
+    OPENAPI_META_PATH,
+    encoder.encode(JSON.stringify(newMeta, null, 2)),
+  );
 
   // TODO, adapt all this to run programatically
   console.log();
-  await execAndLog("yarn schema:ts");
-  await execAndLog("yarn generate");
+  await execAndLog("deno task schema:ts");
+  await execAndLog("deno task generate");
 
   const files = [
     "openapi.json",
@@ -66,16 +72,13 @@ async function digestMessage(message: string) {
     .map((file) => `src/${file}`)
     .join(" ");
 
-  const message =
-    "fix(pkg): Update OpenAPI schema (" +
+  const message = "fix(pkg): Update OpenAPI schema (" +
     newMeta.retrievedAtDate +
     '; "' +
     newMeta.hashShort +
     '")';
   await execAndLog(`git commit -m '${message}' ${files}`);
 
-  const CI =
-    process.env.CI && process.env.CI !== "false" && process.env.CI !== "0";
   if (!CI) {
     console.log(
       "Environment variable `CI` is not set or is false, skipping 'git push'.",
