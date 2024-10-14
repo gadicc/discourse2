@@ -1,0 +1,19 @@
+{
+  "name": "@gadicc/discourse2",
+  "version": "0.0.1",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "tasks": {
+    "dev": "deno run --watch src/index.ts",
+    "test": "deno test --allow-env --allow-read --allow-write --allow-net",
+    "generate": "deno --allow-write src/generate.ts"
+  },
+  "imports": {
+    "@gadicc/fetch-mock-cache": "jsr:@gadicc/fetch-mock-cache@^2.0.2",
+    "@std/assert": "jsr:@std/assert@1",
+    "ajv": "npm:ajv@^8.17.1",
+    "ajv-errors": "npm:ajv-errors@^3.0.0",
+    "openapi-types": "npm:openapi-types@^12.1.3"
+  }
+}
