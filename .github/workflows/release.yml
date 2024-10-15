@@ -56,5 +56,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm install -g @sebbo2002/semantic-release-jsr
+          npm install -D @sebbo2002/semantic-release-jsr
           npx semantic-release
