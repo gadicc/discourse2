@@ -27,7 +27,7 @@ jobs:
           deno-version: v2.x
 
       - name: Run CI script (tests)
-        run: yarn ci
+        run: deno task ci
 
       - name: Jest Coverage Comment
         id: coverageComment
@@ -53,6 +53,9 @@ jobs:
           message: ${{ steps.coverageComment.outputs.coverage }}%
           color: ${{ steps.coverageComment.outputs.color }}
           # namedLogo: javascript
+
+      - name: Build NPM package
+        run: deno task build:npm
 
       - name: Release
         env:
