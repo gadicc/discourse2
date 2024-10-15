@@ -35,7 +35,9 @@ jobs:
         run: deno task ci
 
       - name: Export coverage to LCOV format
-        run: deno coverage --lcov --output=info.lcov cov_profile/
+        run: |
+          for file in `grep -l '"url": "\\\n' cov_profile/*`; do rm $file; done
+          deno coverage --lcov --output=info.lcov cov_profile/
 
       - name: Upload coverage to gist
         uses: gaelgirodon/ci-badges-action@1.6.0
