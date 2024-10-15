@@ -13,7 +13,7 @@
     "schema:fetch": "curl -o src/openapi.json https://docs.discourse.org/openapi.json",
     "schema:ts": "deno run --allow-read --allow-write --allow-env npm:openapi-typescript src/openapi.json -o src/schema.d.ts",
     "generate": "deno run --allow-write scripts/generate.ts",
-    "build:npm": "deno run -A src/build-npm.ts"
+    "build:npm": "deno run -A scripts/build-npm.ts"
   },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.41.3",
