@@ -22,12 +22,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js (for semantic-release only)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
-
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
