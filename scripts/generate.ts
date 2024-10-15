@@ -1,4 +1,4 @@
-import spec from "./openapi.json" with { type: "json" };
+import spec from "../src/openapi.json" with { type: "json" };
 import type { OpenAPIV3_1 } from "openapi-types";
 
 type Operation = OpenAPIV3_1.OperationObject;
@@ -197,5 +197,5 @@ const methods = [
 
   const encoder = new TextEncoder();
   const data = encoder.encode(out);
-  await Deno.writeFile("src/generated.ts", data);
+  await Deno.writeFile("./src/generated.ts", data);
 })();

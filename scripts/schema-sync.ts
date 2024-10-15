@@ -1,6 +1,6 @@
 import util from "node:util";
 import child_process from "node:child_process";
-import meta from "./openapi-meta.json" with { type: "json" };
+import meta from "../src/openapi-meta.json" with { type: "json" };
 import { webcrypto } from "node:crypto";
 
 const OPENAPI_URL = "https://docs.discourse.org/openapi.json";
