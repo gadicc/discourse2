@@ -192,9 +192,9 @@ following APIs were supported: (link is to official docs, in same order).
 
 ## Development
 
-- `yarn schema:sync` will check if the schema is up to date, and if not, make
-  necessary updates and regenerations and commit the changes. If `CI=true`, it
-  will also `git push` (which will trigger a rebuild and release).
+- `deno taskyarn schema:sync` will check if the schema is up to date, and if
+  not, make necessary updates and regenerations and commit the changes. If
+  `CI=true`, it will also `git push` (which will trigger a rebuild and release).
 
 Older method:
 
