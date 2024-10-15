@@ -14,12 +14,19 @@ jobs:
       contents: write # create releases
       issues: write # issue comments and labels
       pull-requests: write # ditto
+      id-token: write # The OIDC ID token is used for authentication with JSR.
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Setup Node.js (for semantic-release only)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
 
       - uses: denoland/setup-deno@v2
         with:
@@ -57,4 +64,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: |
+          npm install -g @sebbo2002/semantic-release-jsr
+          npx semantic-release
