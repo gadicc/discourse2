@@ -26,6 +26,6 @@
     "semantic-release": "npm:semantic-release@^24.1.2"
   },
   "publish": {
-    "include": ["src"]
+    "include": ["src", "README.md"]
   }
 }

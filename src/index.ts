@@ -1,3 +1,21 @@
+/**
+ * @module
+ *
+ * The complete Discourse API, fully typed.
+ *
+ * @example
+ * ```ts
+ * import Discourse from "discourse2";
+ *
+ * const discourse = new Discourse("https://forums.kiri.art", {
+ *   "Api-Key": process.env.DISCOURSE_API_KEY,
+ *   "Api-Username": process.env.DISCOURSE_API_USERNAME,
+ * });
+ *
+ * const result = await discourse.listLatestTopics();
+ * ```
+ */
+
 import { Ajv } from "ajv";
 import type { ValidateFunction } from "ajv";
 import _ajvErrors from "ajv-errors";
@@ -129,6 +147,11 @@ for (const [path, pathData] of Object.entries(spec.paths)) {
   }
 }
 
+/**
+ * Returned when the HTTP status code is not 200.
+ * The error message is available as the `message` property.
+ * The status code is available as the `status` property.
+ */
 export class HTTPError extends Error {
   status: number;
   constructor(status: number, message: string) {
@@ -137,6 +160,10 @@ export class HTTPError extends Error {
   }
 }
 
+/**
+ * Returned when the parameters provided to a method are invalid.
+ * The exact (AJV) errors are available in the `errors` property.
+ */
 export class ParamaterValidationError extends Error {
   errors: typeof ajv.errors;
   constructor(message: string, errors: typeof ajv.errors) {
@@ -145,6 +172,10 @@ export class ParamaterValidationError extends Error {
   }
 }
 
+/**
+ * Returned when the response from the server is invalid.
+ * The exact (AJV) errors are available in the `errors` property.
+ */
 export class ResponseValidationError extends Error {
   errors: typeof ajv.errors;
   constructor(message: string, errors: typeof ajv.errors) {
@@ -153,6 +184,21 @@ export class ResponseValidationError extends Error {
   }
 }
 
+/**
+ * The full Discourse API class.
+ *
+ * @example
+ * ```ts
+ * import Discourse from "discourse2";
+ *
+ * const discourse = new Discourse("https://forums.kiri.art", {
+ *   "Api-Key": process.env.DISCOURSE_API_KEY,
+ *   "Api-Username": process.env.DISCOURSE_API_USERNAME,
+ * });
+ *
+ * const result = await discourse.listLatestTopics();
+ * ```
+ */
 export default class DiscourseAPI extends DiscourseAPIGenerated {
   private url: string;
   private "Api-Key"?: string;
