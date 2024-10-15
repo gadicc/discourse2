@@ -35,7 +35,7 @@ jobs:
         run: deno task ci
 
       - name: Export coverage to LCOV format
-        run: deno coverage --lcov --output=info.lcov
+        run: deno coverage --lcov --output=info.lcov cov_profile/
 
       - name: Upload coverage to gist
         uses: gaelgirodon/ci-badges-action@1.6.0
