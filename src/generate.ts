@@ -47,7 +47,7 @@ const methods = [
   out +=
     "  _exec<T>(_operationName: string, _params?: unknown) { throw new Error('Not implemented'); }\n\n";
 
-  for (const [_path, pathData] of objectEntries(spec.paths)) {
+  for (const [path, pathData] of objectEntries(spec.paths)) {
     for (const method of methods) {
       if (!(method in pathData)) continue;
 
@@ -134,7 +134,7 @@ const methods = [
         }
       }
 
-      methodString += ") ";
+      methodString += ")";
 
       let returnType = null;
       if (methodData?.responses?.["200"]) {
@@ -144,10 +144,7 @@ const methods = [
             if ("application/json" in content) {
               returnType = "Promise<Prettify<operations['" +
                 operationId +
-                "']['responses']['200']['content']['application/json']>> ";
-
-              // We can just rely on the returned type inside the function
-              // methodString += ": " + returnType;
+                "']['responses']['200']['content']['application/json']>>";
             } else {
               throw new Error(
                 "No application/json content found in 200 response, please report",
@@ -159,15 +156,25 @@ const methods = [
             );
           }
         } else {
-          console.warn("  * No content field");
+          // console.warn("  * No content field");
+          returnType = "Promise<void>";
         }
       } else if (methodData?.responses?.["301"]) {
-        console.warn("  * 301, not handled yet");
+        if (path === "/t/external_id/{external_id}.json") {
+          returnType =
+            "Promise<Prettify<operations['getTopic']['responses']['200']['content']['application/json']>>";
+        } else {
+          console.warn("  * 301, not handled yet");
+        }
       } else {
         throw new Error("No 200 response found, please report");
       }
 
-      methodString += "{\n";
+      if (returnType) {
+        methodString += ": " + returnType;
+      }
+
+      methodString += " {\n";
 
       methodString += indent(
         "  return this._exec<operations['" +
