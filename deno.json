@@ -6,6 +6,7 @@
   },
   "tasks": {
     "dev": "deno run --watch src/index.ts",
+    "ci": "deno check src/* && deno lint src/* && deno task test",
     "test": "deno test --allow-env --allow-read --allow-write --allow-net",
     "schema:sync": "deno run --allow-env --allow-write --allow-read --allow-net --allow-run src/schema-sync.ts",
     "schema:fetch": "curl -o src/openapi.json https://docs.discourse.org/openapi.json",
