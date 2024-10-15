@@ -39,6 +39,9 @@ jobs:
           for file in `grep -l '"url": "\\\n' cov_profile/*`; do rm $file; done
           deno coverage --lcov --output=info.lcov cov_profile/
 
+      - name: Prepare packages for next step (remove after non-sha release)
+        run: cd /home/runner/work/_actions/gaelgirodon/ci-badges-action && npm i -D @actions/core @actions/github @actions/glob
+  
       - name: Upload coverage to gist
         uses: gaelgirodon/ci-badges-action@1.6.0
         with:
