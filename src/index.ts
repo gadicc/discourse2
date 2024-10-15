@@ -9,7 +9,7 @@ import DiscourseAPIGenerated, { type Prettify } from "./generated.ts";
 type Operation = OpenAPIV3_1.OperationObject;
 type Schema = OpenAPIV3_1.SchemaObject;
 
-const ajv = new Ajv({
+const ajv: Ajv = new Ajv({
   // All rules, all errors.  Don't end early after first error.
   allErrors: true,
 });
@@ -171,7 +171,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
   override async _exec<T>(
     operationName: string,
     params = {} as Record<string, string>,
-  ) {
+  ): Promise<unknown> {
     const operation = byOperationId[operationName];
     if (!operation) throw new Error("Unknown operation: " + operationName);
 
@@ -362,7 +362,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         file?: File | Blob;
       }
     >,
-  ) {
+  ): ReturnType<DiscourseAPIGenerated["createUpload"]> {
     const file = params.file;
     if (file && !(file instanceof File || file instanceof Blob)) {
       throw new Error("file must be a File or Blob, not " + typeof file);
