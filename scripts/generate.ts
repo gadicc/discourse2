@@ -42,7 +42,7 @@ const methods = [
 (async () => {
   let out = 'import type { operations } from "./schema.d.ts";' + "\n\n";
   out +=
-    "export type Prettify<T> = {\n  [K in keyof T]: T[K];\n// deno-lint-ignore ban-types\n} & {}\n\n";
+    "type Prettify<T> = {\n  [K in keyof T]: T[K];\n// deno-lint-ignore ban-types\n} & {}\n\n";
   out += "export default class DiscourseAPIGenerated {\n";
   out +=
     "  _exec<T>(_operationName: string, _params?: unknown) { throw new Error('Not implemented'); }\n\n";

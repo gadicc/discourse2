@@ -1,6 +1,6 @@
 import type { operations } from "./schema.d.ts";
 
-export type Prettify<T> = {
+type Prettify<T> = {
   [K in keyof T]: T[K];
 // deno-lint-ignore ban-types
 } & {}

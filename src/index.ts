@@ -22,7 +22,16 @@ import _ajvErrors from "ajv-errors";
 import type { OpenAPIV3_1 } from "openapi-types";
 
 import spec from "./openapi.json" with { type: "json" };
-import DiscourseAPIGenerated, { type Prettify } from "./generated.ts";
+import DiscourseAPIGenerated from "./generated.ts";
+
+// Previously we imported this from ./generated.ts, but, exporting it
+// from there breaks the unwrapping.
+type Prettify<T> =
+  & {
+    [K in keyof T]: T[K];
+  }
+  // deno-lint-ignore ban-types
+  & {};
 
 type Operation = OpenAPIV3_1.OperationObject;
 type Schema = OpenAPIV3_1.SchemaObject;
@@ -402,13 +411,13 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
   // Spec: { file: { type: "string", format: "binary" } }
   // @ts-expect-error: intentional break of types
-  createUpload(
+  override createUpload(
     params: Prettify<
       Omit<Parameters<DiscourseAPIGenerated["createUpload"]>[0], "file"> & {
         file?: File | Blob;
       }
     >,
-  ): ReturnType<DiscourseAPIGenerated["createUpload"]> {
+  ): Prettify<ReturnType<DiscourseAPIGenerated["createUpload"]>> {
     const file = params.file;
     if (file && !(file instanceof File || file instanceof Blob)) {
       throw new Error("file must be a File or Blob, not " + typeof file);
