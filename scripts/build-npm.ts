@@ -39,5 +39,7 @@ await build({
     // steps to run after building and before running the tests
     Deno.copyFileSync("LICENSE.txt", "npm/LICENSE.txt");
     Deno.copyFileSync("README.md", "npm/README.md");
+    Deno.copyFileSync("src/schema.d.ts", "npm/esm/schema.d.ts");
+    Deno.copyFileSync("src/schema.d.ts", "npm/script/schema.d.ts");
   },
 });
