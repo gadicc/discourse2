@@ -30,3 +30,16 @@ requests and their responses are cached with `fetch-mock-cache` (
 [npm](https://www.npmjs.com/package/fetch-mock-cache),
 [jsr](https://jsr.io/@gadicc/fetch-mock-cache) ), so it's unlikely you'll need
 to setup Discourse yourself.
+
+Probably all you need is:
+
+```bash
+# Run all tests
+$ deno task test
+
+# Filter for specific tests
+$ deno task test --filter backups
+
+# Generate and report coverage
+$ deno task coverage
+```

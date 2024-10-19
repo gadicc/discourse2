@@ -36,7 +36,7 @@ jobs:
 
       - name: Export coverage to LCOV format
         run: |
-          for file in `grep -l '"url": "\\\n' cov_profile/*`; do rm $file; done
+          # for file in `grep -l '"url": "\\\n' cov_profile/*`; do rm $file; done
           deno coverage --lcov --output=info.lcov cov_profile/
 
       - name: Prepare packages for next step (remove after non-sha release)
