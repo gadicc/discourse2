@@ -10,6 +10,12 @@ await build({
     deno: true,
   },
   importMap: "deno.json",
+
+  // No tests for now.  Do we really need them?  Also need to fix:
+  // error: Uncaught (in promise) "Error stripping prefix of
+  // ~/discourse2/tests/docker/server.json with base ~/discourse2/src"
+  test: false,
+
   package: {
     // package.json properties
     name: "discourse2",
