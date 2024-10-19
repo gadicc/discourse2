@@ -1,0 +1,37 @@
+{
+  "request": {
+    "url": "http://localhost/admin/backups/discourse-2024-10-19-080613-v20240725042522.sql.gz",
+    "method": "PUT",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "text/plain; charset=utf-8",
+      "date": "Sat, 19 Oct 2024 08:59:43 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "vary": "Accept",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "backups/email",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "f45f3954-acae-4cf1-a222-d853094e1567",
+      "x-runtime": "0.010875",
+      "x-xss-protection": "0"
+    },
+    "bodyText": ""
+  }
+}
