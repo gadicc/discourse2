@@ -237,6 +237,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     const path: { [key: string]: string } = {};
     const body: { [key: string]: string | Blob } = {};
     let formData;
+    let contentType;
 
     if ("parameters" in operation.data) {
       const parameters = operation.data.parameters;
@@ -269,7 +270,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
           );
         }
       }
-    } else {
+    } else if (Object.keys(params).length) {
       throw new Error(
         operationName +
           " accepts no parameters, but given: " +
@@ -310,7 +311,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         }
 
         if (type === "application/json") {
-          header["content-type"] = type;
+          contentType = "application/json";
         } else if (type === "multipart/form-data") {
           formData = new FormData();
           for (const [key, value] of Object.entries(body)) {
@@ -344,6 +345,9 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
       throw error;
     }
 
+    // Do this after validation (of user headers)
+    if (contentType) header["Content-Type"] = contentType;
+
     // Sometimes the OpenAPI doesn't list the Api-Key and Api-Username as parameters
     // but still requires them.  So, provide them even if not asked.
     (["Api-Key", "Api-Username"] as const).forEach((name) => {
@@ -373,11 +377,32 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     // console.log(url, requestInit);
 
+    const responses = operation.data.responses;
+    if (!responses) {
+      throw new Error("No expected responses for " + operationName);
+    }
+
     const response = await fetch(url, requestInit);
+
     const text = await response.text();
     if (response.status !== 200) {
       throw new HTTPError(response.status, text);
     }
+
+    const response200 = responses["200"];
+    if (!response200) throw new Error("No 200 response for " + operationName);
+
+    if (!("content" in response200)) {
+      return;
+    }
+
+    const content = response200.content;
+    if (!(content && "application/json" in content)) {
+      throw new Error(
+        "No application/json content in 200 response for " + operationName,
+      );
+    }
+
     const json = JSON.parse(text);
 
     /*
