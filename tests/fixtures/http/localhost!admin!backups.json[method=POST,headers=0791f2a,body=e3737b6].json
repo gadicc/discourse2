@@ -1,10 +1,14 @@
 {
   "request": {
     "url": "http://localhost/admin/backups.json",
-    "method": "GET",
+    "method": "POST",
     "headers": {
       "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
-      "api-username": "system"
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {
+      "with_uploads": false
     }
   },
   "response": {
@@ -15,28 +19,24 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Sat, 19 Oct 2024 08:59:42 GMT",
+      "date": "Sat, 19 Oct 2024 09:30:28 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
       "status": "200 OK",
       "transfer-encoding": "chunked",
       "x-content-type-options": "nosniff",
-      "x-discourse-route": "backups/index",
+      "x-discourse-route": "backups/create",
       "x-discourse-username": "system",
       "x-download-options": "noopen",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
       "x-powered-by": "Phusion Passenger(R) 6.0.23",
-      "x-request-id": "7b791061-a69c-4710-843c-9a5cb923dca6",
-      "x-runtime": "0.005701",
+      "x-request-id": "723d4c94-7004-43cc-91b5-4ff0610b4949",
+      "x-runtime": "0.009985",
       "x-xss-protection": "0"
     },
-    "bodyJson": [
-      {
-        "filename": "discourse-2024-10-19-080613-v20240725042522.sql.gz",
-        "size": 2441712,
-        "last_modified": "2024-10-19T08:06:13.537Z"
-      }
-    ]
+    "bodyJson": {
+      "success": "OK"
+    }
   }
 }

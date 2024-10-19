@@ -1,0 +1,42 @@
+{
+  "request": {
+    "url": "http://localhost/admin/backups/discourse-2024-10-19-085945-v20240725042522.sql.gz?token=invalid",
+    "method": "GET",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 422,
+    "statusText": "Unprocessable Entity",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-security-policy": "base-uri 'self'; object-src 'none'; script-src 'nonce-5SeRmFUD3pufPiXMKlbF1Tgbr' 'strict-dynamic'; frame-ancestors 'self'; manifest-src 'self'",
+      "content-type": "text/html; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin-allow-popups",
+      "date": "Sat, 19 Oct 2024 09:30:28 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "set-cookie": [
+        "_forum_session=LyS0BmJOhhimhBgSrKKLRU0qAEmfIpcBjJ1oXQ13JX%2FEAs%2FBrR2Sxd6qJyocf%2FoeW5FmGE7KmFyC%2FEg2CCbrKezNIP9kG97i1WUitYKLjyaX5yY6B3rrozne0lB%2BUkYpTrPNKkyM0OZ%2B%2FOYqAKbHbYLwQ3wX%2BA83VN5smSu%2FHJmxwowFpy3WBd2%2F5DLYPyVKst%2BiXYmmezCQEWsCbzVS13nA9e%2BQUF4GOZytUG5U5a28mIz22t5LRT3OzEVHb61IzMpQ1OZHBOe%2BToprWP9%2BRrvXKK%2Bm5Q%3D%3D--p9TdjB9AIT8%2Be1Bi--0XjTZ1k8iRnwbgqlaBE4zw%3D%3D; path=/; HttpOnly; SameSite=Lax"
+      ],
+      "status": "422 Unprocessable Entity",
+      "transfer-encoding": "chunked",
+      "vary": "Accept",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "backups/show",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "82cb4c62-3d76-457d-8859-5ba9ed9882d8",
+      "x-runtime": "0.056062",
+      "x-xss-protection": "0"
+    },
+    "bodyText": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Discourse</title>\n  <meta name=\"description\" content=\"\">\n  <meta name=\"generator\" content=\"Discourse 3.3.1 - https://github.com/discourse/discourse version c4ece1a7b7536e27e7731c7dceceec72ad9f5dca\">\n<link rel=\"icon\" type=\"image/png\" href=\"http://localhost/uploads/default/optimized/1X/_129430568242d1b7f853bb13ebea28b3f6af4e7_2_32x32.png\">\n<link rel=\"apple-touch-icon\" type=\"image/png\" href=\"http://localhost/uploads/default/optimized/1X/_129430568242d1b7f853bb13ebea28b3f6af4e7_2_180x180.png\">\n<meta name=\"theme-color\" media=\"(prefers-color-scheme: light)\" content=\"#ffffff\">\n<meta name=\"theme-color\" media=\"(prefers-color-scheme: dark)\" content=\"#111111\">\n\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover\">\n<link rel=\"canonical\" href=\"http://localhost/admin/backups/discourse-2024-10-19-085945-v20240725042522.sql.gz\" />\n\n<link rel=\"search\" type=\"application/opensearchdescription+xml\" href=\"http://localhost/opensearch.xml\" title=\"Discourse Search\">\n\n  <link href=\"/stylesheets/color_definitions_base__1_4261163e4ff6afbe71fe34f91ea0cf21d6b932e8.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" class=\"light-scheme\"/><link href=\"/stylesheets/color_definitions_dark_1_1_8b2e7d733e9a8d333a4bc8a0ee951a7a183a16fe.css?__ws=localhost\" media=\"(prefers-color-scheme: dark)\" rel=\"stylesheet\" class=\"dark-scheme\"/>\n\n  <link href=\"/stylesheets/desktop_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"desktop\"  />\n\n    <link href=\"/stylesheets/admin_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"admin\"  />\n\n    <link href=\"/stylesheets/wizard_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"wizard\"  />\n\n  <link href=\"/stylesheets/chat_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"chat\"  />\n  <link href=\"/stylesheets/checklist_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"checklist\"  />\n  <link href=\"/stylesheets/discourse-details_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"discourse-details\"  />\n  <link href=\"/stylesheets/discourse-lazy-videos_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"discourse-lazy-videos\"  />\n  <link href=\"/stylesheets/discourse-local-dates_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"discourse-local-dates\"  />\n  <link href=\"/stylesheets/discourse-narrative-bot_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"discourse-narrative-bot\"  />\n  <link href=\"/stylesheets/discourse-presence_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"discourse-presence\"  />\n  <link href=\"/stylesheets/footnote_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"footnote\"  />\n  <link href=\"/stylesheets/poll_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"poll\"  />\n  <link href=\"/stylesheets/spoiler-alert_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"spoiler-alert\"  />\n  <link href=\"/stylesheets/chat_desktop_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"chat_desktop\"  />\n  <link href=\"/stylesheets/poll_desktop_5fe2c5508951e520ddb9e00c891e1097c6e81cb6.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"poll_desktop\"  />\n\n  <link href=\"/stylesheets/desktop_theme_1_df4a8c79b9bdd98183db73671964dce51e83e7da.css?__ws=localhost\" media=\"all\" rel=\"stylesheet\" data-target=\"desktop_theme\" data-theme-id=\"1\" data-theme-name=\"default\"/>\n\n  <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"aUtzg-3sDh0XjBpan4xYaD6YI7i-_SX8HsftBLP-ul0pCXS4QLOGSP8pLXJxNSPXDfrDDkwfMHSGgoTcOlts8Q\" />\n\n    \n\n  \n\n    \n\n  <script defer src=\"/assets/pageview-2fef4d9072206589812a152a0b2169206e8171d776c698159ae320e9856b12a9.js\" data-discourse-entrypoint=\"pageview\" nonce=\"5SeRmFUD3pufPiXMKlbF1Tgbr\"></script>\n\n</head>\n<body class=\"no-ember \">\n    \n\n    \n\n    \n\n  <section id='main'>\n    \n  <header class=\"d-header\">\n    <div class=\"wrap\">\n      <div class=\"contents clearfix\">\n        <div class=\"title\">\n          <a href=\"/\">\n              <picture>\n                <img src=\"http://localhost/images/discourse-logo-sketch.png\" alt=\"Discourse\" id=\"site-logo\" />\n              </picture>\n          </a>\n        </div>\n        <div class=\"panel clearfix\">\n        </div>\n      </div>\n    </div>\n  </header>\n\n    <div id=\"main-outlet\" class=\"wrap\">\n      <div id=\"simple-container\">\n    <div class='alert alert-error'>\n      Sorry, this backup download link has already been used or has expired.\n\n    </div>\n</div>\n\n    </div>\n  </section>\n\n    \n    \n\n    \n    \n</body>\n</html>\n"
+  }
+}

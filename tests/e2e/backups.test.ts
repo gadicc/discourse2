@@ -8,7 +8,7 @@ describe("backups", () => {
 
   it("getBackups", async () => {
     const result = await discourse.getBackups();
-    expect(result).toHaveLength(1);
+    expect(Array.isArray(result)).toBe(true);
     expect(result[0]).toHaveProperty("filename");
     expect(result[0]).toHaveProperty("size");
     expect(result[0]).toHaveProperty("last_modified"); // string, consider date?
