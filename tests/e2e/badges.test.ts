@@ -1,4 +1,4 @@
-import { describe, discourse, expect, test } from "./common.ts";
+import { describe, discourse, expect, test } from "./_common.ts";
 
 describe("badges", () => {
   test("adminListBadge", async () => {
