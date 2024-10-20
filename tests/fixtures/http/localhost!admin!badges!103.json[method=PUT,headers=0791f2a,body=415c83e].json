@@ -1,0 +1,73 @@
+{
+  "request": {
+    "url": "http://localhost/admin/badges/103.json",
+    "method": "PUT",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {
+      "name": "test-update-badge-updated",
+      "badge_type_id": 2
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sun, 20 Oct 2024 09:55:20 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "badges/update",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "8f199d2e-4915-4782-b36b-d1ec51e15161",
+      "x-runtime": "0.024834",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "badge_types": [
+        {
+          "id": 2,
+          "name": "Silver",
+          "sort_order": 8
+        }
+      ],
+      "badge": {
+        "id": 103,
+        "name": "test-update-badge-updated",
+        "description": "",
+        "grant_count": 0,
+        "allow_title": false,
+        "multiple_grant": false,
+        "icon": "fa-certificate",
+        "image_url": null,
+        "listable": true,
+        "enabled": true,
+        "badge_grouping_id": 5,
+        "system": false,
+        "long_description": "",
+        "slug": "test-update-badge-updated",
+        "manually_grantable": true,
+        "query": null,
+        "trigger": null,
+        "target_posts": false,
+        "auto_revoke": true,
+        "show_posts": false,
+        "image_upload_id": null,
+        "badge_type_id": 2
+      }
+    }
+  }
+}

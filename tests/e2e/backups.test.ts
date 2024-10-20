@@ -1,12 +1,12 @@
-import { describe, discourse, expect, it } from "./common.ts";
+import { describe, discourse, expect, test } from "./common.ts";
 
 describe("backups", () => {
-  it("createBackup", async () => {
+  test("createBackup", async () => {
     const result = await discourse.createBackup({ with_uploads: false });
     expect(result).toEqual({ success: "OK" });
   });
 
-  it("getBackups", async () => {
+  test("getBackups", async () => {
     const result = await discourse.getBackups();
     expect(Array.isArray(result)).toBe(true);
     expect(result[0]).toHaveProperty("filename");
@@ -14,7 +14,7 @@ describe("backups", () => {
     expect(result[0]).toHaveProperty("last_modified"); // string, consider date?
   });
 
-  it("sendDownloadBackupEmail & download", async () => {
+  test("sendDownloadBackupEmail & download", async () => {
     const backups = await discourse.getBackups();
     const filename = backups[0].filename;
 

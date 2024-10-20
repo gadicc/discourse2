@@ -43,3 +43,17 @@ $ deno task test --filter backups
 # Generate and report coverage
 $ deno task coverage
 ```
+
+**Test focus**
+
+Remember when writing tests that we're not trying to test _Discourse_, we're
+just trying to test this library, which mostly involves making sure our OpenAPI
+translation layer works as expected (i.e. it's handling of params / request /
+response). In short:
+
+- Don't test _Discourse_ (e.g. don't test that API calls create an expected
+  state)
+- Don't test handling of invalid values - this is all caught by validation
+- Likewise for expected response... only the most minimal checks are necessary.
+- Do check that every API call "works", without throwing an error, and with a
+  sane result (but again, only a minimal check is necessary).

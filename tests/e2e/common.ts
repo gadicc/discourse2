@@ -3,6 +3,7 @@ import {
   beforeAll,
   describe as _describe,
   it,
+  test,
 } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
 import Discourse from "../../src/index.ts";
@@ -37,4 +38,4 @@ export function describe(name: string, fn: () => void) {
   _describe(name, block);
 }
 
-export { expect, it };
+export { expect, it, test };
