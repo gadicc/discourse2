@@ -370,10 +370,16 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     const requestInit: RequestInit = {
       method: operation.method,
       headers: new Headers(header),
-      body: operation.method === "post"
-        ? formData || JSON.stringify(body)
-        : undefined,
     };
+
+    if (operation.data.requestBody && "content" in operation.data.requestBody) {
+      const content = operation.data.requestBody.content;
+      if ("multipart/form-data" in content) {
+        requestInit.body = formData;
+      } else if ("application/json" in content) {
+        requestInit.body = JSON.stringify(body);
+      }
+    }
 
     // console.log(url, requestInit);
 
