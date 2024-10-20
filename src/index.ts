@@ -40,6 +40,7 @@ const ajv: Ajv = new Ajv({
   // All rules, all errors.  Don't end early after first error.
   allErrors: true,
 });
+ajv.addKeyword("example");
 const ajvErrors = _ajvErrors.default;
 ajvErrors(ajv /*, {singleError: true} */);
 
