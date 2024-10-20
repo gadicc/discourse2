@@ -1,0 +1,60 @@
+{
+  "request": {
+    "url": "http://localhost/groups/admins/members.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sun, 20 Oct 2024 10:48:21 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "groups/members",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "259f0689-b5de-4426-b2bd-e4bdf0cfcf35",
+      "x-robots-tag": "noindex",
+      "x-runtime": "0.011019",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "members": [
+        {
+          "id": 1,
+          "username": "user",
+          "name": "UserName LastName",
+          "avatar_template": "/letter_avatar_proxy/v4/letter/u/c0e974/{size}.png",
+          "admin": true,
+          "moderator": true,
+          "trust_level": 0,
+          "title": null,
+          "last_posted_at": null,
+          "last_seen_at": "2024-10-20T10:01:09.709Z",
+          "added_at": "2024-10-05T15:43:57.165Z",
+          "timezone": "Europe/London"
+        }
+      ],
+      "owners": [],
+      "meta": {
+        "total": 1,
+        "limit": 50,
+        "offset": 0
+      }
+    }
+  }
+}
