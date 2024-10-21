@@ -161,12 +161,19 @@ for (const [path, pathData] of Object.entries(spec.paths)) {
  * Returned when the HTTP status code is not 200.
  * The error message is available as the `message` property.
  * The status code is available as the `status` property.
+ * The full response is available in the `request` property.
  */
 export class HTTPError extends Error {
   status: number;
-  constructor(status: number, message: string) {
+  response: Response;
+  constructor(
+    status: number,
+    message: string,
+    response: Response,
+  ) {
     super(message);
     this.status = status;
+    this.response = response;
   }
 }
 
@@ -371,6 +378,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     const requestInit: RequestInit = {
       method: operation.method,
       headers: new Headers(header),
+      redirect: "manual",
     };
 
     if (operation.data.requestBody && "content" in operation.data.requestBody) {
@@ -393,7 +401,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     const text = await response.text();
     if (response.status !== 200) {
-      throw new HTTPError(response.status, text);
+      throw new HTTPError(response.status, text, response);
     }
 
     const response200 = responses["200"];
@@ -457,5 +465,72 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     // @ts-expect-error: intentional break of types
     return super.createUpload(params);
+  }
+
+  override updateTopic(
+    params: Parameters<DiscourseAPIGenerated["updateTopic"]>[0],
+  ): ReturnType<DiscourseAPIGenerated["updateTopic"]> {
+    console.warn(
+      "At time of writing, updateTopic() is broken on the discourse side, see https://meta.discourse.org/t/stumped-on-api-update-of-topic/145330.",
+    );
+    return super.updateTopic(params);
+  }
+
+  override async getTopicByExternalId(
+    params: Parameters<DiscourseAPIGenerated["getTopicByExternalId"]>[0],
+  ): ReturnType<DiscourseAPIGenerated["getTopic"]> {
+    try {
+      await super.getTopicByExternalId(params);
+    } catch (error) {
+      if (error instanceof HTTPError && error.status === 301) {
+        const location = error.response.headers.get("location");
+        if (!location) {
+          throw new Error("301 Redirect did not include location header");
+        }
+
+        const match = location.match(/\/(?<id>(\d)+)\.json$/);
+        const id = match?.groups?.id;
+        if (!id) throw new Error("Could not extract topic id from redirect");
+
+        return super.getTopic({ id });
+      }
+      throw error;
+    }
+    throw new Error("Didn't receive redirect");
+  }
+
+  override getSpecificPostsFromTopic(
+    params: Parameters<DiscourseAPIGenerated["getSpecificPostsFromTopic"]>[0],
+  ): ReturnType<DiscourseAPIGenerated["getSpecificPostsFromTopic"]> {
+    const operation = byOperationId.getSpecificPostsFromTopic.data;
+
+    // Workaround for bug
+    // https://meta.discourse.org/t/discourse-api-docs-mention-a-request-body-for-a-get-request/231137/13
+    if (
+      operation.requestBody && "content" in operation.requestBody &&
+      "application/json" in operation.requestBody.content
+    ) {
+      const paramsSchema = operation.parameters;
+      const rbSchema = operation.requestBody.content["application/json"].schema;
+      if (
+        paramsSchema && rbSchema && "properties" in rbSchema &&
+        rbSchema.properties
+      ) {
+        if (
+          Object.keys(rbSchema.properties).length === 1 &&
+          "post_ids[]" in rbSchema.properties
+        ) {
+          paramsSchema.push({
+            name: "post_ids[]",
+            in: "query",
+            schema: { type: "integer" },
+            required: true,
+          });
+        }
+      }
+      delete operation.requestBody;
+    }
+
+    return super.getSpecificPostsFromTopic(params);
   }
 }
