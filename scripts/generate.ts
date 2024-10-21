@@ -99,7 +99,29 @@ const methods = [
         }
       }
 
-      if (methodData.requestBody && !required) required = true;
+      if (!required) {
+        if (methodData.requestBody && "content" in methodData.requestBody) {
+          if ("application/json" in methodData.requestBody.content) {
+            const schema =
+              methodData.requestBody.content["application/json"].schema;
+            if (schema && "required" in schema) {
+              if (schema.required && schema.required.length) {
+                required = true;
+              }
+            }
+          } else if ("multipart/form-data" in methodData.requestBody.content) {
+            const schema =
+              methodData.requestBody.content["multipart/form-data"].schema;
+            if (schema && "required" in schema) {
+              if (schema.required && schema.required.length) {
+                required = true;
+              }
+            }
+          } else {
+            console.warn("  * Unknown content type");
+          }
+        }
+      }
 
       if (types.length || methodData.requestBody) {
         methodString += "params" +

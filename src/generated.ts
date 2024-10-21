@@ -158,14 +158,14 @@ export default class DiscourseAPIGenerated {
   /**
    * Create an invite
    */
-  createInvite(params: Prettify<NonNullable<operations['createInvite']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['createInvite']['responses']['200']['content']['application/json']>> {
+  createInvite(params?: Prettify<NonNullable<operations['createInvite']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['createInvite']['responses']['200']['content']['application/json']>> {
     return this._exec<operations['createInvite']>('createInvite', params) as unknown as Promise<Prettify<operations['createInvite']['responses']['200']['content']['application/json']>>;
   }
 
   /**
    * Create multiple invites
    */
-  createMultipleInvites(params: Prettify<NonNullable<operations['createMultipleInvites']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['createMultipleInvites']['responses']['200']['content']['application/json']>> {
+  createMultipleInvites(params?: Prettify<NonNullable<operations['createMultipleInvites']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['createMultipleInvites']['responses']['200']['content']['application/json']>> {
     return this._exec<operations['createMultipleInvites']>('createMultipleInvites', params) as unknown as Promise<Prettify<operations['createMultipleInvites']['responses']['200']['content']['application/json']>>;
   }
 
@@ -179,7 +179,7 @@ export default class DiscourseAPIGenerated {
   /**
    * Mark notifications as read
    */
-  markNotificationsAsRead(params: Prettify<NonNullable<operations['markNotificationsAsRead']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['markNotificationsAsRead']['responses']['200']['content']['application/json']>> {
+  markNotificationsAsRead(params?: Prettify<NonNullable<operations['markNotificationsAsRead']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['markNotificationsAsRead']['responses']['200']['content']['application/json']>> {
     return this._exec<operations['markNotificationsAsRead']>('markNotificationsAsRead', params) as unknown as Promise<Prettify<operations['markNotificationsAsRead']['responses']['200']['content']['application/json']>>;
   }
 
