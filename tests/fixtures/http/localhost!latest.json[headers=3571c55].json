@@ -1,0 +1,197 @@
+{
+  "request": {
+    "url": "http://localhost/latest.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Mon, 21 Oct 2024 06:57:50 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "list/latest",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "9e00c220-01cd-41ef-930e-fb549a52c74a",
+      "x-runtime": "0.024064",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "users": [
+        {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/images/discourse-logo-sketch-small.png",
+          "admin": true,
+          "moderator": true,
+          "trust_level": 4
+        }
+      ],
+      "primary_groups": [],
+      "flair_groups": [],
+      "topic_list": {
+        "can_create_topic": true,
+        "per_page": 30,
+        "top_tags": [],
+        "topics": [
+          {
+            "id": 5,
+            "title": "Welcome to Discourse! :wave:",
+            "fancy_title": "Welcome to Discourse! :wave:",
+            "slug": "welcome-to-discourse",
+            "posts_count": 1,
+            "reply_count": 0,
+            "highest_post_number": 1,
+            "image_url": null,
+            "created_at": "2024-10-05T15:43:52.956Z",
+            "last_posted_at": "2024-10-05T15:43:52.974Z",
+            "bumped": true,
+            "bumped_at": "2024-10-05T15:43:52.974Z",
+            "archetype": "regular",
+            "unseen": false,
+            "last_read_post_number": 1,
+            "unread": 0,
+            "new_posts": 0,
+            "unread_posts": 0,
+            "pinned": true,
+            "unpinned": null,
+            "excerpt": "We are so glad you joined us. \nHere are some things you can do to get started: \n:speaking_head: Introduce yourself by adding your picture and information about yourself and your interests to your profile. What is one thi&hellip;",
+            "visible": true,
+            "closed": false,
+            "archived": false,
+            "notification_level": 3,
+            "bookmarked": false,
+            "liked": false,
+            "unicode_title": "Welcome to Discourse! 👋",
+            "tags": [],
+            "tags_descriptions": {},
+            "views": 0,
+            "like_count": 0,
+            "has_summary": false,
+            "last_poster_username": "system",
+            "category_id": 4,
+            "pinned_globally": true,
+            "featured_link": null,
+            "posters": [
+              {
+                "extras": "latest single",
+                "description": "Original Poster, Most Recent Poster",
+                "user_id": -1,
+                "primary_group_id": null,
+                "flair_group_id": null
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "title": "Admin Guide: Getting Started",
+            "fancy_title": "Admin Guide: Getting Started",
+            "slug": "admin-guide-getting-started",
+            "posts_count": 1,
+            "reply_count": 0,
+            "highest_post_number": 1,
+            "image_url": null,
+            "created_at": "2024-10-05T15:43:53.034Z",
+            "last_posted_at": "2024-10-05T15:43:53.054Z",
+            "bumped": true,
+            "bumped_at": "2024-10-05T15:43:53.054Z",
+            "archetype": "regular",
+            "unseen": false,
+            "last_read_post_number": 1,
+            "unread": 0,
+            "new_posts": 0,
+            "unread_posts": 0,
+            "pinned": false,
+            "unpinned": null,
+            "visible": true,
+            "closed": false,
+            "archived": false,
+            "notification_level": 3,
+            "bookmarked": false,
+            "liked": false,
+            "tags": [],
+            "tags_descriptions": {},
+            "views": 0,
+            "like_count": 0,
+            "has_summary": false,
+            "last_poster_username": "system",
+            "category_id": 3,
+            "pinned_globally": false,
+            "featured_link": null,
+            "posters": [
+              {
+                "extras": "latest single",
+                "description": "Original Poster, Most Recent Poster",
+                "user_id": -1,
+                "primary_group_id": null,
+                "flair_group_id": null
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "title": "FAQ/Guidelines",
+            "fancy_title": "FAQ/Guidelines",
+            "slug": "faq-guidelines",
+            "posts_count": 2,
+            "reply_count": 0,
+            "highest_post_number": 2,
+            "image_url": null,
+            "created_at": "2024-10-05T15:43:52.631Z",
+            "last_posted_at": "2024-10-05T15:43:52.895Z",
+            "bumped": true,
+            "bumped_at": "2024-10-05T15:43:52.895Z",
+            "archetype": "regular",
+            "unseen": false,
+            "last_read_post_number": 2,
+            "unread": 0,
+            "new_posts": 0,
+            "unread_posts": 0,
+            "pinned": false,
+            "unpinned": null,
+            "visible": true,
+            "closed": false,
+            "archived": false,
+            "notification_level": 3,
+            "bookmarked": false,
+            "liked": false,
+            "tags": [],
+            "tags_descriptions": {},
+            "views": 0,
+            "like_count": 0,
+            "has_summary": false,
+            "last_poster_username": "system",
+            "category_id": 3,
+            "pinned_globally": false,
+            "featured_link": null,
+            "posters": [
+              {
+                "extras": "latest single",
+                "description": "Original Poster, Most Recent Poster",
+                "user_id": -1,
+                "primary_group_id": null,
+                "flair_group_id": null
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

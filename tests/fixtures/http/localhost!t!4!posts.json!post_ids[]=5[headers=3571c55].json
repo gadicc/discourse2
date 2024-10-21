@@ -1,0 +1,115 @@
+{
+  "request": {
+    "url": "http://localhost/t/4/posts.json?post_ids%5B%5D=5",
+    "method": "GET",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Mon, 21 Oct 2024 08:45:06 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/posts",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "4fb6a178-8bd0-448f-90d7-1d6a364705cf",
+      "x-runtime": "0.028564",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "post_stream": {
+        "posts": [
+          {
+            "id": 5,
+            "name": "system",
+            "username": "system",
+            "avatar_template": "/images/discourse-logo-sketch-small.png",
+            "created_at": "2024-10-05T15:43:52.895Z",
+            "cooked": "<p>Edit the first post in this topic to change the contents of the FAQ/Guidelines page.</p>",
+            "post_number": 2,
+            "post_type": 1,
+            "updated_at": "2024-10-05T15:43:52.895Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "quote_count": 0,
+            "incoming_link_count": 0,
+            "reads": 1,
+            "readers_count": 0,
+            "score": 0.2,
+            "yours": true,
+            "topic_id": 4,
+            "topic_slug": "faq-guidelines",
+            "display_username": "system",
+            "primary_group_name": null,
+            "flair_name": null,
+            "flair_url": null,
+            "flair_bg_color": null,
+            "flair_color": null,
+            "flair_group_id": null,
+            "version": 1,
+            "can_edit": true,
+            "can_delete": true,
+            "can_recover": false,
+            "can_see_hidden_post": true,
+            "can_wiki": true,
+            "read": true,
+            "user_title": null,
+            "bookmarked": false,
+            "actions_summary": [
+              {
+                "id": 3,
+                "can_act": true
+              },
+              {
+                "id": 4,
+                "can_act": true
+              },
+              {
+                "id": 8,
+                "can_act": true
+              },
+              {
+                "id": 10,
+                "can_act": true
+              },
+              {
+                "id": 7,
+                "can_act": true
+              }
+            ],
+            "moderator": true,
+            "admin": true,
+            "staff": true,
+            "user_id": -1,
+            "hidden": false,
+            "trust_level": 4,
+            "deleted_at": null,
+            "user_deleted": false,
+            "edit_reason": null,
+            "can_view_edit_history": true,
+            "wiki": false,
+            "reviewable_id": 0,
+            "reviewable_score_count": 0,
+            "reviewable_score_pending_count": 0
+          }
+        ]
+      },
+      "id": 4
+    }
+  }
+}

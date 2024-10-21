@@ -1,0 +1,46 @@
+{
+  "request": {
+    "url": "http://localhost/posts.json",
+    "method": "POST",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {
+      "title": "test topic to be updated",
+      "raw": "this is a test for updateTopic"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 422,
+    "statusText": "Unprocessable Entity",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Mon, 21 Oct 2024 08:51:21 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "422 Unprocessable Entity",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "posts/create",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "2d6881e6-33a2-4747-91ba-b3215aecf28b",
+      "x-runtime": "0.025187",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "action": "create_post",
+      "errors": [
+        "Category can't be blank"
+      ]
+    }
+  }
+}

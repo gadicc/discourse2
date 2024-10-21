@@ -1,0 +1,395 @@
+{
+  "request": {
+    "url": "http://localhost/t/1.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Mon, 21 Oct 2024 09:39:21 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/show",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "5ad2991c-f30f-4b5b-845b-fbd0f60a8497",
+      "x-runtime": "0.049674",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "post_stream": {
+        "posts": [
+          {
+            "id": 1,
+            "name": "system",
+            "username": "system",
+            "avatar_template": "/images/discourse-logo-sketch-small.png",
+            "created_at": "2024-10-05T15:43:52.233Z",
+            "cooked": "<p>Discussion about this site, its organization, how it works, and how we can improve it.</p>",
+            "post_number": 1,
+            "post_type": 1,
+            "updated_at": "2024-10-05T15:43:52.233Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "quote_count": 0,
+            "incoming_link_count": 0,
+            "reads": 0,
+            "readers_count": 0,
+            "score": 0,
+            "yours": true,
+            "topic_id": 1,
+            "topic_slug": "about-the-site-feedback-category",
+            "display_username": "system",
+            "primary_group_name": null,
+            "flair_name": null,
+            "flair_url": null,
+            "flair_bg_color": null,
+            "flair_color": null,
+            "flair_group_id": null,
+            "version": 1,
+            "can_edit": true,
+            "can_delete": false,
+            "can_recover": false,
+            "can_see_hidden_post": true,
+            "can_wiki": true,
+            "read": false,
+            "user_title": null,
+            "bookmarked": false,
+            "actions_summary": [
+              {
+                "id": 3,
+                "can_act": true
+              },
+              {
+                "id": 4,
+                "can_act": true
+              },
+              {
+                "id": 8,
+                "can_act": true
+              },
+              {
+                "id": 10,
+                "can_act": true
+              },
+              {
+                "id": 7,
+                "can_act": true
+              }
+            ],
+            "moderator": true,
+            "admin": true,
+            "staff": true,
+            "user_id": -1,
+            "hidden": false,
+            "trust_level": 4,
+            "deleted_at": null,
+            "user_deleted": false,
+            "edit_reason": null,
+            "can_view_edit_history": true,
+            "wiki": false,
+            "reviewable_id": 0,
+            "reviewable_score_count": 0,
+            "reviewable_score_pending_count": 0
+          }
+        ],
+        "stream": [
+          1
+        ]
+      },
+      "timeline_lookup": [
+        [
+          1,
+          16
+        ]
+      ],
+      "suggested_topics": [
+        {
+          "id": 11,
+          "title": "Test topic creation",
+          "fancy_title": "Test topic creation",
+          "slug": "test-topic-creation",
+          "posts_count": 1,
+          "reply_count": 0,
+          "highest_post_number": 1,
+          "image_url": null,
+          "created_at": "2024-10-21T07:01:49.673Z",
+          "last_posted_at": "2024-10-21T07:01:49.740Z",
+          "bumped": true,
+          "bumped_at": "2024-10-21T07:01:49.740Z",
+          "archetype": "regular",
+          "unseen": false,
+          "last_read_post_number": 1,
+          "unread": 0,
+          "new_posts": 0,
+          "unread_posts": 0,
+          "pinned": false,
+          "unpinned": null,
+          "visible": true,
+          "closed": false,
+          "archived": false,
+          "notification_level": 3,
+          "bookmarked": false,
+          "liked": false,
+          "tags": [],
+          "tags_descriptions": {},
+          "like_count": 0,
+          "views": 0,
+          "category_id": 2,
+          "featured_link": null,
+          "posters": [
+            {
+              "extras": "latest single",
+              "description": "Original Poster, Most Recent Poster",
+              "user": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/images/discourse-logo-sketch-small.png",
+                "admin": true,
+                "moderator": true,
+                "trust_level": 4
+              }
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "title": "Test topic to be updated",
+          "fancy_title": "Test topic to be updated",
+          "slug": "test-topic-to-be-updated",
+          "posts_count": 1,
+          "reply_count": 0,
+          "highest_post_number": 1,
+          "image_url": null,
+          "created_at": "2024-10-21T08:51:47.364Z",
+          "last_posted_at": "2024-10-21T08:51:47.384Z",
+          "bumped": true,
+          "bumped_at": "2024-10-21T08:51:47.384Z",
+          "archetype": "regular",
+          "unseen": false,
+          "last_read_post_number": 1,
+          "unread": 0,
+          "new_posts": 0,
+          "unread_posts": 0,
+          "pinned": false,
+          "unpinned": null,
+          "visible": true,
+          "closed": false,
+          "archived": false,
+          "notification_level": 3,
+          "bookmarked": false,
+          "liked": false,
+          "tags": [],
+          "tags_descriptions": {},
+          "like_count": 0,
+          "views": 1,
+          "category_id": 2,
+          "featured_link": null,
+          "posters": [
+            {
+              "extras": "latest single",
+              "description": "Original Poster, Most Recent Poster",
+              "user": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/images/discourse-logo-sketch-small.png",
+                "admin": true,
+                "moderator": true,
+                "trust_level": 4
+              }
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Welcome to Discourse! :wave:",
+          "fancy_title": "Welcome to Discourse! :wave:",
+          "slug": "welcome-to-discourse",
+          "posts_count": 1,
+          "reply_count": 0,
+          "highest_post_number": 1,
+          "image_url": null,
+          "created_at": "2024-10-05T15:43:52.956Z",
+          "last_posted_at": "2024-10-05T15:43:52.974Z",
+          "bumped": true,
+          "bumped_at": "2024-10-05T15:43:52.974Z",
+          "archetype": "regular",
+          "unseen": false,
+          "last_read_post_number": 1,
+          "unread": 0,
+          "new_posts": 0,
+          "unread_posts": 0,
+          "pinned": true,
+          "unpinned": null,
+          "excerpt": "We are so glad you joined us. \nHere are some things you can do to get started: \n:speaking_head: Introduce yourself by adding your picture and information about yourself and your interests to your profile. What is one thi&hellip;",
+          "visible": true,
+          "closed": false,
+          "archived": false,
+          "notification_level": 3,
+          "bookmarked": false,
+          "liked": false,
+          "unicode_title": "Welcome to Discourse! 👋",
+          "tags": [],
+          "tags_descriptions": {},
+          "like_count": 0,
+          "views": 0,
+          "category_id": 4,
+          "featured_link": null,
+          "posters": [
+            {
+              "extras": "latest single",
+              "description": "Original Poster, Most Recent Poster",
+              "user": {
+                "id": -1,
+                "username": "system",
+                "name": "system",
+                "avatar_template": "/images/discourse-logo-sketch-small.png",
+                "admin": true,
+                "moderator": true,
+                "trust_level": 4
+              }
+            }
+          ]
+        }
+      ],
+      "tags": [],
+      "tags_descriptions": {},
+      "id": 1,
+      "title": "About the Site Feedback category",
+      "fancy_title": "About the Site Feedback category",
+      "posts_count": 1,
+      "created_at": "2024-10-05T15:43:52.204Z",
+      "views": 0,
+      "reply_count": 0,
+      "like_count": 0,
+      "last_posted_at": null,
+      "visible": true,
+      "closed": false,
+      "archived": false,
+      "has_summary": false,
+      "archetype": "regular",
+      "slug": "about-the-site-feedback-category",
+      "category_id": 2,
+      "word_count": null,
+      "deleted_at": null,
+      "user_id": -1,
+      "featured_link": null,
+      "pinned_globally": false,
+      "pinned_at": "2024-10-05T15:43:50.671Z",
+      "pinned_until": null,
+      "image_url": null,
+      "slow_mode_seconds": 0,
+      "draft": null,
+      "draft_key": "topic_1",
+      "draft_sequence": 0,
+      "unpinned": null,
+      "pinned": true,
+      "current_post_number": 1,
+      "highest_post_number": 1,
+      "deleted_by": null,
+      "has_deleted": false,
+      "actions_summary": [
+        {
+          "id": 4,
+          "count": 0,
+          "hidden": false,
+          "can_act": true
+        },
+        {
+          "id": 8,
+          "count": 0,
+          "hidden": false,
+          "can_act": true
+        },
+        {
+          "id": 10,
+          "count": 0,
+          "hidden": false,
+          "can_act": true
+        },
+        {
+          "id": 7,
+          "count": 0,
+          "hidden": false,
+          "can_act": true
+        }
+      ],
+      "chunk_size": 20,
+      "bookmarked": false,
+      "topic_timer": null,
+      "message_bus_last_id": 0,
+      "participant_count": 1,
+      "show_read_indicator": false,
+      "thumbnails": null,
+      "slow_mode_enabled_until": null,
+      "details": {
+        "can_edit": true,
+        "notification_level": 1,
+        "can_move_posts": true,
+        "can_remove_allowed_users": true,
+        "can_invite_to": true,
+        "can_invite_via_email": true,
+        "can_create_post": true,
+        "can_reply_as_new_topic": true,
+        "can_flag_topic": true,
+        "can_review_topic": true,
+        "can_close_topic": true,
+        "can_archive_topic": true,
+        "can_split_merge_topic": true,
+        "can_edit_staff_notes": true,
+        "can_toggle_topic_visibility": true,
+        "can_pin_unpin_topic": true,
+        "can_moderate_category": true,
+        "can_remove_self_id": -1,
+        "participants": [
+          {
+            "id": -1,
+            "username": "system",
+            "name": "system",
+            "avatar_template": "/user_avatar/localhost/system/{size}/1_2.png",
+            "post_count": 1,
+            "primary_group_name": null,
+            "flair_name": null,
+            "flair_url": null,
+            "flair_color": null,
+            "flair_bg_color": null,
+            "flair_group_id": null,
+            "admin": true,
+            "moderator": true,
+            "trust_level": 4
+          }
+        ],
+        "created_by": {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/images/discourse-logo-sketch-small.png"
+        },
+        "last_poster": {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/images/discourse-logo-sketch-small.png"
+        }
+      },
+      "bookmarks": []
+    }
+  }
+}
