@@ -1,0 +1,42 @@
+{
+  "request": {
+    "url": "http://localhost/posts/24.json",
+    "method": "DELETE",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {}
+  },
+  "response": {
+    "ok": false,
+    "status": 403,
+    "statusText": "Forbidden",
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Tue, 22 Oct 2024 08:49:09 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "403 Forbidden",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "posts/destroy",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "be48396a-4629-436f-ae02-80cd0847377c",
+      "x-runtime": "0.007324",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "errors": [
+        "You are not permitted to view the requested resource."
+      ],
+      "error_type": "invalid_access"
+    }
+  }
+}

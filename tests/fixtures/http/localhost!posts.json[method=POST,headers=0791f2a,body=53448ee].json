@@ -1,0 +1,115 @@
+{
+  "request": {
+    "url": "http://localhost/posts.json",
+    "method": "POST",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {
+      "title": "performPostAction test, it will be flagged",
+      "raw": "this post will be flagged from the API",
+      "category": 3
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Tue, 22 Oct 2024 10:39:34 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "posts/create",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "9cb2fdbe-f4ea-4564-92a4-0ce771b4351e",
+      "x-runtime": "0.092904",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "id": 27,
+      "name": "system",
+      "username": "system",
+      "avatar_template": "/images/discourse-logo-sketch-small.png",
+      "created_at": "2024-10-22T10:39:34.497Z",
+      "cooked": "<p>this post will be flagged from the API</p>",
+      "post_number": 1,
+      "post_type": 1,
+      "updated_at": "2024-10-22T10:39:34.497Z",
+      "reply_count": 0,
+      "reply_to_post_number": null,
+      "quote_count": 0,
+      "incoming_link_count": 0,
+      "reads": 0,
+      "readers_count": 0,
+      "score": 0,
+      "yours": true,
+      "topic_id": 25,
+      "topic_slug": "performpostaction-test-it-will-be-flagged",
+      "display_username": "system",
+      "primary_group_name": null,
+      "flair_name": null,
+      "flair_url": null,
+      "flair_bg_color": null,
+      "flair_color": null,
+      "flair_group_id": null,
+      "version": 1,
+      "can_edit": true,
+      "can_delete": false,
+      "can_recover": false,
+      "can_see_hidden_post": true,
+      "can_wiki": true,
+      "user_title": null,
+      "bookmarked": false,
+      "raw": "this post will be flagged from the API",
+      "actions_summary": [
+        {
+          "id": 3,
+          "can_act": true
+        },
+        {
+          "id": 4,
+          "can_act": true
+        },
+        {
+          "id": 8,
+          "can_act": true
+        },
+        {
+          "id": 10,
+          "can_act": true
+        },
+        {
+          "id": 7,
+          "can_act": true
+        }
+      ],
+      "moderator": true,
+      "admin": true,
+      "staff": true,
+      "user_id": -1,
+      "draft_sequence": 0,
+      "hidden": false,
+      "trust_level": 4,
+      "deleted_at": null,
+      "user_deleted": false,
+      "edit_reason": null,
+      "can_view_edit_history": true,
+      "wiki": false,
+      "reviewable_id": null,
+      "reviewable_score_count": 0,
+      "reviewable_score_pending_count": 0
+    }
+  }
+}
