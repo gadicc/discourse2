@@ -1,0 +1,53 @@
+{
+  "request": {
+    "url": "http://localhost/users.json",
+    "method": "POST",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {
+      "name": "Test user to update",
+      "email": "test-update@example.com",
+      "password": "teSt1ngIsFuN",
+      "username": "test-user-update",
+      "active": true
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 23 Oct 2024 09:53:48 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "set-cookie": [
+        "_t=He%2F9Da4VrtOXeDBr%2BGYUPzkWYTjlTvIUvCYI81shwlL4h9ocKw9qVQLUNW%2FNn0GyZlbUEsqA5cT4%2Fd0usp7UhdxDRFs5R11MCKKybPaZnp5XIwNrCCc6MU4Q0zZLz85x9Hf5U6cikFu%2Bbu%2BF4732cL3s0vZ9wjCmZjuHRtKGHvwXIy6dpLERsnP4G6VEJaOft%2FBSO22gYDEpWq9%2B0zQh%2B5cFF0f%2FzGNvu%2FyBaFQ8cgnf6StGfd2YKmihdlW9O71Tlwgkz1qmvcCK7ASSaDZk%2Fm25HljhfE%2B9ImMzpyIj21DN8sRdYZHgMU6%2Fc6uqcCKy%2B%2BhH0w%3D%3D--PGSm7Zu89aW3XNzT--SGlfn8eAM581SjTkMaVvcQ%3D%3D; path=/; expires=Sun, 22 Dec 2024 09:53:48 GMT; HttpOnly; SameSite=Lax",
+        "_forum_session=UyZot6o0QfS%2Bp%2Fehw1o7VaAdp2hzkpMNZu18B9v1UHSA4dWC242pAHgKH6NrA6PiLplN2s9xajgD%2FkRrpJTjdPt%2BZgle8GlaG3LILfAP%2B7xNVmpceK0hsz5TugpVXux8OvRDXtbyaDvRA4jkHVCn%2BHx%2B4cwaQamV5XzA3t%2B4BY3168vf1xYSq95OLsK80qge8Y1xfwSjTDLR6Q24Ew5qjXzMvcegDHtVdaKiSbPppezHNCMO13omYb1LpDoVikqT4MjbEjn1Sg%2B6t2TftBhkx4AQHNnTdEFTeeUkiUMP%2Fn7G%2F%2F3wnB596ZQ99wDhBdLduaooUXpwbYGOUr7aVozYbXVFTOIfrZkGK68Mn%2FjgqDWxkxyPf6oMuKOdlIv3ahcqbP6O%2Bb4nLFBPV2qJH95dZvy8dqnTz9TEbUbUYZUDZhzMKA%3D%3D--8vNB3gfKEQN0ACk6--a1ih52hD1F5LubK1OfVi4g%3D%3D; path=/; HttpOnly; SameSite=Lax"
+      ],
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "users/create",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "699c919e-fe05-4fec-9c64-6ed6ff9de23f",
+      "x-runtime": "0.364645",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": true,
+      "active": true,
+      "message": "Your account is activated and ready to use.",
+      "user_id": 5
+    }
+  }
+}
