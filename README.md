@@ -4,8 +4,9 @@ The complete Discourse API (strongly typed), always up-to-date.
 
 Copyright (c) 2023 by Gadi Cohen. [MIT Licensed](./LICENSE.txt).
 
-![npm](https://img.shields.io/npm/v/discourse2)
-![JSR Version](https://img.shields.io/jsr/v/%40gadicc/discourse2)
+[![NPM Version](https://img.shields.io/npm/v/discourse2?logo=npm)](https://www.npmjs.com/package/discourse2)
+[![JSR](https://jsr.io/badges/@gadicc/discourse2)](https://jsr.io/@gadicc/discourse2)
+[![JSR Score](https://jsr.io/badges/@gadicc/discourse2/score)](https://jsr.io/@gadicc/discourse2)
 ![DiscourseAPI Retrieval Date](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fgadicc%2Fdiscourse2%2Frefs%2Fheads%2Fmain%2Fsrc%2Fopenapi-meta.json&query=%24.retrievedAtDate&label=Discourse%20API)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/gadicc/discourse2/release.yml)
 ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gadicc/db6d371d39faab64858178a049c8e80b/raw/discourse2-lcov-coverage.json)
