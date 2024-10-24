@@ -19,6 +19,7 @@
 import { Ajv } from "ajv";
 import type { ValidateFunction } from "ajv";
 import _ajvErrors from "ajv-errors";
+import _ajvFormats from "ajv-formats";
 import type { OpenAPIV3_1 } from "openapi-types";
 
 import spec from "./openapi.json" with { type: "json" };
@@ -42,7 +43,9 @@ const ajv: Ajv = new Ajv({
 });
 ajv.addKeyword("example");
 const ajvErrors = _ajvErrors.default;
+const ajvFormats = _ajvFormats.default;
 ajvErrors(ajv /*, {singleError: true} */);
+ajvFormats(ajv, ["email"]);
 
 const compiled = new Map<object, ValidateFunction>();
 function getValidator(schema: object) {
@@ -533,4 +536,20 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     return super.getSpecificPostsFromTopic(params);
   }
+
+  /*
+  // OpenAPI spec doesn't allow additionalProperties so we get Record<string,never>
+  // Also, needs Discourse Connect setup ahead of time.
+  override updateUser(
+    params: Prettify<
+      & Omit<Parameters<DiscourseAPIGenerated["updateUser"]>[0], "external_ids">
+      & {
+        external_ids?: Record<string, string>;
+      }
+    >,
+  ): ReturnType<DiscourseAPIGenerated["updateUser"]> {
+    // @ts-expect-error: override spec
+    return super.updateUser(params);
+  }
+  */
 }
