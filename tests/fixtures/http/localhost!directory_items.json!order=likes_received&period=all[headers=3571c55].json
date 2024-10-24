@@ -15,7 +15,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Thu, 24 Oct 2024 10:46:44 GMT",
+      "date": "Thu, 24 Oct 2024 12:22:55 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
       "status": "200 OK",
@@ -27,8 +27,8 @@
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
       "x-powered-by": "Phusion Passenger(R) 6.0.23",
-      "x-request-id": "bd651544-94af-4600-a07f-01ef11eb1793",
-      "x-runtime": "0.022250",
+      "x-request-id": "d3b4a9a7-b34b-4c84-8b24-bc033558320b",
+      "x-runtime": "0.018747",
       "x-xss-protection": "0"
     },
     "bodyJson": {
@@ -41,7 +41,7 @@
           "post_count": 0,
           "topics_entered": 3,
           "posts_read": 3,
-          "days_visited": 7,
+          "days_visited": 8,
           "time_read": 317,
           "user": {
             "id": 1,
@@ -93,7 +93,7 @@
           }
         },
         {
-          "id": 5,
+          "id": 7,
           "likes_received": 0,
           "likes_given": 0,
           "topic_count": 0,
@@ -103,18 +103,94 @@
           "days_visited": 0,
           "time_read": 0,
           "user": {
-            "id": 5,
-            "username": "test-user-update-new",
+            "id": 7,
+            "username": "test-user-to-suspend",
+            "name": "Test user to suspend",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/t/e47c2d/{size}.png",
+            "title": null,
+            "trust_level": 1
+          }
+        },
+        {
+          "id": 9,
+          "likes_received": 0,
+          "likes_given": 0,
+          "topic_count": 0,
+          "post_count": 0,
+          "topics_entered": 0,
+          "posts_read": 0,
+          "days_visited": 0,
+          "time_read": 0,
+          "user": {
+            "id": 9,
+            "username": "test-user-to-logout",
+            "name": "Test user to logout",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/t/b38774/{size}.png",
+            "title": null,
+            "trust_level": 1
+          }
+        },
+        {
+          "id": 11,
+          "likes_received": 0,
+          "likes_given": 0,
+          "topic_count": 0,
+          "post_count": 0,
+          "topics_entered": 0,
+          "posts_read": 0,
+          "days_visited": 0,
+          "time_read": 0,
+          "user": {
+            "id": 11,
+            "username": "test-activate-user",
+            "name": "Test user to activate",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/t/48db29/{size}.png",
+            "title": null,
+            "trust_level": 1
+          }
+        },
+        {
+          "id": 13,
+          "likes_received": 0,
+          "likes_given": 0,
+          "topic_count": 0,
+          "post_count": 0,
+          "topics_entered": 0,
+          "posts_read": 0,
+          "days_visited": 0,
+          "time_read": 0,
+          "user": {
+            "id": 13,
+            "username": "anon78417229",
+            "name": null,
+            "avatar_template": "/letter_avatar_proxy/v4/letter/a/e36b37/{size}.png",
+            "title": null,
+            "trust_level": 1
+          }
+        },
+        {
+          "id": 14,
+          "likes_received": 0,
+          "likes_given": 0,
+          "topic_count": 0,
+          "post_count": 0,
+          "topics_entered": 0,
+          "posts_read": 0,
+          "days_visited": 0,
+          "time_read": 0,
+          "user": {
+            "id": 14,
+            "username": "test-update-new",
             "name": "Updated test user",
-            "avatar_template": "/letter_avatar_proxy/v4/letter/t/d2c977/{size}.png",
+            "avatar_template": "/letter_avatar_proxy/v4/letter/t/f08c70/{size}.png",
             "title": null,
             "trust_level": 1
           }
         }
       ],
       "meta": {
-        "last_updated_at": "2024-10-24T10:25:33.000Z",
-        "total_rows_directory_items": 4,
+        "last_updated_at": "2024-10-24T12:19:51.000Z",
+        "total_rows_directory_items": 8,
         "load_more_directory_items": "/directory_items.json?order=likes_received&page=1&period=all"
       }
     }

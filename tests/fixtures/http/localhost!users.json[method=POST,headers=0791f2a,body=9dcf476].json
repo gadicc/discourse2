@@ -11,7 +11,7 @@
       "name": "Test user to update",
       "email": "test-update@example.com",
       "password": "teSt1ngIsFuN",
-      "username": "test-user-update",
+      "username": "test-update-user",
       "active": true
     }
   },
@@ -23,12 +23,12 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Wed, 23 Oct 2024 09:53:48 GMT",
+      "date": "Thu, 24 Oct 2024 12:19:52 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
       "set-cookie": [
-        "_t=He%2F9Da4VrtOXeDBr%2BGYUPzkWYTjlTvIUvCYI81shwlL4h9ocKw9qVQLUNW%2FNn0GyZlbUEsqA5cT4%2Fd0usp7UhdxDRFs5R11MCKKybPaZnp5XIwNrCCc6MU4Q0zZLz85x9Hf5U6cikFu%2Bbu%2BF4732cL3s0vZ9wjCmZjuHRtKGHvwXIy6dpLERsnP4G6VEJaOft%2FBSO22gYDEpWq9%2B0zQh%2B5cFF0f%2FzGNvu%2FyBaFQ8cgnf6StGfd2YKmihdlW9O71Tlwgkz1qmvcCK7ASSaDZk%2Fm25HljhfE%2B9ImMzpyIj21DN8sRdYZHgMU6%2Fc6uqcCKy%2B%2BhH0w%3D%3D--PGSm7Zu89aW3XNzT--SGlfn8eAM581SjTkMaVvcQ%3D%3D; path=/; expires=Sun, 22 Dec 2024 09:53:48 GMT; HttpOnly; SameSite=Lax",
-        "_forum_session=UyZot6o0QfS%2Bp%2Fehw1o7VaAdp2hzkpMNZu18B9v1UHSA4dWC242pAHgKH6NrA6PiLplN2s9xajgD%2FkRrpJTjdPt%2BZgle8GlaG3LILfAP%2B7xNVmpceK0hsz5TugpVXux8OvRDXtbyaDvRA4jkHVCn%2BHx%2B4cwaQamV5XzA3t%2B4BY3168vf1xYSq95OLsK80qge8Y1xfwSjTDLR6Q24Ew5qjXzMvcegDHtVdaKiSbPppezHNCMO13omYb1LpDoVikqT4MjbEjn1Sg%2B6t2TftBhkx4AQHNnTdEFTeeUkiUMP%2Fn7G%2F%2F3wnB596ZQ99wDhBdLduaooUXpwbYGOUr7aVozYbXVFTOIfrZkGK68Mn%2FjgqDWxkxyPf6oMuKOdlIv3ahcqbP6O%2Bb4nLFBPV2qJH95dZvy8dqnTz9TEbUbUYZUDZhzMKA%3D%3D--8vNB3gfKEQN0ACk6--a1ih52hD1F5LubK1OfVi4g%3D%3D; path=/; HttpOnly; SameSite=Lax"
+        "_t=MZoTvaAEZvzfaWZr2LjHQukG%2FrKKNLiZ9VOExgrRYwr9vCxtnWDxgxNIed0%2B7BRCNkfneewboo2Zq2qVGDecIeewu5gVs1tviiAjzaIjEA76p%2F27KdPU5D6kx2KwUeIWy8PKWEUVLhQV5a5PeVUgwbHCZYK7%2FTLsRdULfGFVwb6F7K1pCBcFWwm2XA%2BoGGM7Q%2B2x7j1dNirjASlVp5fMdir9gkomzHZQqpz%2B3T6r10tExIsubDu%2FV45pWAIUy8BSso043mheoIlP5R0eyc7Sxf9TokBGcJ65ufRuCu52jfQtOWAQUwr0qCF1t3bqbP33Entvtw%3D%3D--c8yUZUS95qYRDmTB--JyHF%2F93qOSAsrT5qgNHbMQ%3D%3D; path=/; expires=Mon, 23 Dec 2024 12:19:51 GMT; HttpOnly; SameSite=Lax",
+        "_forum_session=YjeJ%2BZNs8yb6WXfFATDxPsJPm1YJEPCSKf3vmG4G%2BnCPB0AqA2111tnDbfrGWE20jSZVlJEtoafmpqKWY6LTl1fpAmYBrN4R9zcIVsdrqlVNOtGaezRH5FzzioASP5Bw8701olid8JZR1ZL6igUTmBgCyZJ36FKgVVSdA%2FfB5dAyx0%2B1AoPCxHfyS7q%2BOvUL4GJ0PkK84eUUuuI6JPIhOJ78JTgbBQwKwfwIQjlGyMcqwR6VMLes4LyES7W7rvYZ9wy66rd9u2jMWqFmHjgeOOJ2xXN6vZCFfrtW%2Fl4c2%2Fr8kRIRQ6ILpU%2FUbxqS%2BvVZ%2BBBi55MBM2IZLUFDs6gxYmK7VpqjRdL3UFLbsRfTbhma3mS5LlIS4AiAQ3lpVt1uQ8ok3z8U%2Fa70vv0rjNC2qvoVtHuYJ2W%2BTM5lJl%2BIZRaegg%3D%3D--2%2FcuKwOwoS3cebou--6lZGyrMBqB4FgAdOwHBHOw%3D%3D; path=/; HttpOnly; SameSite=Lax"
       ],
       "status": "200 OK",
       "transfer-encoding": "chunked",
@@ -39,15 +39,15 @@
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
       "x-powered-by": "Phusion Passenger(R) 6.0.23",
-      "x-request-id": "699c919e-fe05-4fec-9c64-6ed6ff9de23f",
-      "x-runtime": "0.364645",
+      "x-request-id": "116b28eb-4055-4450-a402-88d558b3b99c",
+      "x-runtime": "0.532460",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "success": true,
       "active": true,
       "message": "Your account is activated and ready to use.",
-      "user_id": 5
+      "user_id": 14
     }
   }
 }

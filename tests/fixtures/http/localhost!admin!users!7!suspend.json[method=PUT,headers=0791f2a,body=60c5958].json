@@ -1,0 +1,54 @@
+{
+  "request": {
+    "url": "http://localhost/admin/users/7/suspend.json",
+    "method": "PUT",
+    "headers": {
+      "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
+      "api-username": "system",
+      "content-type": "application/json"
+    },
+    "bodyJson": {
+      "suspend_until": "2121-02-22",
+      "reason": "Test suspension"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Thu, 24 Oct 2024 12:05:54 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
+      "status": "200 OK",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "users/suspend",
+      "x-discourse-username": "system",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-powered-by": "Phusion Passenger(R) 6.0.23",
+      "x-request-id": "ede894f0-bba6-4f7b-857b-36ad9cfea14a",
+      "x-runtime": "0.017975",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "suspension": {
+        "suspend_reason": "Test suspension",
+        "full_suspend_reason": "Test suspension",
+        "suspended_till": "2121-02-22T00:00:00.000Z",
+        "suspended_at": "2024-10-24T12:05:54.564Z",
+        "suspended_by": {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/images/discourse-logo-sketch-small.png"
+        }
+      }
+    }
+  }
+}

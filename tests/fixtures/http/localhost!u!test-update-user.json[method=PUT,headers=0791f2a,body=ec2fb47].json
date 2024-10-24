@@ -1,6 +1,6 @@
 {
   "request": {
-    "url": "http://localhost/u/test-user-update.json",
+    "url": "http://localhost/u/test-update-user.json",
     "method": "PUT",
     "headers": {
       "api-key": "1b2da41e2a4774fe5fc5fc502f50dd82c05c38afbca4065146a5cf0230d828a6",
@@ -19,7 +19,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Thu, 24 Oct 2024 10:34:26 GMT",
+      "date": "Thu, 24 Oct 2024 12:19:52 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx/1.26.1 + Phusion Passenger(R) 6.0.23",
       "status": "200 OK",
@@ -31,20 +31,20 @@
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
       "x-powered-by": "Phusion Passenger(R) 6.0.23",
-      "x-request-id": "aaad498d-e2aa-4649-bf22-9870a2cdf350",
-      "x-runtime": "0.197957",
+      "x-request-id": "a5bf0887-119b-481b-a2d1-a15b9f4269ed",
+      "x-runtime": "0.676333",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "success": "OK",
       "user": {
-        "id": 5,
-        "username": "test-user-update",
+        "id": 14,
+        "username": "test-update-user",
         "name": "Updated test user",
-        "avatar_template": "/letter_avatar_proxy/v4/letter/t/c5a1d2/{size}.png",
+        "avatar_template": "/letter_avatar_proxy/v4/letter/t/8baadc/{size}.png",
         "last_posted_at": null,
         "last_seen_at": null,
-        "created_at": "2024-10-23T09:53:48.808Z",
+        "created_at": "2024-10-24T12:19:51.801Z",
         "ignored": false,
         "muted": false,
         "can_ignore_user": true,
@@ -55,7 +55,7 @@
         "moderator": false,
         "admin": false,
         "title": null,
-        "badge_count": 1,
+        "badge_count": 0,
         "custom_fields": {},
         "time_read": 0,
         "recent_time_read": 0,
@@ -94,7 +94,7 @@
         "watched_category_ids": [],
         "watched_first_post_category_ids": [],
         "system_avatar_upload_id": null,
-        "system_avatar_template": "/letter_avatar_proxy/v4/letter/t/c5a1d2/{size}.png",
+        "system_avatar_template": "/letter_avatar_proxy/v4/letter/t/8baadc/{size}.png",
         "muted_usernames": [],
         "can_mute_users": true,
         "ignored_usernames": [],
@@ -109,15 +109,15 @@
         "user_passkeys": [],
         "user_auth_tokens": [
           {
-            "id": 14,
+            "id": 20,
             "client_ip": "172.18.0.1",
             "location": "unknown",
             "browser": "unknown browser",
             "device": "unknown device",
             "os": "unknown operating system",
             "icon": "question",
-            "created_at": "2024-10-23T09:53:48.846Z",
-            "seen_at": "2024-10-23T09:53:48.846Z",
+            "created_at": "2024-10-24T12:19:51.968Z",
+            "seen_at": "2024-10-24T12:19:51.968Z",
             "is_active": false
           }
         ],
@@ -148,9 +148,7 @@
         "display_sidebar_tags": true,
         "can_pick_theme_with_custom_homepage": false,
         "can_chat_user": true,
-        "featured_user_badge_ids": [
-          3
-        ],
+        "featured_user_badge_ids": [],
         "invited_by": null,
         "groups": [
           {
@@ -158,7 +156,7 @@
             "automatic": true,
             "name": "trust_level_0",
             "display_name": "trust_level_0",
-            "user_count": 4,
+            "user_count": 10,
             "mentionable_level": 0,
             "messageable_level": 0,
             "visibility_level": 1,
@@ -189,7 +187,7 @@
             "automatic": true,
             "name": "trust_level_1",
             "display_name": "trust_level_1",
-            "user_count": 2,
+            "user_count": 8,
             "mentionable_level": 0,
             "messageable_level": 0,
             "visibility_level": 1,
@@ -219,17 +217,17 @@
         "group_users": [
           {
             "group_id": 10,
-            "user_id": 5,
+            "user_id": 14,
             "notification_level": 3
           },
           {
             "group_id": 11,
-            "user_id": 5,
+            "user_id": 14,
             "notification_level": 3
           }
         ],
         "user_option": {
-          "user_id": 5,
+          "user_id": 14,
           "mailing_list_mode": false,
           "mailing_list_mode_frequency": 1,
           "email_digests": true,
