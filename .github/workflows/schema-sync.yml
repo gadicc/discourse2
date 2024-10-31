@@ -24,4 +24,7 @@ jobs:
           deno-version: v2.x
 
       - name: Check for Discourse OpenAPI schema updates
-        run: deno task schema:sync
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          deno task schema:sync
