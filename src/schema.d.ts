@@ -3784,6 +3784,7 @@ export interface operations {
                             applies_to: unknown[];
                             is_used: boolean;
                             position?: number;
+                            auto_action_type: boolean;
                         }[];
                         topic_flag_types: {
                             id: number | null;
@@ -3797,6 +3798,7 @@ export interface operations {
                             applies_to: unknown[];
                             is_used: boolean;
                             position?: number;
+                            auto_action_type: boolean;
                         }[];
                         can_create_tag: boolean;
                         can_tag_topics: boolean;
@@ -5007,6 +5009,15 @@ export interface operations {
                         retain_hours: string | null;
                         human_filesize: string;
                         dominant_color?: string | null;
+                        thumbnail?: {
+                            id?: number;
+                            upload_id?: number;
+                            url?: string;
+                            extension?: string;
+                            width?: number;
+                            height?: number;
+                            filesize?: number;
+                        } | null;
                     };
                 };
             };
@@ -5139,6 +5150,15 @@ export interface operations {
                         retain_hours: string | null;
                         human_filesize: string;
                         dominant_color?: string | null;
+                        thumbnail?: {
+                            id?: number;
+                            upload_id?: number;
+                            url?: string;
+                            extension?: string;
+                            width?: number;
+                            height?: number;
+                            filesize?: number;
+                        } | null;
                     };
                 };
             };
@@ -5344,6 +5364,15 @@ export interface operations {
                         retain_hours: string | null;
                         human_filesize: string;
                         dominant_color?: string | null;
+                        thumbnail?: {
+                            id?: number;
+                            upload_id?: number;
+                            url?: string;
+                            extension?: string;
+                            width?: number;
+                            height?: number;
+                            filesize?: number;
+                        } | null;
                     };
                 };
             };
@@ -5641,6 +5670,7 @@ export interface operations {
                                 dark_scheme_id: string | null;
                                 dynamic_favicon: boolean;
                                 enable_quoting: boolean;
+                                enable_smart_lists: boolean;
                                 enable_defer: boolean;
                                 digest_after_minutes: number;
                                 automatically_unpin_topics: boolean;
@@ -5896,6 +5926,7 @@ export interface operations {
                                 dark_scheme_id: string | null;
                                 dynamic_favicon: boolean;
                                 enable_quoting: boolean;
+                                enable_smart_lists: boolean;
                                 enable_defer: boolean;
                                 digest_after_minutes: number;
                                 automatically_unpin_topics: boolean;
@@ -6119,6 +6150,7 @@ export interface operations {
                                 dark_scheme_id: string | null;
                                 dynamic_favicon: boolean;
                                 enable_quoting: boolean;
+                                enable_smart_lists: boolean;
                                 enable_defer: boolean;
                                 digest_after_minutes: number;
                                 automatically_unpin_topics: boolean;
