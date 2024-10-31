@@ -1,5 +1,6 @@
 name: Test and Release
 on:
+  workflow_dispatch:
   push:
     # branches:
     #   - main
