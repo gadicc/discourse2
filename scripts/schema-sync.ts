@@ -81,11 +81,16 @@ async function digestMessage(message: string) {
 
   if (!CI) {
     console.log(
-      "Environment variable `CI` is not set or is false; skipping 'git push' and `gh workflow run release.yml`.",
+      "Environment variable `CI` is not set or is false; skipping 'git push', cherry-pick and `gh workflow run release.yml`.",
     );
     return;
   }
 
   await execAndLog("git push");
+
+  // Apply to `dev` branch too
+  await execAndLog("git checkout dev");
+  await execAndLog("git cherry-pick main");
+
   await execAndLog("gh workflow run release.yml --ref main");
 })();
