@@ -5687,6 +5687,8 @@ export interface operations {
                                 enable_allowed_pm_users: boolean;
                                 homepage_id: string | null;
                                 hide_profile_and_presence: boolean;
+                                hide_profile: boolean;
+                                hide_presence: boolean;
                                 text_size: string;
                                 text_size_seq: number;
                                 title_count_mode: string;
@@ -5943,6 +5945,8 @@ export interface operations {
                                 enable_allowed_pm_users: boolean;
                                 homepage_id: string | null;
                                 hide_profile_and_presence: boolean;
+                                hide_profile: boolean;
+                                hide_presence: boolean;
                                 text_size: string;
                                 text_size_seq: number;
                                 title_count_mode: string;
@@ -6167,6 +6171,8 @@ export interface operations {
                                 enable_allowed_pm_users: boolean;
                                 homepage_id: string | null;
                                 hide_profile_and_presence: boolean;
+                                hide_profile: boolean;
+                                hide_presence: boolean;
                                 text_size: string;
                                 text_size_seq: number;
                                 title_count_mode: string;
