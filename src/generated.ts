@@ -359,6 +359,13 @@ export default class DiscourseAPIGenerated {
   }
 
   /**
+   * Invite group to topic
+   */
+  inviteGroupToTopic(params: Prettify<operations['inviteGroupToTopic']['parameters']['path']> & Prettify<NonNullable<operations['inviteGroupToTopic']['requestBody']>['content']['application/json']>): Promise<Prettify<operations['inviteGroupToTopic']['responses']['200']['content']['application/json']>> {
+    return this._exec<operations['inviteGroupToTopic']>('inviteGroupToTopic', params) as unknown as Promise<Prettify<operations['inviteGroupToTopic']['responses']['200']['content']['application/json']>>;
+  }
+
+  /**
    * Bookmark topic
    */
   bookmarkTopic(params: Prettify<operations['bookmarkTopic']['parameters']['path']>): Promise<void> {
