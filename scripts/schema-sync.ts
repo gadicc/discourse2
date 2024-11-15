@@ -91,6 +91,7 @@ async function digestMessage(message: string) {
   // Apply to `dev` branch too
   await execAndLog("git checkout dev");
   await execAndLog("git cherry-pick main");
+  await execAndLog("git push");
 
   await execAndLog("gh workflow run release.yml --ref main");
 })();
