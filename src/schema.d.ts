@@ -627,6 +627,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/t/{id}/invite-group.json": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Invite group to topic */
+        post: operations["inviteGroupToTopic"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/t/{id}/bookmark.json": {
         parameters: {
             query?: never;
@@ -4595,6 +4612,45 @@ export interface operations {
                             username?: string;
                             name?: string;
                             avatar_template?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+    inviteGroupToTopic: {
+        parameters: {
+            query?: never;
+            header: {
+                "Api-Key": string;
+                "Api-Username": string;
+            };
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /** @description The name of the group to invite */
+                    group?: string;
+                    /** @description Whether to notify the group, it defaults to true */
+                    should_notify?: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description invites to a PM */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        group?: {
+                            id?: number;
+                            name?: string;
                         };
                     };
                 };
