@@ -1535,6 +1535,7 @@ export interface operations {
                             i18n_name?: string | null;
                             image_upload_id: number | null;
                             badge_type_id: number;
+                            show_in_post_header: boolean;
                         }[];
                         badge_types: {
                             id: number;
@@ -1620,6 +1621,7 @@ export interface operations {
                             auto_revoke: boolean;
                             show_posts: boolean;
                             badge_type_id: number;
+                            show_in_post_header: boolean;
                         };
                     };
                 };
@@ -1682,6 +1684,7 @@ export interface operations {
                             auto_revoke: boolean;
                             show_posts: boolean;
                             badge_type_id: number;
+                            show_in_post_header: boolean;
                         };
                     };
                 };
@@ -3018,6 +3021,7 @@ export interface operations {
                         flair_bg_color: string | null;
                         flair_color: string | null;
                         flair_group_id?: number | null;
+                        badges_granted?: unknown[];
                         version: number;
                         can_edit: boolean;
                         can_delete: boolean;
@@ -3186,6 +3190,7 @@ export interface operations {
                             flair_bg_color: string | null;
                             flair_color: string | null;
                             flair_group_id?: number | null;
+                            badges_granted?: unknown[];
                             version: number;
                             can_edit: boolean;
                             can_delete: boolean;
