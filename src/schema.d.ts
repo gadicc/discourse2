@@ -3909,6 +3909,8 @@ export interface operations {
                         denied_emojis?: unknown[];
                         valid_flag_applies_to_types?: unknown[];
                         navigation_menu_site_top_tags?: unknown[];
+                        full_name_required_for_signup: boolean;
+                        full_name_visible_in_signup: boolean;
                     };
                 };
             };
@@ -5524,7 +5526,11 @@ export interface operations {
                      *     or it will be ignored */
                     active?: boolean;
                     approved?: boolean;
-                    "user_fields[1]"?: boolean;
+                    user_fields?: {
+                        1?: boolean;
+                    } & {
+                        [key: string]: unknown;
+                    };
                     external_ids?: Record<string, never>;
                 };
             };
