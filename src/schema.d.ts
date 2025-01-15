@@ -4738,6 +4738,8 @@ export interface operations {
                 order?: string;
                 /** @description Defaults to `desc`, add `ascending=true` to sort asc */
                 ascending?: string;
+                /** @description Maximum number of topics returned, between 1-100 */
+                per_page?: number;
             };
             header: {
                 "Api-Key": string;
@@ -4819,6 +4821,8 @@ export interface operations {
             query?: {
                 /** @description Enum: `all`, `yearly`, `quarterly`, `monthly`, `weekly`, `daily` */
                 period?: string;
+                /** @description Maximum number of topics returned, between 1-100 */
+                per_page?: number;
             };
             header: {
                 "Api-Key": string;
@@ -6451,11 +6455,11 @@ export interface operations {
                         flags_received_count: number;
                         private_topics_count: number;
                         can_delete_all_posts: boolean;
-                        can_be_deleted: boolean;
+                        can_be_deleted?: boolean;
                         can_be_anonymized: boolean;
                         can_be_merged: boolean;
                         full_suspend_reason: string | null;
-                        silence_reason: string | null;
+                        silence_reason?: string | null;
                         post_edits_count?: number | null;
                         primary_group_id: number | null;
                         badge_count: number;
