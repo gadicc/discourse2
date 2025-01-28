@@ -3003,6 +3003,7 @@ export interface operations {
                         cooked: string;
                         post_number: number;
                         post_type: number;
+                        posts_count: number;
                         updated_at: string;
                         reply_count: number;
                         reply_to_post_number: string | null;
@@ -3049,6 +3050,7 @@ export interface operations {
                         reviewable_id: number | null;
                         reviewable_score_count: number;
                         reviewable_score_pending_count: number;
+                        post_url: string;
                         mentioned_users?: unknown[];
                     };
                 };
@@ -3080,6 +3082,7 @@ export interface operations {
                         cooked: string;
                         post_number: number;
                         post_type: number;
+                        posts_count: number;
                         updated_at: string;
                         reply_count: number;
                         reply_to_post_number: string | null;
@@ -3128,6 +3131,7 @@ export interface operations {
                         reviewable_id: number | null;
                         reviewable_score_count: number;
                         reviewable_score_pending_count: number;
+                        post_url: string;
                         mentioned_users?: unknown[];
                         name?: string | null;
                         display_username?: string | null;
@@ -3173,6 +3177,7 @@ export interface operations {
                             cooked: string;
                             post_number: number;
                             post_type: number;
+                            posts_count: number;
                             updated_at: string;
                             reply_count: number;
                             reply_to_post_number: string | null;
@@ -3219,6 +3224,7 @@ export interface operations {
                             reviewable_id: number | null;
                             reviewable_score_count: number;
                             reviewable_score_pending_count: number;
+                            post_url: string;
                             mentioned_users?: unknown[];
                             name?: string | null;
                             display_username?: string | null;
@@ -3288,6 +3294,7 @@ export interface operations {
                         cooked: string;
                         post_number: number;
                         post_type: number;
+                        posts_count: number;
                         updated_at: string;
                         reply_count: number;
                         reply_to_post_number: number;
@@ -3337,6 +3344,7 @@ export interface operations {
                         reviewable_id: number | null;
                         reviewable_score_count: number;
                         reviewable_score_pending_count: number;
+                        post_url: string;
                     }[];
                 };
             };
@@ -3451,6 +3459,7 @@ export interface operations {
                         can_view_edit_history?: boolean;
                         wiki?: boolean;
                         notice?: Record<string, never>;
+                        notice_created_by_user?: Record<string, never> | null;
                         reviewable_id?: number | null;
                         reviewable_score_count?: number;
                         reviewable_score_pending_count?: number;
@@ -6459,6 +6468,7 @@ export interface operations {
                         can_be_anonymized: boolean;
                         can_be_merged: boolean;
                         full_suspend_reason: string | null;
+                        latest_export?: Record<string, never> | null;
                         silence_reason?: string | null;
                         post_edits_count?: number | null;
                         primary_group_id: number | null;
