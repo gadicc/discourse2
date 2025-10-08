@@ -1,7 +1,7 @@
 "use strict";
-import { afterAll, beforeAll, describe, it } from "jsr:@std/testing/bdd";
-import { spy } from "jsr:@std/testing/mock";
-import { expect } from "jsr:@std/expect";
+import { afterAll, beforeAll, describe, it } from "@std/testing/bdd";
+import { spy } from "@std/testing/mock";
+import { expect } from "@std/expect";
 
 import createFetchCache from "@gadicc/fetch-mock-cache/runtimes/deno.ts";
 import Store from "@gadicc/fetch-mock-cache/stores/fs.ts";

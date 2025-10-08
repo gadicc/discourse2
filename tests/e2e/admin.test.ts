@@ -1,4 +1,4 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import { describe, test } from "./_common.ts";
 
 describe("admin", () => {
   test("adminGetUser - SKIPPED (tested in `users` suite)", async () => {});

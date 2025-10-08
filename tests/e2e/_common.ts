@@ -4,8 +4,8 @@ import {
   describe as _describe,
   it,
   test,
-} from "jsr:@std/testing/bdd";
-import { expect } from "jsr:@std/expect";
+} from "@std/testing/bdd";
+import { expect } from "@std/expect";
 import Discourse from "../../src/index.ts";
 import server from "../docker/server.json" with { type: "json" };
 import createFetchCache from "@gadicc/fetch-mock-cache/runtimes/deno.ts";
