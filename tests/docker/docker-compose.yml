@@ -41,6 +41,7 @@ services:
     volumes:
       - uploads:/var/www/discourse/public/uploads
       - backups:/var/www/discourse/public/backups
+      - ./nginx-site.conf:/etc/nginx/conf.d/site.conf:ro
 
 volumes:
   pgdata:

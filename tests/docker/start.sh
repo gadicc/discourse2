@@ -20,6 +20,48 @@ CHECK_INTERVAL=0.5
 
 docker-compose up -d
 
+echo "Injecting no-rate-limits initializer..."
+docker compose exec discourse bash -lc '
+set -e
+cat > /var/www/discourse/config/initializers/zzz_no_rate_limits.rb <<'"'"'RUBY'"'"'
+# Disable Discourse rate limiting for test environments.
+Rails.application.config.to_prepare do
+  if defined?(::RateLimiter)
+    ::RateLimiter.class_eval do
+      def can_perform?(*); true; end
+      def performed!(*); end
+      def remaining(*); 1_000_000; end
+    end
+  end
+
+  if defined?(::SecondBasedRateLimiter)
+    ::SecondBasedRateLimiter.class_eval do
+      def can_perform?(*); true; end
+      def performed!(*); end
+      def remaining(*); 1_000_000; end
+    end
+  end
+
+  if defined?(::EmailRateLimiter)
+    ::EmailRateLimiter.class_eval do
+      def can_perform?(*); true; end
+      def performed!(*); end
+      def remaining(*); 1_000_000; end
+    end
+  end
+
+  if defined?(::Auth) && defined?(::Auth::RateLimiter)
+    ::Auth::RateLimiter.class_eval do
+      def can_perform?(*); true; end
+      def performed!(*); end
+      def track!(*); end
+      def remaining(*); 1_000_000; end
+    end
+  end
+end
+RUBY
+'
+
 start=$(date +%s)
 end=$(( start + START_TIMEOUT ))
 
@@ -122,17 +164,5 @@ echo "  \"url\": \"$DISCOURSE_URL\"," >> server.json
 # echo "  \"password\": \"$ADMIN_PASSWORD\"," >> server.json
 echo "  \"apiKey\": \"$API_KEY\"" >> server.json
 echo "}" >> server.json
-
-exit 0
-
-echo "Disabling nginx rate limiting..."
-./disable-rate-limiting.sh > /dev/null
-
-echo "Disabling nginx rate limits..."
-docker compose exec discourse bash -lc '
-grep -R "limit_req" -n /etc/nginx || true
-sed -i -E "s/^\s*limit_req/# &/" /etc/nginx/conf.d/*.conf 2>/dev/null || true
-nginx -t && nginx -s reload
-' >& /dev/null
 
 echo "Done."
