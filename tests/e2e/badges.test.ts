@@ -76,6 +76,6 @@ describe("badges", () => {
 
   test("listUserBadges", async () => {
     const result = await discourse.listUserBadges({ username: "system" });
-    expect(Array.isArray(result.badges)).toBe(true);
+    expect(Array.isArray(result.user_badges)).toBe(true);
   });
 });

@@ -29,7 +29,7 @@ describe("users", () => {
 
   test("listUserBadges", async () => {
     const result = await discourse.listUserBadges({ username: "system" });
-    expect(result).toHaveProperty("badges");
+    expect(result).toHaveProperty("user_badges");
   });
 
   test("createUser", async () => {
