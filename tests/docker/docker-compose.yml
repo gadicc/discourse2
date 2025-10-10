@@ -41,7 +41,8 @@ services:
     volumes:
       - uploads:/var/www/discourse/public/uploads
       - backups:/var/www/discourse/public/backups
-      - ./nginx-site.conf:/etc/nginx/conf.d/site.conf:ro
+      - ./nginx-o-bs-30-ratelimited.conf:/etc/nginx/conf.d/outlets/before-server/30-ratelimited.conf:ro
+      - ./nginx-o-d-30-ratelimited.conf:/etc/nginx/conf.d/outlets/discourse/30-ratelimited.conf:ro
 
 volumes:
   pgdata:

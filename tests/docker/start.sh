@@ -72,7 +72,7 @@ else
 fi
 
 while :; do
-  if curl -s "$DISCOURSE_URL" | grep -q "Powered by"; then
+  if curl -s "$DISCOURSE_URL" | grep -Eq '(Powered by|Discourse Setup)'; then
     elapsed=$(( $(date +%s) - start ))
     if ! should_skip_updates; then
       printf "\rDiscourse is up and running after %02d:%02ds.                   \n" $((elapsed/60)) $((elapsed%60))
