@@ -12,6 +12,7 @@ describe("users", () => {
   useCache();
 
   async function cleanup() {
+    if (Deno.env.get("CI")) return;
     skipCacheOnce();
     const users = await discourse.adminListUsers({ flag: "active" });
     for (const user of users) {

@@ -13,6 +13,7 @@ describe("groups", () => {
   useCache();
 
   async function cleanup() {
+    if (Deno.env.get("CI")) return;
     skipCacheOnce();
     const result = await discourse.listGroups();
     for (const group of result.groups) {

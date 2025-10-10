@@ -15,6 +15,7 @@ describe("tags", () => {
   useCache();
 
   async function cleanup() {
+    if (Deno.env.get("CI")) return;
     skipCacheOnce();
     const result = await discourse.listTagGroups();
     if (result.tag_groups) {

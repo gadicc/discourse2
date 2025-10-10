@@ -13,6 +13,7 @@ describe("badges", () => {
   useCache();
 
   async function cleanup() {
+    if (Deno.env.get("CI")) return;
     skipCacheOnce();
     const result = await discourse.adminListBadges();
     for (const badge of result.badges) {

@@ -13,6 +13,7 @@ describe("topics", () => {
   useCache();
 
   async function cleanup() {
+    if (Deno.env.get("CI")) return;
     skipCacheOnce();
     const result = await discourse.listLatestTopics();
     const topics = result.topic_list?.topics?.filter((t) =>

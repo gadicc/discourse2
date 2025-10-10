@@ -13,6 +13,7 @@ describe("posts", () => {
   useCache();
 
   async function cleanup() {
+    if (Deno.env.get("CI")) return;
     skipCacheOnce();
     const posts = await discourse.listPosts();
     if (posts.latest_posts) {
