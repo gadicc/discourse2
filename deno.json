@@ -6,7 +6,10 @@
   },
   "tasks": {
     "dev": "deno run --watch src/index.ts",
-    "ci": "deno check {src,test}/**/*.ts && deno lint {src,test}/**/*.ts && deno task coverage",
+    "check": "deno check",
+    "format": "deno fmt",
+    "lint": "deno lint",
+    "ci": "deno task check && deno task lint && deno task format --check && deno task coverage",
     "test": "deno test -A --parallel src tests",
     "coverage": "deno task test --coverage=cov_profile && scripts/coverage-fix.sh && deno coverage cov_profile",
     "schema:sync": "deno run --allow-env --allow-write --allow-read --allow-net --allow-run scripts/schema-sync.ts",
@@ -30,5 +33,25 @@
   },
   "publish": {
     "include": ["src", "README.md"]
+  },
+  "fmt": {
+    "exclude": [
+      ".github/actions",
+      ".github/workflows",
+      "tests/fixtures",
+      "src/generated.ts",
+      "src/openapi-meta.json",
+      "src/schema.d.ts"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      ".github/actions",
+      ".github/workflows",
+      "tests/fixtures",
+      "src/generated.ts",
+      "src/openapi-meta.json",
+      "src/schema.d.ts"
+    ]
   }
 }

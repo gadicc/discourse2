@@ -25,7 +25,7 @@ services:
       - "80:80"
     # restart: unless-stopped
     environment:
-      DISCOURSE_HOSTNAME: localhost        # use a real domain in practice
+      DISCOURSE_HOSTNAME: localhost # use a real domain in practice
       DISCOURSE_DB_HOST: postgres
       DISCOURSE_DB_NAME: discourse
       DISCOURSE_DB_USERNAME: discourse

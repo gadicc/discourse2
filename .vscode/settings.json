@@ -1,5 +1,4 @@
 {
-  "task.allowAutomaticTasks": "on",
   "deno.enable": true,
   "deno.lint": true,
   "editor.formatOnSave": true,
