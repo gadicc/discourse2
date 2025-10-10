@@ -1,0 +1,42 @@
+{
+  "request": {
+    "url": "http://localhost/t/19/status.json",
+    "method": "PUT",
+    "bodyJson": {
+      "status": "closed",
+      "enabled": "true"
+    },
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:40 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/status",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "6ceb9b41-6e41-4320-bca2-ea58462067dd",
+      "x-runtime": "0.077880",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": "OK",
+      "topic_status_update": null
+    }
+  }
+}

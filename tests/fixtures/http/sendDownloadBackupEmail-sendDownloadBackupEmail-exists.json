@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "http://localhost/admin/backups/discourse-2025-10-10-130230-v20250825094818.sql.gz",
+    "url": "http://localhost/admin/backups/discourse-2025-10-10-134342-v20250825094818.sql.gz",
     "method": "PUT",
     "headers": {
-      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
       "api-username": "system"
     }
   },
@@ -15,7 +15,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "text/plain; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:02:31 GMT",
+      "date": "Fri, 10 Oct 2025 13:43:43 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -25,8 +25,8 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "6fd9b54d-fd8f-4973-bd4f-f159f276597f",
-      "x-runtime": "0.014389",
+      "x-request-id": "3ba8ea35-6231-4c58-912c-0c58669ce4d2",
+      "x-runtime": "0.012076",
       "x-xss-protection": "0"
     },
     "bodyText": ""

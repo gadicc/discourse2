@@ -1,0 +1,104 @@
+{
+  "request": {
+    "url": "http://localhost/search.json?q=test",
+    "method": "GET",
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:37 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "search/show",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "0e83c580-9ed1-4e48-b6ff-facaffafa9da",
+      "x-robots-tag": "noindex",
+      "x-runtime": "0.052869",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "posts": [
+        {
+          "id": 7,
+          "name": "system",
+          "username": "system",
+          "avatar_template": "/images/discourse-logo-sketch-small.png",
+          "created_at": "2025-10-10T13:43:00.612Z",
+          "like_count": 0,
+          "blurb": "Welcome to your new community, and thank you for choosing Discourse! :e_mail: Test your email configuration Email is required for new account signups and notifications. → Send a test email . → Email didn’t arrive? Read our guide on...",
+          "post_number": 1,
+          "topic_id": 6
+        }
+      ],
+      "topics": [
+        {
+          "fancy_title": "Admin Guide: Getting Started",
+          "id": 6,
+          "title": "Admin Guide: Getting Started",
+          "slug": "admin-guide-getting-started",
+          "posts_count": 1,
+          "reply_count": 0,
+          "highest_post_number": 1,
+          "created_at": "2025-10-10T13:43:00.576Z",
+          "last_posted_at": "2025-10-10T13:43:00.612Z",
+          "bumped": true,
+          "bumped_at": "2025-10-10T13:43:00.612Z",
+          "archetype": "regular",
+          "unseen": false,
+          "last_read_post_number": 1,
+          "unread": 0,
+          "new_posts": 0,
+          "unread_posts": 0,
+          "pinned": false,
+          "unpinned": null,
+          "visible": true,
+          "closed": false,
+          "archived": false,
+          "notification_level": 3,
+          "bookmarked": false,
+          "liked": false,
+          "tags": [],
+          "tags_descriptions": {},
+          "category_id": 3,
+          "has_accepted_answer": false
+        }
+      ],
+      "users": [],
+      "categories": [],
+      "tags": [],
+      "groups": [],
+      "grouped_search_result": {
+        "more_posts": null,
+        "more_users": null,
+        "more_categories": null,
+        "term": "test",
+        "search_log_id": 1,
+        "more_full_page_results": null,
+        "can_create_topic": true,
+        "error": null,
+        "extra": {},
+        "post_ids": [
+          7
+        ],
+        "user_ids": [],
+        "category_ids": [],
+        "tag_ids": [],
+        "group_ids": []
+      }
+    }
+  }
+}

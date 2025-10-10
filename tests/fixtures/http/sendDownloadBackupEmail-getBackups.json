@@ -3,7 +3,7 @@
     "url": "http://localhost/admin/backups.json",
     "method": "GET",
     "headers": {
-      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
       "api-username": "system"
     }
   },
@@ -15,7 +15,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:02:30 GMT",
+      "date": "Fri, 10 Oct 2025 13:43:43 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -25,15 +25,15 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "b8ffd9f5-8f8a-46a1-a6fe-dc9ddde346ab",
-      "x-runtime": "0.009496",
+      "x-request-id": "016a5213-e736-4d7e-94df-8f5387e12249",
+      "x-runtime": "0.008312",
       "x-xss-protection": "0"
     },
     "bodyJson": [
       {
-        "filename": "discourse-2025-10-10-130230-v20250825094818.sql.gz",
-        "size": 1373712,
-        "last_modified": "2025-10-10T13:02:30.686Z"
+        "filename": "discourse-2025-10-10-134342-v20250825094818.sql.gz",
+        "size": 1371903,
+        "last_modified": "2025-10-10T13:43:43.113Z"
       }
     ]
   }

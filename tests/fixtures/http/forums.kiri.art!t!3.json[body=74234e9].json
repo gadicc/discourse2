@@ -15,7 +15,7 @@
       "access-control-max-age": "7200",
       "cache-control": "no-cache, no-store",
       "content-type": "application/json; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:02:25 GMT",
+      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "strict-transport-security": "max-age=31536000",
@@ -25,8 +25,8 @@
       "x-discourse-route": "topics/show",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "a349fff3-c848-4e1a-8fc1-d6f95e23037f",
-      "x-runtime": "0.065059",
+      "x-request-id": "b4db4d18-b7b9-4d85-b457-08ceb63b6690",
+      "x-runtime": "0.070144",
       "x-xss-protection": "0"
     },
     "bodyJson": {

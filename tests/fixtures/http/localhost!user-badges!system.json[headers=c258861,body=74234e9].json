@@ -1,0 +1,36 @@
+{
+  "request": {
+    "url": "http://localhost/user-badges/system.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:37 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "user_badges/username",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "2f2e564f-4bcd-4f47-b1eb-ee48a4bb17e4",
+      "x-runtime": "0.011363",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "user_badges": []
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "request": {
+    "url": "http://localhost/invites.json",
+    "method": "POST",
+    "bodyJson": {},
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:37 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "invites/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "3e18ba9e-e589-4079-8aac-8fd003990bdb",
+      "x-runtime": "0.034555",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "id": 1,
+      "invite_key": "2VCDhiSVgz",
+      "link": "http://localhost/invites/2VCDhiSVgz",
+      "description": null,
+      "domain": null,
+      "can_delete_invite": true,
+      "max_redemptions_allowed": 1,
+      "redemption_count": 0,
+      "created_at": "2025-10-10T13:43:37.644Z",
+      "updated_at": "2025-10-10T13:43:37.644Z",
+      "expires_at": "2026-01-08T13:43:37.633Z",
+      "expired": false,
+      "topics": [],
+      "groups": []
+    }
+  }
+}

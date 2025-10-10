@@ -1,0 +1,39 @@
+{
+  "request": {
+    "url": "http://localhost/notifications.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:37 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "notifications/index",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "0f53108f-8da1-4fce-8021-faba08535d62",
+      "x-runtime": "0.012839",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "notifications": [],
+      "total_rows_notifications": 0,
+      "seen_notification_id": 0,
+      "load_more_notifications": "/notifications?limit=60&offset=60&username=system"
+    }
+  }
+}

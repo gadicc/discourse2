@@ -1,0 +1,114 @@
+{
+  "request": {
+    "url": "http://localhost/c/3/show.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "categories/show",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "368796d5-f064-4fe9-8ff5-e4dc6da4ceae",
+      "x-runtime": "0.163604",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "category": {
+        "id": 3,
+        "name": "Staff",
+        "color": "E45735",
+        "text_color": "FFFFFF",
+        "style_type": "emoji",
+        "icon": null,
+        "emoji": "shield",
+        "slug": "staff",
+        "topic_count": 3,
+        "post_count": 0,
+        "position": 2,
+        "description": "<p>Private category for staff discussions. Topics are only visible to admins and moderators.</p>",
+        "description_text": "Private category for staff discussions. Topics are only visible to admins and moderators.",
+        "description_excerpt": "Private category for staff discussions. Topics are only visible to admins and moderators.",
+        "topic_url": "/t/about-the-staff-category/2",
+        "read_restricted": true,
+        "permission": 1,
+        "notification_level": 1,
+        "can_edit": true,
+        "topic_template": null,
+        "has_children": null,
+        "subcategory_count": null,
+        "sort_order": null,
+        "sort_ascending": null,
+        "show_subcategory_list": false,
+        "num_featured_topics": 3,
+        "default_view": null,
+        "subcategory_list_style": "rows_with_featured_topics",
+        "default_top_period": "all",
+        "default_list_filter": "all",
+        "minimum_required_tags": 0,
+        "navigate_to_first_post_after_read": false,
+        "custom_fields": {
+          "has_chat_enabled": true,
+          "enable_topic_voting": false
+        },
+        "allowed_tags": [],
+        "allowed_tag_groups": [],
+        "allow_global_tags": false,
+        "read_only_banner": null,
+        "form_template_ids": [],
+        "available_groups": [
+          "admins",
+          "everyone",
+          "moderators",
+          "test-update-group2",
+          "trust_level_0",
+          "trust_level_1",
+          "trust_level_2",
+          "trust_level_3",
+          "trust_level_4"
+        ],
+        "auto_close_hours": null,
+        "auto_close_based_on_last_post": false,
+        "group_permissions": [
+          {
+            "permission_type": 1,
+            "group_name": "staff"
+          }
+        ],
+        "email_in": null,
+        "email_in_allow_strangers": false,
+        "mailinglist_mirror": false,
+        "all_topics_wiki": false,
+        "allow_unlimited_owner_edits_on_first_post": false,
+        "cannot_delete_reason": "Can't delete this category because it has chat channels.",
+        "is_special": true,
+        "allow_badges": true,
+        "topic_featured_link_allowed": true,
+        "search_priority": 0,
+        "default_slow_mode_seconds": null,
+        "uploaded_logo": null,
+        "uploaded_logo_dark": null,
+        "uploaded_background": null,
+        "uploaded_background_dark": null,
+        "required_tag_groups": [],
+        "category_localizations": []
+      }
+    }
+  }
+}

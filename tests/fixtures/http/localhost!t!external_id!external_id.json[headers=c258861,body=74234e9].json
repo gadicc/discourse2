@@ -1,0 +1,36 @@
+{
+  "request": {
+    "url": "http://localhost/t/external_id/external_id.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 301,
+    "statusText": "Moved Permanently",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-security-policy": "base-uri 'self'; object-src 'none'; script-src 'strict-dynamic'; frame-ancestors 'self'; manifest-src 'self'",
+      "content-type": "text/html; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin-allow-popups",
+      "date": "Fri, 10 Oct 2025 13:43:41 GMT",
+      "location": "http://localhost/t/test-topic-to-be-external-idd/23.json",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/show_by_external_id",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "e476ad44-f43c-4b8f-81fe-c86c93ffdb47",
+      "x-runtime": "0.007920",
+      "x-xss-protection": "0"
+    },
+    "bodyText": ""
+  }
+}

@@ -5,6 +5,7 @@ import {
   discourse,
   expect,
   randomName,
+  setNextCacheId,
   skipCacheOnce,
   test,
   useCache,
@@ -22,6 +23,7 @@ describe("tags", () => {
           // No documented delete API :D
           // console.warn("Found leftover test tag group:", tagGroup.name, "but cannot delete it");
           // We might have lots of randomName()'d tag groups, so don't spam the console
+          // It also means we should manually set cache IDs due to the random names.
         }
       }
     }
@@ -36,9 +38,11 @@ describe("tags", () => {
 
   test("createTagGroup & getTagGroup", async () => {
     const name = randomName();
+    setNextCacheId("createTagGroup-createTagGroup");
     const result = await discourse.createTagGroup({ name });
     expect(result.tag_group).toHaveProperty("id");
 
+    setNextCacheId("createTagGroup-getTagGroup");
     const tagGroup = await discourse.getTagGroup({
       id: result.tag_group.id.toString(),
     });
@@ -46,10 +50,12 @@ describe("tags", () => {
   });
 
   test("updateTagGroup", async () => {
-    const name = randomName();
-    const result = await discourse.createTagGroup({ name });
+    setNextCacheId("updateTagGroup-createTagGroup");
+    const result = await discourse.createTagGroup({ name: randomName() });
+    const name = result.tag_group.name;
 
     const updatedName = name + "-updated";
+    setNextCacheId("updateTagGroup-updateTagGroup");
     const updated = await discourse.updateTagGroup({
       id: result.tag_group.id.toString(),
       name: updatedName,

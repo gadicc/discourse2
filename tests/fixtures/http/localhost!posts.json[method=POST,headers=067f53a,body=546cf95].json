@@ -1,0 +1,121 @@
+{
+  "request": {
+    "url": "http://localhost/posts.json",
+    "method": "POST",
+    "bodyJson": {
+      "title": "test topic to be timestamped",
+      "raw": "this is a test for updateTopicTimestamp",
+      "category": 3
+    },
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:40 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "posts/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "4f708637-2da2-492b-8b73-129e54ccfe13",
+      "x-runtime": "0.135616",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "id": 23,
+      "name": "system",
+      "username": "system",
+      "avatar_template": "/images/discourse-logo-sketch-small.png",
+      "created_at": "2025-10-10T13:43:40.516Z",
+      "cooked": "<p>this is a test for updateTopicTimestamp</p>",
+      "post_number": 1,
+      "post_type": 1,
+      "posts_count": 1,
+      "updated_at": "2025-10-10T13:43:40.516Z",
+      "reply_count": 0,
+      "reply_to_post_number": null,
+      "quote_count": 0,
+      "incoming_link_count": 0,
+      "reads": 0,
+      "readers_count": 0,
+      "score": 0,
+      "yours": true,
+      "topic_id": 21,
+      "topic_slug": "test-topic-to-be-timestamped",
+      "display_username": "system",
+      "primary_group_name": null,
+      "flair_name": null,
+      "flair_url": null,
+      "flair_bg_color": null,
+      "flair_color": null,
+      "flair_group_id": null,
+      "badges_granted": [],
+      "version": 1,
+      "can_edit": true,
+      "can_delete": false,
+      "can_recover": false,
+      "can_see_hidden_post": true,
+      "can_wiki": true,
+      "user_title": null,
+      "bookmarked": false,
+      "raw": "this is a test for updateTopicTimestamp",
+      "actions_summary": [
+        {
+          "id": 3,
+          "can_act": true
+        },
+        {
+          "id": 4,
+          "can_act": true
+        },
+        {
+          "id": 8,
+          "can_act": true
+        },
+        {
+          "id": 10,
+          "can_act": true
+        },
+        {
+          "id": 7,
+          "can_act": true
+        }
+      ],
+      "moderator": true,
+      "admin": true,
+      "staff": true,
+      "user_id": -1,
+      "draft_sequence": 0,
+      "hidden": false,
+      "trust_level": 4,
+      "deleted_at": null,
+      "user_deleted": false,
+      "edit_reason": null,
+      "can_view_edit_history": true,
+      "wiki": false,
+      "reviewable_id": null,
+      "reviewable_score_count": 0,
+      "reviewable_score_pending_count": 0,
+      "post_url": "/t/test-topic-to-be-timestamped/21/1",
+      "can_accept_answer": false,
+      "can_unaccept_answer": false,
+      "accepted_answer": false,
+      "topic_accepted_answer": null,
+      "can_vote": false
+    }
+  }
+}

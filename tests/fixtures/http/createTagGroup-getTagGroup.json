@@ -1,0 +1,45 @@
+{
+  "request": {
+    "url": "http://localhost/tag_groups/1.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "tag_groups/show",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "fb0e297a-79ec-458c-8178-7ad0236bb0eb",
+      "x-runtime": "0.013959",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "tag_group": {
+        "id": 1,
+        "name": "test-rqyyyty",
+        "tag_names": [],
+        "parent_tag_name": [],
+        "one_per_topic": false,
+        "permissions": {
+          "0": 1
+        }
+      }
+    }
+  }
+}

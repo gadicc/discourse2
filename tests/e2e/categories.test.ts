@@ -3,12 +3,18 @@ import {
   discourse,
   expect,
   randomName,
+  setNextCacheId,
   test,
   useCache,
 } from "./_common.ts";
 
 describe("categories", () => {
   useCache();
+
+  /*
+   * Note: There's no documented deleteCategory API, so we need to give each category
+   * a unique name to avoid conflicts, and manually specify cacheId.
+   */
 
   test("listCategories", async () => {
     const result = await discourse.listCategories();
@@ -17,16 +23,19 @@ describe("categories", () => {
 
   test("createCategory", async () => {
     const name = randomName();
+    setNextCacheId("createCategory-createCategory");
     const result = await discourse.createCategory({ name });
     expect(result).toHaveProperty("category");
   });
 
   test("updateCategory", async () => {
-    const name = randomName();
-    const result = await discourse.createCategory({ name });
+    setNextCacheId("updateCategory-createCategory");
+    const result = await discourse.createCategory({ name: randomName() });
+    const name = result.category.name;
     const id = result.category.id;
 
     const newName = name + "-updated";
+    setNextCacheId("updateCategory-updateCategory");
     const updateResult = await discourse.updateCategory({ id, name: newName });
     expect(updateResult.category.name).toBe(newName);
   });
