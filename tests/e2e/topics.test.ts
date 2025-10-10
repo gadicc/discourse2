@@ -4,7 +4,6 @@ import {
   describe,
   discourse,
   expect,
-  randomName,
   skipCacheOnce,
   test,
   useCache,
@@ -16,6 +15,17 @@ describe("topics", () => {
   async function cleanup() {
     skipCacheOnce();
     const result = await discourse.listLatestTopics();
+    const topics = result.topic_list?.topics?.filter((t) =>
+      t.title?.startsWith("test") || t.title?.startsWith("Test")
+    );
+    if (topics?.length) {
+      console.error("Leftover topics found after tests:");
+      for (const topic of topics) {
+        console.error(`- ${topic.id} - ${topic.title}`);
+      }
+      throw new Error("Leftover topics found after tests, please fix.");
+    }
+
     for (const topic of result.topic_list?.topics || []) {
       if (topic.title?.startsWith("test") || topic.title?.startsWith("Test")) {
         console.log(`Cleaning up leftover topic ${topic.id} - ${topic.title}`);
@@ -188,7 +198,7 @@ describe("topics", () => {
   });
 
   test("getTopicByExternalId", async () => {
-    const external_id = randomName();
+    const external_id = "external_id";
     const topic = await discourse.createTopicPostPM({
       title: "test topic to be external id'd",
       raw: "this is a test for getTopicByExternalId",

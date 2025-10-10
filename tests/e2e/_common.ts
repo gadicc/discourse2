@@ -30,6 +30,10 @@ export function skipCacheOnce() {
   fetchCache.once({ readCache: false, writeCache: false });
 }
 
+export function setNextCacheId(id: string) {
+  fetchCache.once({ id });
+}
+
 function randomName() {
   let result = "";
   const characters = "abcdefghijklmnopqrstuvwxyz";
