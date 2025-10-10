@@ -1,0 +1,44 @@
+{
+  "request": {
+    "url": "http://localhost/groups/46/members.json",
+    "method": "DELETE",
+    "bodyJson": {
+      "usernames": "system"
+    },
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:26 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "groups/remove_member",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "1edadcaf-6c21-4737-b393-f40b2d78c949",
+      "x-runtime": "0.022051",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": "OK",
+      "usernames": [
+        "system"
+      ],
+      "skipped_usernames": []
+    }
+  }
+}

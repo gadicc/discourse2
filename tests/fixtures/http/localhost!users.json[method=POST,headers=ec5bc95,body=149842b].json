@@ -1,0 +1,48 @@
+{
+  "request": {
+    "url": "http://localhost/users.json",
+    "method": "POST",
+    "bodyJson": {
+      "name": "Test user to delete",
+      "email": "delete-me@example.com",
+      "password": "aFunPassw0rd",
+      "username": "test-delete-user"
+    },
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:30 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "set-cookie": [
+        "_forum_session=kstoj%2BzzdbxecfNoaiyt8rO2jirlZQvL%2BAUbNaKs1%2FCOMr%2BfGzia5RhQHvFQJ4%2BjkEgLV%2FLh%2Boam2A8PO%2FFgYokKcp7aFLUcx72UczMMtU3GduP264gkjoX0u3xR8WE%2B2BfSCPIzipqToPIOWOyvotx2n%2FdO4P43ahsYdBnCfY5zetpKqsl3EwezMMKee41yAgLY396jmZUoVWyMEf3saRKa2i6mYm174ZiVX3zRNHKquQWsPFpSB3wwe5f%2BL32T8zZmvU%2Fbi5vO49FxHwYse61LOCKkjFriJ8HJcOEWUz6UVOfevyjxdFENGSThvHeQfVwbSC5b7YZ0sFltksO08nF5A%2FJsYWIjOMb8rQcG7jdA5aPX5zDQOqkQNwpPL2SqiVu07sbOD4mq%2FT4tp0L4SJd0mkJLkx1prFXxBIRwvnaqd0240vWHhFxFI%2BHESi49kby78zNr%2BCD3QIPOmbAy%2ByVJIlrKUU5a8ECtcW2Is8wr2Sim%2BYf%2BbTSgs%2F7dffUV7Wlv4fCugWWizDwbIjTPYyfi9zuEiuvXMoLVWMyd532gANerE%2B59CJcygpuCH2nXK4EyUQpGohIBNF05R2UsoQXJwYQtPf0jJxDW%2FjOmgmTOdM7ateyN010i3dsOCQvRWZOtw9Td3mfMPfQuTxphXcZ9PMOQs1ym19iW%2Bfb6QJh8OSjA6RMcOwmINL0JTbD64gigvDUyldNROvgU9yvPaWz%2FjYxpZPr2Fvu50JiPMKi0Od6GStT0Qg8kYFCZSJVnoStuyUKEi5g1nKq6bLBKumdTitd68TSZtFlSxLgb%2Fy0mmEGR8RJytX1mLgWmG4P%2BYCU%3D--fsvzWMVgdUrYVj75--2ZWMfWx1OcxdUD7oOwDUiQ%3D%3D; path=/; HttpOnly; SameSite=Lax"
+      ],
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "users/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "d89e5197-d379-45c0-9c2f-0b1e0cc04d83",
+      "x-runtime": "0.419400",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": true,
+      "active": false,
+      "message": "<p>You’re almost done! We sent an activation mail to <b>delete-me@example.com</b>. Please follow the instructions in the mail to activate your account.</p><p>If it doesn’t arrive, check your spam folder.</p>"
+    }
+  }
+}

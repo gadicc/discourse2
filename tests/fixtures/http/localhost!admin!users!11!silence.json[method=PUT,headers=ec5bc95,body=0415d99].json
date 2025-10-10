@@ -1,0 +1,52 @@
+{
+  "request": {
+    "url": "http://localhost/admin/users/11/silence.json",
+    "method": "PUT",
+    "bodyJson": {
+      "silenced_till": "2121-02-22T08:00:00.000Z",
+      "reason": "Test silence"
+    },
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:33 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "admin/users/silence",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "a2a9134b-7614-4bc1-b4a4-e89ba9657f04",
+      "x-runtime": "0.144393",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "silence": {
+        "silenced": true,
+        "silence_reason": "Test silence",
+        "silenced_till": "2121-02-22T08:00:00.000Z",
+        "silenced_at": "2025-10-10T13:02:33.247Z",
+        "silenced_by": {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/images/discourse-logo-sketch-small.png"
+        }
+      }
+    }
+  }
+}

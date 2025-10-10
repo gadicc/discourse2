@@ -1,0 +1,46 @@
+{
+  "request": {
+    "url": "http://localhost/t/22/timer.json",
+    "method": "POST",
+    "bodyJson": {
+      "time": "",
+      "status_type": "close"
+    },
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:27 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/timer",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "6cb399e9-ed86-48a7-8ac7-d432d16c9ed3",
+      "x-runtime": "0.016265",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": "OK",
+      "execute_at": null,
+      "duration_minutes": null,
+      "based_on_last_post": null,
+      "closed": false,
+      "category_id": null
+    }
+  }
+}

@@ -1,0 +1,850 @@
+{
+  "request": {
+    "url": "http://localhost/site.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:24 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "site/site",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "96aaa7c7-5add-4c35-ab4a-fbf41ab085a6",
+      "x-runtime": "0.049375",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "default_archetype": "regular",
+      "notification_types": {
+        "mentioned": 1,
+        "replied": 2,
+        "quoted": 3,
+        "edited": 4,
+        "liked": 5,
+        "private_message": 6,
+        "invited_to_private_message": 7,
+        "invitee_accepted": 8,
+        "posted": 9,
+        "moved_post": 10,
+        "linked": 11,
+        "granted_badge": 12,
+        "invited_to_topic": 13,
+        "custom": 14,
+        "group_mentioned": 15,
+        "group_message_summary": 16,
+        "watching_first_post": 17,
+        "topic_reminder": 18,
+        "liked_consolidated": 19,
+        "post_approved": 20,
+        "code_review_commit_approved": 21,
+        "membership_request_accepted": 22,
+        "membership_request_consolidated": 23,
+        "bookmark_reminder": 24,
+        "reaction": 25,
+        "votes_released": 26,
+        "event_reminder": 27,
+        "event_invitation": 28,
+        "chat_mention": 29,
+        "chat_message": 30,
+        "chat_invitation": 31,
+        "chat_group_mention": 32,
+        "chat_quoted": 33,
+        "assigned": 34,
+        "question_answer_user_commented": 35,
+        "watching_category_or_tag": 36,
+        "new_features": 37,
+        "admin_problems": 38,
+        "linked_consolidated": 39,
+        "chat_watched_thread": 40,
+        "following": 800,
+        "following_created_topic": 801,
+        "following_replied": 802,
+        "circles_activity": 900
+      },
+      "post_types": {
+        "regular": 1,
+        "moderator_action": 2,
+        "small_action": 3,
+        "whisper": 4
+      },
+      "user_tips": {
+        "first_notification": 1,
+        "topic_timeline": 2,
+        "post_menu": 3,
+        "topic_notification_levels": 4,
+        "suggested_topics": 5
+      },
+      "trust_levels": {
+        "newuser": 0,
+        "basic": 1,
+        "member": 2,
+        "regular": 3,
+        "leader": 4
+      },
+      "groups": [
+        {
+          "id": 1,
+          "name": "admins",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 0,
+          "name": "everyone",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 2,
+          "name": "moderators",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 3,
+          "name": "staff",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 10,
+          "name": "trust_level_0",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 11,
+          "name": "trust_level_1",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 12,
+          "name": "trust_level_2",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 13,
+          "name": "trust_level_3",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        },
+        {
+          "id": 14,
+          "name": "trust_level_4",
+          "flair_url": null,
+          "flair_bg_color": null,
+          "flair_color": null,
+          "automatic": true
+        }
+      ],
+      "filters": [
+        "latest",
+        "unread",
+        "new",
+        "unseen",
+        "top",
+        "read",
+        "posted",
+        "bookmarks",
+        "hot",
+        "votes"
+      ],
+      "periods": [
+        "all",
+        "yearly",
+        "quarterly",
+        "monthly",
+        "weekly",
+        "daily"
+      ],
+      "top_menu_items": [
+        "latest",
+        "unread",
+        "new",
+        "unseen",
+        "top",
+        "read",
+        "posted",
+        "bookmarks",
+        "hot",
+        "categories",
+        "votes"
+      ],
+      "anonymous_top_menu_items": [
+        "latest",
+        "top",
+        "categories",
+        "hot",
+        "categories",
+        "top",
+        "votes"
+      ],
+      "uncategorized_category_id": 1,
+      "user_field_max_length": 2048,
+      "post_action_types": [
+        {
+          "id": 6,
+          "name": "Send @%{username} a message",
+          "name_key": "notify_user",
+          "description": "I want to talk to this person directly and personally about their post.",
+          "short_description": "I want to talk to this person directly and personally about their post.",
+          "applies_to": [
+            "Post",
+            "Chat::Message"
+          ],
+          "position": 1,
+          "require_message": true,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": false,
+          "system": true
+        },
+        {
+          "id": 3,
+          "name": "Off-Topic",
+          "name_key": "off_topic",
+          "description": "This post is not relevant to the current discussion as defined by the title and first post, and should probably be moved elsewhere.",
+          "short_description": "Not relevant to the discussion",
+          "applies_to": [
+            "Post",
+            "Chat::Message"
+          ],
+          "position": 2,
+          "require_message": false,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": true,
+          "system": true
+        },
+        {
+          "id": 4,
+          "name": "Inappropriate",
+          "name_key": "inappropriate",
+          "description": "This post contains content that a reasonable person would consider offensive, abusive, to be hateful conduct or a violation of <a href=\"/guidelines\">our community guidelines</a>.",
+          "short_description": "A violation of <a href=\"/guidelines\">our community guidelines</a>",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 3,
+          "require_message": false,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": true,
+          "system": true
+        },
+        {
+          "id": 8,
+          "name": "Spam",
+          "name_key": "spam",
+          "description": "This post is an advertisement, or vandalism. It is not useful or relevant to the current topic.",
+          "short_description": "This is an advertisement or vandalism",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 4,
+          "require_message": false,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": true,
+          "system": true
+        },
+        {
+          "id": 10,
+          "name": "Illegal",
+          "name_key": "illegal",
+          "description": "This post requires staff attention because I believe it contains content that is illegal.",
+          "short_description": "This is illegal",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 5,
+          "require_message": true,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": false,
+          "system": true
+        },
+        {
+          "id": 7,
+          "name": "Something Else",
+          "name_key": "notify_moderators",
+          "description": "This post requires staff attention for another reason not listed above.",
+          "short_description": "Requires staff attention for another reason",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 6,
+          "require_message": true,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": false,
+          "system": true
+        },
+        {
+          "id": 2,
+          "name": "Like",
+          "name_key": "like",
+          "description": "Like this post",
+          "short_description": "Like this post",
+          "applies_to": [
+            "Post"
+          ],
+          "position": 8,
+          "require_message": false,
+          "enabled": true,
+          "is_flag": false,
+          "is_used": false,
+          "auto_action_type": false,
+          "system": true
+        }
+      ],
+      "topic_flag_types": [
+        {
+          "id": 4,
+          "name": "Inappropriate",
+          "name_key": "inappropriate",
+          "description": "This topic contains content that a reasonable person would consider offensive, abusive, to be hateful conduct or a violation of <a href=\"/guidelines\">our community guidelines</a>.",
+          "short_description": "A violation of <a href=\"/guidelines\">our community guidelines</a>",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 3,
+          "require_message": false,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": true,
+          "system": true
+        },
+        {
+          "id": 8,
+          "name": "Spam",
+          "name_key": "spam",
+          "description": "This topic is an advertisement. It is not useful or relevant to this site, but promotional in nature.",
+          "short_description": "This is an advertisement",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 4,
+          "require_message": false,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": true,
+          "system": true
+        },
+        {
+          "id": 10,
+          "name": "Illegal",
+          "name_key": "illegal",
+          "description": "This topic requires staff attention because I believe it contains content that is illegal.",
+          "short_description": "This is illegal",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 5,
+          "require_message": true,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": false,
+          "system": true
+        },
+        {
+          "id": 7,
+          "name": "Something Else",
+          "name_key": "notify_moderators",
+          "description": "",
+          "short_description": "Requires staff attention for another reason",
+          "applies_to": [
+            "Post",
+            "Topic",
+            "Chat::Message"
+          ],
+          "position": 6,
+          "require_message": true,
+          "enabled": true,
+          "is_flag": true,
+          "is_used": false,
+          "auto_action_type": false,
+          "system": true
+        }
+      ],
+      "can_create_tag": true,
+      "can_tag_topics": true,
+      "can_tag_pms": true,
+      "tags_filter_regexp": "[/\\?#\\[\\]@!\\$&'\\(\\)\\*\\+,;=\\.%\\\\`^\\s|\\{\\}\"<>]+",
+      "top_tags": [],
+      "navigation_menu_site_top_tags": [],
+      "can_associate_groups": false,
+      "topic_featured_link_allowed_category_ids": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "user_themes": [
+        {
+          "theme_id": -1,
+          "name": "Foundation",
+          "default": true,
+          "color_scheme_id": null,
+          "dark_color_scheme_id": 13
+        }
+      ],
+      "user_color_schemes": [],
+      "default_light_color_scheme": null,
+      "default_dark_color_scheme": {
+        "id": 13,
+        "name": "Dark",
+        "is_base": null,
+        "base_scheme_id": -2,
+        "theme_id": null,
+        "theme_name": null,
+        "user_selectable": false,
+        "is_builtin_default": null,
+        "colors": [
+          {
+            "name": "primary",
+            "hex": "dddddd",
+            "default_hex": "dddddd",
+            "is_advanced": false
+          },
+          {
+            "name": "secondary",
+            "hex": "222222",
+            "default_hex": "222222",
+            "is_advanced": false
+          },
+          {
+            "name": "tertiary",
+            "hex": "099dd7",
+            "default_hex": "099dd7",
+            "is_advanced": false
+          },
+          {
+            "name": "quaternary",
+            "hex": "c14924",
+            "default_hex": "c14924",
+            "is_advanced": false
+          },
+          {
+            "name": "header_background",
+            "hex": "111111",
+            "default_hex": "111111",
+            "is_advanced": false
+          },
+          {
+            "name": "header_primary",
+            "hex": "dddddd",
+            "default_hex": "dddddd",
+            "is_advanced": false
+          },
+          {
+            "name": "selected",
+            "hex": "052e3d",
+            "default_hex": "052e3d",
+            "is_advanced": false
+          },
+          {
+            "name": "hover",
+            "hex": "313131",
+            "default_hex": "313131",
+            "is_advanced": false
+          },
+          {
+            "name": "highlight",
+            "hex": "a87137",
+            "default_hex": "a87137",
+            "is_advanced": false
+          },
+          {
+            "name": "danger",
+            "hex": "e45735",
+            "default_hex": "e45735",
+            "is_advanced": false
+          },
+          {
+            "name": "success",
+            "hex": "1ca551",
+            "default_hex": "1ca551",
+            "is_advanced": false
+          },
+          {
+            "name": "love",
+            "hex": "fa6c8d",
+            "default_hex": "fa6c8d",
+            "is_advanced": false
+          }
+        ]
+      },
+      "censored_regexp": [],
+      "custom_emoji_translation": {},
+      "watched_words_replace": null,
+      "watched_words_link": null,
+      "categories": [
+        {
+          "id": 1,
+          "name": "Uncategorized",
+          "color": "0088CC",
+          "text_color": "FFFFFF",
+          "style_type": "square",
+          "icon": null,
+          "emoji": null,
+          "slug": "uncategorized",
+          "topic_count": 0,
+          "post_count": 0,
+          "position": 0,
+          "description": "Topics that don't need a category, or don't fit into any other existing category.",
+          "description_text": "Topics that don't need a category, or don't fit into any other existing category.",
+          "description_excerpt": "Topics that don't need a category, or don't fit into any other existing category.",
+          "topic_url": "/t/",
+          "read_restricted": false,
+          "permission": 1,
+          "notification_level": 1,
+          "topic_template": null,
+          "has_children": false,
+          "subcategory_count": null,
+          "sort_order": null,
+          "sort_ascending": null,
+          "show_subcategory_list": false,
+          "num_featured_topics": 3,
+          "default_view": null,
+          "subcategory_list_style": "rows_with_featured_topics",
+          "default_top_period": "all",
+          "default_list_filter": "all",
+          "minimum_required_tags": 0,
+          "navigate_to_first_post_after_read": false,
+          "custom_fields": {
+            "has_chat_enabled": null,
+            "enable_unassigned_filter": null,
+            "sort_topics_by_event_start_date": null,
+            "disable_topic_resorting": null,
+            "create_as_post_voting_default": null,
+            "only_post_voting_in_this_category": null,
+            "enable_accepted_answers": null
+          },
+          "allowed_tags": [],
+          "allowed_tag_groups": [],
+          "allow_global_tags": false,
+          "read_only_banner": null,
+          "form_template_ids": [],
+          "uploaded_logo": null,
+          "uploaded_logo_dark": null,
+          "uploaded_background": null,
+          "uploaded_background_dark": null,
+          "required_tag_groups": [],
+          "can_edit": true
+        },
+        {
+          "id": 2,
+          "name": "Site Feedback",
+          "color": "808281",
+          "text_color": "FFFFFF",
+          "style_type": "emoji",
+          "icon": null,
+          "emoji": "thought_balloon",
+          "slug": "site-feedback",
+          "topic_count": 0,
+          "post_count": 0,
+          "position": 1,
+          "description": "<p>Discussion about this site, its organization, how it works, and how we can improve it.</p>",
+          "description_text": "Discussion about this site, its organization, how it works, and how we can improve it.",
+          "description_excerpt": "Discussion about this site, its organization, how it works, and how we can improve it.",
+          "topic_url": "/t/about-the-site-feedback-category/1",
+          "read_restricted": false,
+          "permission": 1,
+          "notification_level": 1,
+          "topic_template": null,
+          "has_children": false,
+          "subcategory_count": null,
+          "sort_order": null,
+          "sort_ascending": null,
+          "show_subcategory_list": false,
+          "num_featured_topics": 3,
+          "default_view": null,
+          "subcategory_list_style": "rows_with_featured_topics",
+          "default_top_period": "all",
+          "default_list_filter": "all",
+          "minimum_required_tags": 0,
+          "navigate_to_first_post_after_read": false,
+          "custom_fields": {
+            "has_chat_enabled": null,
+            "enable_unassigned_filter": null,
+            "sort_topics_by_event_start_date": null,
+            "disable_topic_resorting": null,
+            "create_as_post_voting_default": null,
+            "only_post_voting_in_this_category": null,
+            "enable_accepted_answers": null
+          },
+          "allowed_tags": [],
+          "allowed_tag_groups": [],
+          "allow_global_tags": false,
+          "read_only_banner": null,
+          "form_template_ids": [],
+          "uploaded_logo": null,
+          "uploaded_logo_dark": null,
+          "uploaded_background": null,
+          "uploaded_background_dark": null,
+          "required_tag_groups": [],
+          "can_edit": true
+        },
+        {
+          "id": 3,
+          "name": "Staff",
+          "color": "E45735",
+          "text_color": "FFFFFF",
+          "style_type": "emoji",
+          "icon": null,
+          "emoji": "shield",
+          "slug": "staff",
+          "topic_count": 2,
+          "post_count": 0,
+          "position": 2,
+          "description": "<p>Private category for staff discussions. Topics are only visible to admins and moderators.</p>",
+          "description_text": "Private category for staff discussions. Topics are only visible to admins and moderators.",
+          "description_excerpt": "Private category for staff discussions. Topics are only visible to admins and moderators.",
+          "topic_url": "/t/about-the-staff-category/2",
+          "read_restricted": true,
+          "permission": 1,
+          "notification_level": 1,
+          "topic_template": null,
+          "has_children": false,
+          "subcategory_count": null,
+          "sort_order": null,
+          "sort_ascending": null,
+          "show_subcategory_list": false,
+          "num_featured_topics": 3,
+          "default_view": null,
+          "subcategory_list_style": "rows_with_featured_topics",
+          "default_top_period": "all",
+          "default_list_filter": "all",
+          "minimum_required_tags": 0,
+          "navigate_to_first_post_after_read": false,
+          "custom_fields": {
+            "enable_unassigned_filter": null,
+            "sort_topics_by_event_start_date": null,
+            "disable_topic_resorting": null,
+            "create_as_post_voting_default": null,
+            "only_post_voting_in_this_category": null,
+            "enable_accepted_answers": null,
+            "has_chat_enabled": true
+          },
+          "allowed_tags": [],
+          "allowed_tag_groups": [],
+          "allow_global_tags": false,
+          "read_only_banner": null,
+          "form_template_ids": [],
+          "uploaded_logo": null,
+          "uploaded_logo_dark": null,
+          "uploaded_background": null,
+          "uploaded_background_dark": null,
+          "required_tag_groups": [],
+          "can_edit": true
+        },
+        {
+          "id": 4,
+          "name": "General",
+          "color": "25AAE2",
+          "text_color": "FFFFFF",
+          "style_type": "emoji",
+          "icon": null,
+          "emoji": "blue_book",
+          "slug": "general",
+          "topic_count": 1,
+          "post_count": 0,
+          "position": 3,
+          "description": "<p>Create topics here that don’t fit into any other existing category.</p>",
+          "description_text": "Create topics here that don’t fit into any other existing category.",
+          "description_excerpt": "Create topics here that don’t fit into any other existing category.",
+          "topic_url": "/t/about-the-general-category/3",
+          "read_restricted": false,
+          "permission": 1,
+          "notification_level": 1,
+          "topic_template": null,
+          "has_children": false,
+          "subcategory_count": null,
+          "sort_order": null,
+          "sort_ascending": null,
+          "show_subcategory_list": false,
+          "num_featured_topics": 3,
+          "default_view": null,
+          "subcategory_list_style": "rows_with_featured_topics",
+          "default_top_period": "all",
+          "default_list_filter": "all",
+          "minimum_required_tags": 0,
+          "navigate_to_first_post_after_read": false,
+          "custom_fields": {
+            "enable_unassigned_filter": null,
+            "sort_topics_by_event_start_date": null,
+            "disable_topic_resorting": null,
+            "create_as_post_voting_default": null,
+            "only_post_voting_in_this_category": null,
+            "enable_accepted_answers": null,
+            "has_chat_enabled": true
+          },
+          "allowed_tags": [],
+          "allowed_tag_groups": [],
+          "allow_global_tags": false,
+          "read_only_banner": null,
+          "form_template_ids": [],
+          "uploaded_logo": null,
+          "uploaded_logo_dark": null,
+          "uploaded_background": null,
+          "uploaded_background_dark": null,
+          "required_tag_groups": [],
+          "can_edit": true
+        }
+      ],
+      "markdown_additional_options": {
+        "chat": {
+          "limited_pretty_text_features": [
+            "anchor",
+            "bbcode-block",
+            "bbcode-inline",
+            "code",
+            "category-hashtag",
+            "censored",
+            "chat-transcript",
+            "discourse-local-dates",
+            "emoji",
+            "inlineEmoji",
+            "html-img",
+            "hashtag-autocomplete",
+            "mentions",
+            "unicodeUsernames",
+            "onebox",
+            "quotes",
+            "spoiler-alert",
+            "table",
+            "text-post-process",
+            "upload-protocol",
+            "watched-words",
+            "chat-html-inline"
+          ],
+          "limited_pretty_text_markdown_rules": [
+            "autolink",
+            "list",
+            "backticks",
+            "newline",
+            "code",
+            "fence",
+            "image",
+            "table",
+            "linkify",
+            "link",
+            "strikethrough",
+            "blockquote",
+            "emphasis",
+            "replacements",
+            "escape"
+          ],
+          "hashtag_configurations": {
+            "topic-composer": [
+              "category",
+              "tag",
+              "channel"
+            ],
+            "chat-composer": [
+              "channel",
+              "category",
+              "tag"
+            ]
+          }
+        }
+      },
+      "hashtag_configurations": {
+        "topic-composer": [
+          "category",
+          "tag",
+          "channel"
+        ],
+        "chat-composer": [
+          "channel",
+          "category",
+          "tag"
+        ]
+      },
+      "hashtag_icons": {
+        "category": "folder",
+        "tag": "tag",
+        "channel": "comment"
+      },
+      "valid_flag_applies_to_types": [
+        "Post",
+        "Topic",
+        "Chat::Message"
+      ],
+      "full_name_required_for_signup": false,
+      "full_name_visible_in_signup": false,
+      "archetypes": [
+        {
+          "id": "regular",
+          "name": "Regular Topic",
+          "options": []
+        },
+        {
+          "id": "banner",
+          "name": "Banner Topic",
+          "options": []
+        }
+      ],
+      "user_fields": [],
+      "auth_providers": []
+    }
+  }
+}

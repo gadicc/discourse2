@@ -1,0 +1,33 @@
+{
+  "request": {
+    "url": "http://localhost/t/16.json",
+    "method": "DELETE",
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "text/plain; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:26 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/destroy",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "7750d362-e506-4227-acfa-93c4ad9ae561",
+      "x-runtime": "0.068107",
+      "x-xss-protection": "0"
+    },
+    "bodyText": ""
+  }
+}

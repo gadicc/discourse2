@@ -1,0 +1,35 @@
+{
+  "request": {
+    "url": "http://localhost/admin/users/6.json",
+    "method": "DELETE",
+    "bodyJson": {},
+    "headers": {
+      "api-key": "b070c15fba28558129d97fee20bb47d89464553d80d36e46a3b256101fa67d1d",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "connection": "keep-alive",
+      "content-length": "16",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 13:02:30 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "admin/users/destroy",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-runtime": "0.063399",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "deleted": true
+    }
+  }
+}
