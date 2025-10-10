@@ -169,14 +169,28 @@ for (const [path, pathData] of Object.entries(spec.paths)) {
 export class HTTPError extends Error {
   status: number;
   response: Response;
+  operationName: string;
+  url: string;
+  requestInit: RequestInit;
+
   constructor(
     status: number,
-    message: string,
+    body: string,
     response: Response,
+    operationName: string,
+    url: string,
+    requestInit: RequestInit,
   ) {
-    super(message);
+    super(
+      `An error occured calling "${operationName}" at ${url}\n` +
+        `RequestInit: ${JSON.stringify(requestInit)}\n` +
+        `Returned HTTP ${status}: ${body}`,
+    );
     this.status = status;
     this.response = response;
+    this.operationName = operationName;
+    this.url = url;
+    this.requestInit = requestInit;
   }
 }
 
@@ -404,7 +418,14 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     const text = await response.text();
     if (response.status !== 200) {
-      throw new HTTPError(response.status, text, response);
+      throw new HTTPError(
+        response.status,
+        text,
+        response,
+        operationName,
+        url,
+        requestInit,
+      );
     }
 
     const response200 = responses["200"];

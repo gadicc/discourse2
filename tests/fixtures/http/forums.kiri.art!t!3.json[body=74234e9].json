@@ -1,0 +1,267 @@
+{
+  "request": {
+    "url": "https://forums.kiri.art/t/3.json",
+    "method": "GET"
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "access-control-allow-headers": "Content-Type, Cache-Control, X-Requested-With, X-CSRF-Token, Discourse-Present, User-Api-Key, User-Api-Client-Id, Authorization",
+      "access-control-allow-methods": "POST, PUT, GET, OPTIONS, DELETE",
+      "access-control-allow-origin": "https://kiri.art",
+      "access-control-max-age": "7200",
+      "cache-control": "no-cache, no-store",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:40 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-cached": "skip",
+      "x-discourse-route": "topics/show",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "9f35dde7-77d8-4c7f-b8c7-c1c952c3f6f9",
+      "x-runtime": "0.063094",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "post_stream": {
+        "posts": [
+          {
+            "id": 3,
+            "name": "system",
+            "username": "system",
+            "avatar_template": "/uploads/default/original/1X/728ceae43a42cf62a645a4388cb40c8d77fd9b7a.png",
+            "created_at": "2022-11-02T09:03:52.873Z",
+            "cooked": "<p>Create topics here that don’t fit into any other existing category.</p>",
+            "post_number": 1,
+            "post_type": 1,
+            "posts_count": 1,
+            "updated_at": "2022-11-02T09:03:52.873Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "quote_count": 0,
+            "incoming_link_count": 0,
+            "reads": 1,
+            "readers_count": 0,
+            "score": 0.2,
+            "yours": false,
+            "topic_id": 3,
+            "topic_slug": "about-the-general-category",
+            "display_username": "system",
+            "primary_group_name": null,
+            "flair_name": null,
+            "flair_url": null,
+            "flair_bg_color": null,
+            "flair_color": null,
+            "flair_group_id": null,
+            "badges_granted": [],
+            "version": 1,
+            "can_edit": false,
+            "can_delete": false,
+            "can_recover": false,
+            "can_see_hidden_post": false,
+            "can_wiki": false,
+            "read": true,
+            "user_title": null,
+            "bookmarked": false,
+            "actions_summary": [],
+            "moderator": true,
+            "admin": true,
+            "staff": true,
+            "user_id": -1,
+            "hidden": false,
+            "trust_level": 4,
+            "deleted_at": null,
+            "user_deleted": false,
+            "edit_reason": null,
+            "can_view_edit_history": true,
+            "wiki": false,
+            "mentioned_users": [],
+            "post_url": "/t/about-the-general-category/3/1",
+            "has_post_localizations": false,
+            "post_localizations": [],
+            "category_expert_approved_group": null,
+            "needs_category_expert_approval": null,
+            "can_manage_category_expert_posts": false,
+            "can_accept_answer": false,
+            "can_unaccept_answer": false,
+            "accepted_answer": false,
+            "topic_accepted_answer": null,
+            "can_vote": false
+          }
+        ],
+        "stream": [
+          3
+        ]
+      },
+      "timeline_lookup": [
+        [
+          1,
+          1073
+        ]
+      ],
+      "suggested_topics": [
+        {
+          "id": 844,
+          "title": "[News] Fixed (some) broken login buttons",
+          "fancy_title": "[News] Fixed (some) broken login buttons",
+          "slug": "news-fixed-some-broken-login-buttons",
+          "posts_count": 1,
+          "reply_count": 0,
+          "highest_post_number": 1,
+          "image_url": null,
+          "created_at": "2025-01-01T11:12:32.886Z",
+          "last_posted_at": "2025-01-01T11:12:33.035Z",
+          "bumped": true,
+          "bumped_at": "2025-01-01T11:12:33.035Z",
+          "archetype": "regular",
+          "unseen": false,
+          "pinned": false,
+          "unpinned": null,
+          "visible": true,
+          "closed": false,
+          "archived": false,
+          "bookmarked": null,
+          "liked": null,
+          "tags": [],
+          "tags_descriptions": {},
+          "like_count": 0,
+          "views": 128,
+          "category_id": 17,
+          "featured_link": null,
+          "has_accepted_answer": false,
+          "can_have_answer": false,
+          "posters": [
+            {
+              "extras": "latest single",
+              "description": "Original Poster, Most Recent Poster",
+              "user": {
+                "id": 1,
+                "username": "gadicc",
+                "name": null,
+                "avatar_template": "/user_avatar/forums.kiri.art/gadicc/{size}/56_2.png",
+                "admin": true,
+                "trust_level": 2
+              }
+            }
+          ]
+        }
+      ],
+      "tags": [],
+      "tags_descriptions": {},
+      "id": 3,
+      "title": "About the General category",
+      "fancy_title": "About the General category",
+      "posts_count": 1,
+      "created_at": "2022-11-02T09:03:52.863Z",
+      "views": 442,
+      "reply_count": 0,
+      "like_count": 0,
+      "last_posted_at": null,
+      "visible": true,
+      "closed": false,
+      "archived": false,
+      "has_summary": false,
+      "archetype": "regular",
+      "slug": "about-the-general-category",
+      "category_id": 4,
+      "word_count": null,
+      "deleted_at": null,
+      "user_id": -1,
+      "featured_link": null,
+      "pinned_globally": false,
+      "pinned_at": "2022-11-02T09:03:52.859Z",
+      "pinned_until": null,
+      "image_url": null,
+      "slow_mode_seconds": 0,
+      "draft": null,
+      "draft_key": "topic_3",
+      "draft_sequence": null,
+      "unpinned": null,
+      "pinned": true,
+      "current_post_number": 1,
+      "highest_post_number": 1,
+      "deleted_by": null,
+      "actions_summary": [
+        {
+          "id": 4,
+          "count": 0,
+          "hidden": false,
+          "can_act": false
+        },
+        {
+          "id": 8,
+          "count": 0,
+          "hidden": false,
+          "can_act": false
+        },
+        {
+          "id": 10,
+          "count": 0,
+          "hidden": false,
+          "can_act": false
+        },
+        {
+          "id": 7,
+          "count": 0,
+          "hidden": false,
+          "can_act": false
+        }
+      ],
+      "chunk_size": 20,
+      "bookmarked": false,
+      "topic_timer": null,
+      "message_bus_last_id": 0,
+      "participant_count": 1,
+      "show_read_indicator": false,
+      "thumbnails": null,
+      "slow_mode_enabled_until": null,
+      "is_category_expert_question": null,
+      "is_ticket": false,
+      "can_vote": false,
+      "vote_count": 0,
+      "user_voted": false,
+      "details": {
+        "can_edit": false,
+        "notification_level": 1,
+        "participants": [
+          {
+            "id": -1,
+            "username": "system",
+            "name": "system",
+            "avatar_template": "/user_avatar/forums.kiri.art/system/{size}/1_2.png",
+            "post_count": 1,
+            "primary_group_name": null,
+            "flair_name": null,
+            "flair_url": null,
+            "flair_color": null,
+            "flair_bg_color": null,
+            "flair_group_id": null,
+            "admin": true,
+            "moderator": true,
+            "trust_level": 4
+          }
+        ],
+        "created_by": {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/uploads/default/original/1X/728ceae43a42cf62a645a4388cb40c8d77fd9b7a.png"
+        },
+        "last_poster": {
+          "id": -1,
+          "username": "system",
+          "name": "system",
+          "avatar_template": "/uploads/default/original/1X/728ceae43a42cf62a645a4388cb40c8d77fd9b7a.png"
+        }
+      },
+      "bookmarks": []
+    }
+  }
+}

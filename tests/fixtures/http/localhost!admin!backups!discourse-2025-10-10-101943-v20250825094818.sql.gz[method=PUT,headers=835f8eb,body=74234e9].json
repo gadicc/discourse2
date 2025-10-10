@@ -1,0 +1,34 @@
+{
+  "request": {
+    "url": "http://localhost/admin/backups/discourse-2025-10-10-101943-v20250825094818.sql.gz",
+    "method": "PUT",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "text/plain; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:40 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "vary": "Accept",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "admin/backups/email",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "c4133eae-2d94-4f3b-8610-8824d3d23748",
+      "x-runtime": "0.008219",
+      "x-xss-protection": "0"
+    },
+    "bodyText": ""
+  }
+}

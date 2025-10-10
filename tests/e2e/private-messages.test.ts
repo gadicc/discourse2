@@ -1,6 +1,8 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import { describe, discourse, expect, test, useCache } from "./_common.ts";
 
 describe("private-messages", () => {
+  useCache();
+
   test("createTopicPostPM - SKIPPED (tested in `topics`)", async () => {});
 
   test("listUserPrivateMessages", async () => {

@@ -1,0 +1,39 @@
+{
+  "request": {
+    "url": "http://localhost/u/by-external/123.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 404,
+    "statusText": "Not Found",
+    "headers": {
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:43 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "vary": "Accept",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "users/show",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "100185e3-98f9-47b8-bf23-cef6cd70285c",
+      "x-robots-tag": "noindex",
+      "x-runtime": "0.012298",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "errors": [
+        "The requested URL or resource could not be found."
+      ],
+      "error_type": "not_found"
+    }
+  }
+}

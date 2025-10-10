@@ -1,6 +1,7 @@
-import { describe, test } from "./_common.ts";
+import { describe, test, useCache } from "./_common.ts";
 
 describe("admin", () => {
+  useCache();
   test("adminGetUser - SKIPPED (tested in `users` suite)", async () => {});
   test("deleteUser - SKIPPED (tested in `users` suite)", async () => {});
   test("activateUser - SKIPPED (tested in `users` suite)", async () => {});

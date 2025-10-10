@@ -6,8 +6,8 @@
   },
   "tasks": {
     "dev": "deno run --watch src/index.ts",
-    "ci": "deno check src/* && deno lint src/* && deno task coverage",
-    "test": "deno test --allow-env --allow-read --allow-write --allow-net src tests",
+    "ci": "deno check {src,test}/**/*.ts && deno lint {src,test}/**/*.ts && deno task coverage",
+    "test": "deno test -A --parallel src tests",
     "coverage": "deno task test --coverage=cov_profile && scripts/coverage-fix.sh && deno coverage cov_profile",
     "schema:sync": "deno run --allow-env --allow-write --allow-read --allow-net --allow-run scripts/schema-sync.ts",
     "schema:fetch": "curl -o src/openapi.json https://docs.discourse.org/openapi.json",

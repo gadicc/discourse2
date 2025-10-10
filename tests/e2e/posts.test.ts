@@ -1,9 +1,45 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import {
+  afterAll,
+  beforeAll,
+  describe,
+  discourse,
+  expect,
+  skipCacheOnce,
+  test,
+  useCache,
+} from "./_common.ts";
 
 describe("posts", () => {
+  useCache();
+
+  async function cleanup() {
+    skipCacheOnce();
+    const posts = await discourse.listPosts();
+    if (posts.latest_posts) {
+      for (const post of posts.latest_posts) {
+        if (post.topic_title?.startsWith("test-")) {
+          console.warn("Deleting leftover test post/topic:", post.topic_title);
+          skipCacheOnce();
+          await discourse.removeTopic({ id: post.topic_id?.toString()! });
+        }
+      }
+    }
+  }
+  beforeAll(cleanup);
+  afterAll(cleanup);
+
   test("listPosts", async () => {
     const posts = await discourse.listPosts();
     expect(posts).toHaveProperty("latest_posts");
+
+    if (posts.latest_posts) {
+      for (const post of posts.latest_posts) {
+        if (post.topic_title?.startsWith("test-")) {
+          console.warn("Deleting leftover test post/topic:", post.topic_title);
+          await discourse.removeTopic({ id: post.topic_id?.toString()! });
+        }
+      }
+    }
   });
 
   test("createTopicPostPM - SKIPPED (tested in topics suite)", async () => {});
@@ -15,7 +51,7 @@ describe("posts", () => {
 
   test("updatePost", async () => {
     const post = await discourse.createTopicPostPM({
-      title: "updatePost test",
+      title: "test-updatePost",
       raw: "new post - update me",
       category: 3,
     });
@@ -28,6 +64,8 @@ describe("posts", () => {
       },
     });
     expect(result.post.raw).toBe(post.raw + " - updated");
+
+    await discourse.removeTopic({ id: post.topic_id?.toString()! });
   });
 
   /*
@@ -52,7 +90,7 @@ describe("posts", () => {
 
   test("lockPost", async () => {
     const post = await discourse.createTopicPostPM({
-      title: "lockPost test, it will be locked",
+      title: "test-lockPost: it will be locked",
       raw: "this post will be locked from the API",
       category: 3,
     });
@@ -64,6 +102,8 @@ describe("posts", () => {
     });
     const locked = result.locked;
     expect(locked === false || locked === true).toBe(true);
+
+    await discourse.removeTopic({ id: post.topic_id?.toString()! });
   });
 
   /*

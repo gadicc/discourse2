@@ -1,0 +1,35 @@
+{
+  "request": {
+    "url": "http://localhost/user_actions.json?offset=0&username=test-user-actions&filter=1",
+    "method": "GET",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:51 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "user_actions/index",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "55022e96-1a45-4d60-a516-0358e715f786",
+      "x-runtime": "0.010928",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "user_actions": []
+    }
+  }
+}

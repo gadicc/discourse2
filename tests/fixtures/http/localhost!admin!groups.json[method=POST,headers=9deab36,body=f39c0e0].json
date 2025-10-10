@@ -1,0 +1,71 @@
+{
+  "request": {
+    "url": "http://localhost/admin/groups.json",
+    "method": "POST",
+    "bodyJson": {
+      "group": {
+        "name": "test-update-group"
+      }
+    },
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:41 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "admin/groups/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "16648260-4d0c-40af-a962-2c3382a07542",
+      "x-runtime": "0.024639",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "basic_group": {
+        "id": 96,
+        "automatic": false,
+        "name": "test-update-group",
+        "user_count": 0,
+        "mentionable_level": 0,
+        "messageable_level": 0,
+        "visibility_level": 0,
+        "primary_group": false,
+        "title": null,
+        "grant_trust_level": null,
+        "incoming_email": null,
+        "has_messages": false,
+        "flair_url": null,
+        "flair_bg_color": null,
+        "flair_color": null,
+        "bio_raw": null,
+        "bio_cooked": null,
+        "bio_excerpt": null,
+        "public_admission": false,
+        "public_exit": false,
+        "allow_membership_requests": false,
+        "full_name": null,
+        "default_notification_level": 3,
+        "membership_request_template": null,
+        "members_visibility_level": 0,
+        "can_see_members": true,
+        "can_admin_group": true,
+        "can_edit_group": true,
+        "publish_read_state": false
+      }
+    }
+  }
+}

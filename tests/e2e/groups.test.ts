@@ -1,6 +1,36 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import {
+  afterAll,
+  beforeAll,
+  describe,
+  discourse,
+  expect,
+  skipCacheOnce,
+  test,
+  useCache,
+} from "./_common.ts";
 
 describe("groups", () => {
+  useCache();
+
+  async function cleanup() {
+    skipCacheOnce();
+    const result = await discourse.listGroups();
+    for (const group of result.groups) {
+      if (group.name.startsWith("test-")) {
+        console.warn("Deleting leftover test group:", group.name);
+        skipCacheOnce();
+        await discourse.deleteGroup({ id: group.id });
+      }
+    }
+  }
+  beforeAll(cleanup);
+  afterAll(cleanup);
+
+  test("listGroups", async () => {
+    const result = await discourse.listGroups();
+    expect(Array.isArray(result.groups)).toBe(true);
+  });
+
   test("createGroup", async () => {
     const result = await discourse.createGroup({
       group: {
@@ -8,6 +38,7 @@ describe("groups", () => {
       },
     });
     expect(result).toHaveProperty("basic_group");
+    await discourse.deleteGroup({ id: result.basic_group.id });
   });
 
   test("deleteGroup", async () => {
@@ -37,6 +68,8 @@ describe("groups", () => {
       },
     });
     expect(updateGroupResult).toEqual({ success: "OK" });
+
+    await discourse.deleteGroup({ id });
   });
 
   test("getGroup", async () => {
@@ -50,6 +83,8 @@ describe("groups", () => {
     // This is according to spec, "id" param is the string group name.
     const result = await discourse.getGroup({ id: name });
     expect(result.group.name).toBe(name);
+
+    await discourse.deleteGroup({ id: createGroupResult.basic_group.id });
   });
 
   test("listGroupMembers", async () => {
@@ -75,6 +110,7 @@ describe("groups", () => {
       success: "OK",
       usernames: ["system"],
     });
+    await discourse.deleteGroup({ id });
   });
 
   test("removeGroupMembers", async () => {
@@ -99,10 +135,6 @@ describe("groups", () => {
       success: "OK",
       usernames: ["system"],
     });
-  });
-
-  test("listGroups", async () => {
-    const result = await discourse.listGroups();
-    expect(Array.isArray(result.groups)).toBe(true);
+    await discourse.deleteGroup({ id });
   });
 });

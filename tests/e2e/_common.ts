@@ -1,10 +1,4 @@
-import {
-  afterAll,
-  beforeAll,
-  describe as _describe,
-  it,
-  test,
-} from "@std/testing/bdd";
+import { afterAll, beforeAll, describe, it, test } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 import Discourse from "../../src/index.ts";
 import server from "../docker/server.json" with { type: "json" };
@@ -20,22 +14,29 @@ export const discourse = new Discourse(server.url, {
 
 export const discoursePublic = new Discourse(server.url);
 
-export function describe(name: string, fn: () => void) {
-  function block() {
-    let fetchOrig: typeof globalThis.fetch;
-    beforeAll(() => {
-      fetchOrig = globalThis.fetch;
-      globalThis.fetch = fetchCache;
-    });
+export function useCache() {
+  let fetchOrig: typeof globalThis.fetch;
+  beforeAll(() => {
+    fetchOrig = globalThis.fetch;
+    globalThis.fetch = fetchCache;
+  });
 
-    afterAll(() => {
-      globalThis.fetch = fetchOrig;
-    });
-
-    fn();
-  }
-
-  _describe(name, block);
+  afterAll(() => {
+    globalThis.fetch = fetchOrig;
+  });
 }
 
-export { expect, it, test };
+export function skipCacheOnce() {
+  fetchCache.once({ readCache: false, writeCache: false });
+}
+
+function randomName() {
+  let result = "";
+  const characters = "abcdefghijklmnopqrstuvwxyz";
+  for (let i = 0; i < 7; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return "test-" + result;
+}
+
+export { afterAll, beforeAll, describe, expect, it, randomName, test };

@@ -1,0 +1,44 @@
+{
+  "request": {
+    "url": "http://localhost/tag_groups/60.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:24:53 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "tag_groups/show",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "33cc8611-27ed-4ab8-94ed-8482bcc58c68",
+      "x-runtime": "0.010001",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "tag_group": {
+        "id": 60,
+        "name": "test-cocatpz",
+        "tag_names": [],
+        "parent_tag_name": [],
+        "one_per_topic": false,
+        "permissions": {
+          "0": 1
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import { describe, discourse, expect, test, useCache } from "./_common.ts";
 
 describe("invites", () => {
+  useCache();
+
   test("createInvite", async () => {
     const invite = await discourse.createInvite();
     expect(invite.link).toBeDefined();

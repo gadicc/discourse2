@@ -1,0 +1,40 @@
+{
+  "request": {
+    "url": "http://localhost/topics/private-messages/system.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:40 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "list/private_messages",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "8fe2491e-41b6-4569-8d35-01c5022c5556",
+      "x-runtime": "0.021213",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "topic_list": {
+        "can_create_topic": true,
+        "per_page": 30,
+        "top_tags": [],
+        "topics": []
+      }
+    }
+  }
+}

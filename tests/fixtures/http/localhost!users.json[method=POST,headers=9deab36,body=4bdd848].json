@@ -1,0 +1,49 @@
+{
+  "request": {
+    "url": "http://localhost/users.json",
+    "method": "POST",
+    "bodyJson": {
+      "name": "Test user to anonymize",
+      "email": "anonymize-me@example.com",
+      "password": "aFunPassw0rd",
+      "username": "test-anon-user",
+      "active": true
+    },
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:48 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "set-cookie": [
+        "_t=gf515FX8%2B%2BC6QBmieBUQ0zS7InUibyyJFm0AJY2fVCbQjTXYhegLMJXV1ovbrsvglxWyzKCeX9%2FXmp5cGfqg5cGllCsOAkdPbLG37ivqbyGbY9kLAOUomiGGOwD1ZeWDFKLLEjIy8udjAQcG16twUSLTIvwRFaGxwPCvV9%2Ffg6fLyxv%2FQ%2BZWXclAke7xPCpU%2BnWadbQDGZ%2BqRuh0Efbm%2FWBuYlgFcj3K9cm03f28wXMA1eurtI76WKatzJGMwwZaLpC0TeBFLKrE%2FcHcgJZzIY8F8XL8flBWwHHlNewVuwrkGgVjsZRly8k9aDZDwZxCbhwPpw%3D%3D--7Ab0BubgSoss80JL--jQFFpGbCoXdPucqZe%2F7C3g%3D%3D; path=/; expires=Tue, 09 Dec 2025 10:22:48 GMT; HttpOnly; SameSite=Lax",
+        "_forum_session=DADTxHPPXBbg1tMqP0gjIE8f7%2BWjIy81YYIKYIbG%2FNwT0QMhQ4OzHeFjanfzifNj0EpYi2ffEFxIzgh8MC0JOOvrppLVaBEn7%2BUFHV6mInlf8VUbWVeAe0xYat%2FxuT7OUNuqRch%2FG0CrxpTZF9KuO7yC0NNRPCMatug84Gfpfq5eMHZGKGKE5jQCxCUDdcZgXMojjbKlB6wpQxmv7J7xafAPFNKub95%2F%2FzAywKYaZRO%2BT62XAQCxAOCmPRkXvYP%2BEVZgO%2BnnsTYW0Sr6qRTY02tQjepxZwjW4tvpGB9hnR64tYgYKoxycqRhDHRBeWwiNbwdktM76KGXl5EU8I122AY2qHQrvoEp4UE4Q69MzCB5Bqu7kUqlysyn7zMrhSYQPEazH5T4%2BNsGUrYsDwj9LzMiWWXFN2UPXQ4kDy4FQ5AwMlUsds0%3D--NhVDshfZ%2FRq8Ug09--BNKs%2FETaj4OksDWNCqv%2BLQ%3D%3D; path=/; HttpOnly; SameSite=Lax"
+      ],
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "users/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "73359bc4-0b52-425a-8743-0897a45174da",
+      "x-runtime": "0.402219",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": true,
+      "active": true,
+      "message": "Your account is activated and ready to use."
+    }
+  }
+}

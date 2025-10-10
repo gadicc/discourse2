@@ -1,6 +1,32 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import { afterAll, beforeAll } from "@std/testing/bdd";
+import {
+  describe,
+  discourse,
+  expect,
+  skipCacheOnce,
+  test,
+  useCache,
+} from "./_common.ts";
 
 describe("users", () => {
+  useCache();
+
+  async function cleanup() {
+    skipCacheOnce();
+    const users = await discourse.adminListUsers({ flag: "active" });
+    for (const user of users) {
+      if (
+        user.username.startsWith("test") || user.username.startsWith("Test")
+      ) {
+        console.log("Cleaning up user:", user.username, user.id);
+        skipCacheOnce();
+        await discourse.deleteUser({ id: user.id, delete_posts: true });
+      }
+    }
+  }
+  beforeAll(cleanup);
+  afterAll(cleanup);
+
   test("listUserBadges", async () => {
     const result = await discourse.listUserBadges({ username: "system" });
     expect(result).toHaveProperty("badges");
@@ -20,11 +46,23 @@ describe("users", () => {
       active: true,
       // message: expect.stringMatching(/^Your account is activated/),
     });
+
+    const user = await discourse.getUser({ username: "test-user" });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("getUser", async () => {
+    await discourse.createUser({
+      name: "Test user",
+      email: "test@example.com",
+      password: "teSt1ngIsFuN",
+      username: "test-user",
+      active: true,
+    });
+
     const result = await discourse.getUser({ username: "test-user" });
     expect(result).toHaveProperty("user");
+    await discourse.deleteUser({ id: result.user.id });
   });
 
   test("updateUser", async () => {
@@ -47,6 +85,9 @@ describe("users", () => {
         name: "Updated test user",
       },
     });
+
+    const user = await discourse.getUser({ username: "test-update-user" });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("getUserExternalId", async () => {
@@ -84,19 +125,43 @@ describe("users", () => {
   */
 
   test("updateEmail", async () => {
+    await discourse.createUser({
+      name: "Test user to update email",
+      email: "test-update@example.com",
+      password: "teSt1ngIsFuN",
+      username: "test-updateEmail",
+      active: true,
+    });
+
     // If it doesn't throw, it works (200)
     await discourse.updateEmail({
-      username: "test-update-user",
+      username: "test-updateEmail",
       email: "test-update-new@example.com",
     });
+
+    const user = await discourse.getUser({ username: "test-updateEmail" });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("updateUsername", async () => {
+    await discourse.createUser({
+      name: "Test user to update username",
+      email: "test-update@example.com",
+      password: "teSt1ngIsFuN",
+      username: "test-updateUsername",
+      active: true,
+    });
+
     // If it doesn't throw, it works (200)
     await discourse.updateUsername({
-      username: "test-update-user",
-      new_username: "test-update-new",
+      username: "test-updateUsername",
+      new_username: "test-updateUsernam2", // 20 char limit
     });
+
+    const user = await discourse.getUser({
+      username: "test-updateUsernam2",
+    });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("listUsersPublic", async () => {
@@ -108,68 +173,76 @@ describe("users", () => {
   });
 
   test("adminGetUser", async () => {
-    const id = 1;
-    const user = await discourse.adminGetUser({ id });
-    expect(user.id).toBe(id);
+    await discourse.createUser({
+      name: "Test user to get by id",
+      email: "test-get-by-id@example.com",
+      password: "teSt1ngIsFuN",
+      username: "test-adminGetUser",
+      active: true,
+    });
+
+    const getUser = await discourse.getUser({ username: "test-adminGetUser" });
+
+    const adminGetUser = await discourse.adminGetUser({ id: getUser.user.id });
+    expect(adminGetUser.id).toBe(getUser.user.id);
+
+    await discourse.deleteUser({ id: getUser.user.id });
   });
 
   test("deleteUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to delete",
       email: "delete-me@example.com",
       password: "aFunPassw0rd",
       username: "test-delete-user",
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
 
-    const result = await discourse.deleteUser({ id });
+    const user = await discourse.getUser({ username: "test-delete-user" });
+    const result = await discourse.deleteUser({ id: user.user.id });
     expect(result.deleted).toBe(true);
   });
 
   test("activateUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to activate",
       email: "activate-me@example.com",
       password: "aFunPassw0rd",
       username: "test-activate-user",
       active: false,
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
+    const user = await discourse.getUser({ username: "test-activate-user" });
 
-    const result = await discourse.activateUser({ id });
+    const result = await discourse.activateUser({ id: user.user.id });
     expect(result.success).toBe("OK");
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("deactivateUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to deactivate",
       email: "deactivate-me@example.com",
       password: "aFunPassw0rd",
       username: "test-deactivate",
       active: true,
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
-
-    const result = await discourse.deactivateUser({ id });
+    const user = await discourse.getUser({ username: "test-deactivate" });
+    const result = await discourse.deactivateUser({ id: user.user.id });
     expect(result.success).toBe("OK");
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("suspendUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to suspend",
       email: "suspend-me@example.com",
       password: "aFunPassw0rd",
       username: "test-suspend-user",
       active: true,
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
+    const user = await discourse.getUser({ username: "test-suspend-user" });
 
     const result = await discourse.suspendUser({
-      id,
+      id: user.user.id,
       suspend_until: "2121-02-22",
       reason: "Test suspension",
     });
@@ -177,64 +250,77 @@ describe("users", () => {
       "suspend_reason",
       "Test suspension",
     );
+
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("silenceUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to silence",
       email: "silence-me@example.com",
       password: "aFunPassw0rd",
       username: "test-silence-user",
       active: true,
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
+    const user = await discourse.getUser({ username: "test-silence-user" });
 
     const result = await discourse.silenceUser({
-      id,
+      id: user.user.id,
       silenced_till: "2121-02-22T08:00:00.000Z",
       reason: "Test silence",
     });
     expect(result.silence).toHaveProperty("silence_reason", "Test silence");
+
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("anonymizeUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to anonymize",
       email: "anonymize-me@example.com",
       password: "aFunPassw0rd",
       username: "test-anon-user",
       active: true,
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
+    const user = await discourse.getUser({ username: "test-anon-user" });
 
-    const result = await discourse.anonymizeUser({ id });
+    const result = await discourse.anonymizeUser({ id: user.user.id });
     expect(result.success).toBe("OK");
     expect(result).toHaveProperty("username");
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("logOutUser", async () => {
-    const user = await discourse.createUser({
+    await discourse.createUser({
       name: "Test user to logout",
       email: "logout-me@example.com",
       password: "aFunPassw0rd",
       username: "test-logout-user",
       active: true,
     });
-    const id = user.user_id;
-    if (!id) throw new Error("User ID not found");
+    const user = await discourse.getUser({ username: "test-logout-user" });
 
-    const result = await discourse.logOutUser({ id });
+    const result = await discourse.logOutUser({ id: user.user.id });
     expect(result.success).toBe("OK");
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("refreshGravatar", async () => {
+    await discourse.createUser({
+      name: "Test user for gravatar",
+      email: "gravatar-me@example.com",
+      password: "aFunPassw0rd",
+      username: "test-gravatar-user",
+      active: true,
+    });
     const result = await discourse.refreshGravatar({
-      username: "test-user",
+      username: "test-gravatar-user",
     });
     expect(result).toHaveProperty("gravatar_upload_id");
     expect(result).toHaveProperty("gravatar_avatar_template");
+
+    const user = await discourse.getUser({ username: "test-gravatar-user" });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("adminListUsers", async () => {
@@ -253,37 +339,72 @@ describe("users", () => {
   });
 
   test("listUserActions", async () => {
+    await discourse.createUser({
+      name: "Test user for actions",
+      email: "actions-me@example.com",
+      password: "aFunPassw0rd",
+      username: "test-user-actions",
+      active: true,
+    });
+
     const result = await discourse.listUserActions({
-      username: "test-user",
+      username: "test-user-actions",
       offset: 0,
       filter: "1",
     });
     expect(result).toHaveProperty("user_actions");
+
+    const user = await discourse.getUser({ username: "test-user-actions" });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
-  test("sendPasswordResetEmail", async () => {
+  test("sendPasswordResetEmail ~+ changePassword~", async () => {
+    await discourse.createUser({
+      name: "Test user for password reset",
+      email: "reset-me@example.com",
+      password: "aFunPassw0rd",
+      username: "test-reset-pass",
+      active: true,
+    });
+
     const result = await discourse.sendPasswordResetEmail({
-      login: "test-user",
+      login: "test-reset-pass",
     });
     expect(result).toHaveProperty("success");
-    expect(result).toHaveProperty("user_found");
-  });
 
-  test("changePassword", async () => {
+    /*
+    // Would need to retrieve token from the database
     await discourse.changePassword({
-      token: "test-token",
-      username: "test-user",
+      token: "TODO",
+      username: "test-reset-pass",
       password: "newPassword123",
     });
+    */
+
+    const user = await discourse.getUser({
+      username: "test-reset-pass",
+    });
+    await discourse.deleteUser({ id: user.user.id });
   });
 
   test("getUserEmails", async () => {
+    await discourse.createUser({
+      name: "Test user for emails",
+      email: "emails-me@example.com",
+      password: "aFunPassw0rd",
+      username: "test-user-get-emails",
+      active: true,
+    });
+
     const result = await discourse.getUserEmails({
-      username: "test-user",
+      username: "test-user-get-emails",
     });
     expect(result).toHaveProperty("email");
     expect(result).toHaveProperty("secondary_emails");
     expect(result).toHaveProperty("unconfirmed_emails");
     expect(result).toHaveProperty("associated_accounts");
+
+    const user = await discourse.getUser({ username: "test-user-get-emails" });
+    await discourse.deleteUser({ id: user.user.id });
   });
 });

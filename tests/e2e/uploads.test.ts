@@ -1,4 +1,11 @@
-import { describe, discourse, expect, fetchCache, test } from "./_common.ts";
+import {
+  describe,
+  discourse,
+  expect,
+  fetchCache,
+  test,
+  useCache,
+} from "./_common.ts";
 
 let file: File | undefined;
 async function getTestFile() {
@@ -11,10 +18,12 @@ async function getTestFile() {
 }
 
 describe("uploads", () => {
+  useCache();
+
   test("createUpload", async () => {
     const file = await getTestFile();
     // Manually specify id since formData generates random boundaries
-    fetchCache._once({ id: "createUpload-smiley" });
+    fetchCache.once({ id: "createUpload-smiley" });
     const result = await discourse.createUpload({
       type: "avatar",
       file,

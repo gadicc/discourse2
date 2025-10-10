@@ -1,6 +1,37 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import {
+  afterAll,
+  beforeAll,
+  describe,
+  discourse,
+  expect,
+  randomName,
+  skipCacheOnce,
+  test,
+  useCache,
+} from "./_common.ts";
 
 describe("topics", () => {
+  useCache();
+
+  async function cleanup() {
+    skipCacheOnce();
+    const result = await discourse.listLatestTopics();
+    for (const topic of result.topic_list?.topics || []) {
+      if (topic.title?.startsWith("test") || topic.title?.startsWith("Test")) {
+        console.log(`Cleaning up leftover topic ${topic.id} - ${topic.title}`);
+        skipCacheOnce();
+        await discourse.removeTopic({ id: topic.id?.toString()! });
+      }
+    }
+  }
+  beforeAll(cleanup);
+  afterAll(cleanup);
+
+  test("listLatestTopics", async () => {
+    const result = await discourse.listLatestTopics();
+    expect(Array.isArray(result.topic_list?.topics)).toBe(true);
+  });
+
   test("createTopicPostPM", async () => {
     const result = await discourse.createTopicPostPM({
       title: "test topic creation",
@@ -8,6 +39,7 @@ describe("topics", () => {
       category: 2,
     });
     expect(result).toHaveProperty("topic_id");
+    await discourse.removeTopic({ id: result.topic_id.toString() });
   });
 
   test("getSpecificPostsFromTopic", async () => {
@@ -56,6 +88,8 @@ describe("topics", () => {
       "test topic to be updated - updated",
     );
     */
+
+    await discourse.removeTopic({ id });
   });
 
   test("inviteToTopic -- SKIPPED (tested in `invites` suite)", async () => {
@@ -70,6 +104,9 @@ describe("topics", () => {
     const id = topic.topic_id.toString();
 
     await discourse.bookmarkTopic({ id });
+    // checkk??  TODO
+
+    await discourse.removeTopic({ id });
   });
 
   test("updateTopicStatus", async () => {
@@ -86,11 +123,7 @@ describe("topics", () => {
       enabled: "true",
     });
     expect(result).toEqual({ success: "OK", topic_status_update: null });
-  });
-
-  test("listLatestTopics", async () => {
-    const result = await discourse.listLatestTopics();
-    expect(Array.isArray(result.topic_list?.topics)).toBe(true);
+    await discourse.removeTopic({ id });
   });
 
   test("listTopTopics", async () => {
@@ -111,6 +144,7 @@ describe("topics", () => {
       notification_level: "2",
     });
     expect(result).toEqual({ success: "OK" });
+    await discourse.removeTopic({ id });
   });
 
   test("updateTopicTimestamp", async () => {
@@ -126,6 +160,7 @@ describe("topics", () => {
       timestamp: "1594291380",
     });
     expect(result).toEqual({ success: "OK" });
+    await discourse.removeTopic({ id });
   });
 
   test("createTopicTimer", async () => {
@@ -149,20 +184,23 @@ describe("topics", () => {
       execute_at: null,
       success: "OK",
     });
+    await discourse.removeTopic({ id });
   });
 
   test("getTopicByExternalId", async () => {
+    const external_id = randomName();
     const topic = await discourse.createTopicPostPM({
       title: "test topic to be external id'd",
       raw: "this is a test for getTopicByExternalId",
       category: 3,
-      external_id: "getTopicByExternalId-test",
+      external_id,
     });
     const id = topic.topic_id;
 
     const t = await discourse.getTopicByExternalId({
-      external_id: "getTopicByExternalId-test",
+      external_id,
     });
     expect(t.id).toBe(id);
+    await discourse.removeTopic({ id: id.toString() });
   });
 });

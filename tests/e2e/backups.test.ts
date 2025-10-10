@@ -1,6 +1,8 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import { describe, discourse, expect, test, useCache } from "./_common.ts";
 
 describe("backups", () => {
+  useCache();
+
   test("createBackup", async () => {
     const result = await discourse.createBackup({ with_uploads: false });
     expect(result).toEqual({ success: "OK" });

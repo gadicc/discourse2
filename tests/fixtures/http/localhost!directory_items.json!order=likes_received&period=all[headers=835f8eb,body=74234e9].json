@@ -1,0 +1,61 @@
+{
+  "request": {
+    "url": "http://localhost/directory_items.json?period=all&order=likes_received",
+    "method": "GET",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:44 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "directory_items/index",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "b0907d11-1822-4a60-b743-57a77790e9fe",
+      "x-runtime": "0.012431",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "directory_items": [
+        {
+          "id": 3,
+          "likes_received": 0,
+          "likes_given": 0,
+          "topic_count": 0,
+          "post_count": 0,
+          "topics_entered": 0,
+          "posts_read": 0,
+          "days_visited": 1,
+          "time_read": 0,
+          "user": {
+            "id": 3,
+            "username": "admin",
+            "name": null,
+            "avatar_template": "/letter_avatar_proxy/v4/letter/a/3ec8ea/{size}.png",
+            "title": null,
+            "admin": true,
+            "trust_level": 0
+          }
+        }
+      ],
+      "meta": {
+        "last_updated_at": "2025-10-10T08:25:38.000Z",
+        "total_rows_directory_items": 1,
+        "load_more_directory_items": "/directory_items.json?order=likes_received&page=1&period=all"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "request": {
+    "url": "http://localhost/t/445/bookmark.json",
+    "method": "PUT",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "text/plain; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:42 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "topics/bookmark",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "d2edc776-a561-4168-b0c7-77599539506a",
+      "x-runtime": "0.016078",
+      "x-xss-protection": "0"
+    },
+    "bodyText": ""
+  }
+}

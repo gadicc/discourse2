@@ -1,29 +1,34 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import {
+  describe,
+  discourse,
+  expect,
+  randomName,
+  test,
+  useCache,
+} from "./_common.ts";
 
 describe("categories", () => {
-  test("createCategory", async () => {
-    const result = await discourse.createCategory({
-      name: "test-category",
-    });
-    expect(result).toHaveProperty("category");
-  });
+  useCache();
 
   test("listCategories", async () => {
     const result = await discourse.listCategories();
     expect(Array.isArray(result.category_list.categories)).toBe(true);
   });
 
+  test("createCategory", async () => {
+    const name = randomName();
+    const result = await discourse.createCategory({ name });
+    expect(result).toHaveProperty("category");
+  });
+
   test("updateCategory", async () => {
-    const result = await discourse.createCategory({
-      name: "test-update-category",
-    });
+    const name = randomName();
+    const result = await discourse.createCategory({ name });
     const id = result.category.id;
 
-    const updateResult = await discourse.updateCategory({
-      id,
-      name: "test-update-category-updated",
-    });
-    expect(updateResult.category.name).toBe("test-update-category-updated");
+    const newName = name + "-updated";
+    const updateResult = await discourse.updateCategory({ id, name: newName });
+    expect(updateResult.category.name).toBe(newName);
   });
 
   test("listCategoryTopics", async () => {

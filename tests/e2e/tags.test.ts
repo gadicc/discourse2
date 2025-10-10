@@ -1,15 +1,42 @@
-import { describe, discourse, expect, test } from "./_common.ts";
+import {
+  afterAll,
+  beforeAll,
+  describe,
+  discourse,
+  expect,
+  randomName,
+  skipCacheOnce,
+  test,
+  useCache,
+} from "./_common.ts";
 
 describe("tags", () => {
+  useCache();
+
+  async function cleanup() {
+    skipCacheOnce();
+    const result = await discourse.listTagGroups();
+    if (result.tag_groups) {
+      for (const tagGroup of result.tag_groups) {
+        if (tagGroup.name?.startsWith("test-")) {
+          // No documented delete API :D
+          // console.warn("Found leftover test tag group:", tagGroup.name, "but cannot delete it");
+          // We might have lots of randomName()'d tag groups, so don't spam the console
+        }
+      }
+    }
+  }
+  beforeAll(cleanup);
+  afterAll(cleanup);
+
   test("listTagGroups", async () => {
     const result = await discourse.listTagGroups();
     expect(Array.isArray(result.tag_groups)).toBe(true);
   });
 
   test("createTagGroup & getTagGroup", async () => {
-    const result = await discourse.createTagGroup({
-      name: "test tag group",
-    });
+    const name = randomName();
+    const result = await discourse.createTagGroup({ name });
     expect(result.tag_group).toHaveProperty("id");
 
     const tagGroup = await discourse.getTagGroup({
@@ -19,15 +46,15 @@ describe("tags", () => {
   });
 
   test("updateTagGroup", async () => {
-    const result = await discourse.createTagGroup({
-      name: "test tag group to update",
-    });
+    const name = randomName();
+    const result = await discourse.createTagGroup({ name });
 
+    const updatedName = name + "-updated";
     const updated = await discourse.updateTagGroup({
       id: result.tag_group.id.toString(),
-      name: "test tag group updated",
+      name: updatedName,
     });
-    expect(updated.tag_group?.name).toBe("test tag group updated");
+    expect(updated.tag_group?.name).toBe(updatedName);
   });
 
   test("listTags", async () => {
@@ -35,7 +62,7 @@ describe("tags", () => {
     expect(Array.isArray(result.tags)).toBe(true);
   });
 
-  test("getTag", async () => {
+  test.skip("getTag", async () => {
     // Tag was hand created for now (not in OpenAPI spec)
     const tag = await discourse.getTag({ name: "test" });
     expect(tag).toHaveProperty("topic_list");

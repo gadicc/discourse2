@@ -1,0 +1,57 @@
+{
+  "request": {
+    "url": "http://localhost/notifications.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:40 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "notifications/index",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "958696f3-a7f0-47cd-abef-38efa4840be0",
+      "x-runtime": "0.012496",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "notifications": [
+        {
+          "id": 1,
+          "user_id": -1,
+          "notification_type": 12,
+          "read": false,
+          "high_priority": false,
+          "created_at": "2025-10-09T07:55:04.995Z",
+          "post_number": null,
+          "topic_id": null,
+          "slug": null,
+          "data": {
+            "badge_id": 41,
+            "badge_name": "First Emoji",
+            "badge_slug": "first-emoji",
+            "badge_title": false,
+            "username": "system"
+          }
+        }
+      ],
+      "total_rows_notifications": 1,
+      "seen_notification_id": 0,
+      "load_more_notifications": "/notifications?limit=60&offset=60&username=system"
+    }
+  }
+}

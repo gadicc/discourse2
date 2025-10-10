@@ -1,0 +1,120 @@
+{
+  "request": {
+    "url": "http://localhost/posts.json",
+    "method": "POST",
+    "bodyJson": {
+      "title": "test topic to be status udpated",
+      "raw": "this is a test for updateTopicStatus",
+      "category": 3
+    },
+    "headers": {
+      "api-key": "f9d451b4b663a643b174f9904a70b2cefab9e37a7580812de27afa518ffa2074",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Fri, 10 Oct 2025 10:22:42 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx/1.26.3",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "posts/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "957658da-9daa-40e5-b572-97088cf8c9d0",
+      "x-runtime": "0.121948",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "id": 454,
+      "name": "system",
+      "username": "system",
+      "avatar_template": "/images/discourse-logo-sketch-small.png",
+      "created_at": "2025-10-10T10:22:42.312Z",
+      "cooked": "<p>this is a test for updateTopicStatus</p>",
+      "post_number": 1,
+      "post_type": 1,
+      "posts_count": 1,
+      "updated_at": "2025-10-10T10:22:42.312Z",
+      "reply_count": 0,
+      "reply_to_post_number": null,
+      "quote_count": 0,
+      "incoming_link_count": 0,
+      "reads": 0,
+      "readers_count": 0,
+      "score": 0,
+      "yours": true,
+      "topic_id": 448,
+      "topic_slug": "test-topic-to-be-status-udpated",
+      "display_username": "system",
+      "primary_group_name": null,
+      "flair_name": null,
+      "flair_url": null,
+      "flair_bg_color": null,
+      "flair_color": null,
+      "flair_group_id": null,
+      "badges_granted": [],
+      "version": 1,
+      "can_edit": true,
+      "can_delete": false,
+      "can_recover": false,
+      "can_see_hidden_post": true,
+      "can_wiki": true,
+      "user_title": null,
+      "bookmarked": false,
+      "raw": "this is a test for updateTopicStatus",
+      "actions_summary": [
+        {
+          "id": 3,
+          "can_act": true
+        },
+        {
+          "id": 4,
+          "can_act": true
+        },
+        {
+          "id": 8,
+          "can_act": true
+        },
+        {
+          "id": 10,
+          "can_act": true
+        },
+        {
+          "id": 7,
+          "can_act": true
+        }
+      ],
+      "moderator": true,
+      "admin": true,
+      "staff": true,
+      "user_id": -1,
+      "draft_sequence": 0,
+      "hidden": false,
+      "trust_level": 4,
+      "deleted_at": null,
+      "user_deleted": false,
+      "edit_reason": null,
+      "can_view_edit_history": true,
+      "wiki": false,
+      "reviewable_id": null,
+      "reviewable_score_count": 0,
+      "reviewable_score_pending_count": 0,
+      "post_url": "/t/test-topic-to-be-status-udpated/448/1",
+      "can_accept_answer": false,
+      "can_unaccept_answer": false,
+      "accepted_answer": false,
+      "topic_accepted_answer": null,
+      "can_vote": false
+    }
+  }
+}
