@@ -3,10 +3,10 @@
     "url": "http://localhost/categories.json",
     "method": "POST",
     "bodyJson": {
-      "name": "test-eqionqj"
+      "name": "test-efayjrq"
     },
     "headers": {
-      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
       "api-username": "system",
       "content-type": "application/json"
     }
@@ -19,7 +19,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
+      "date": "Sat, 11 Oct 2025 12:13:17 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -29,27 +29,27 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "53811a33-88ad-4dc2-a76a-865fe27029e7",
-      "x-runtime": "0.061804",
+      "x-request-id": "88ca1733-cd15-42c4-8a05-fad47f18f7f3",
+      "x-runtime": "0.090784",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "category": {
         "id": 6,
-        "name": "test-eqionqj",
+        "name": "test-efayjrq",
         "color": "0088CC",
         "text_color": "FFFFFF",
         "style_type": "square",
         "icon": null,
         "emoji": null,
-        "slug": "test-eqionqj",
+        "slug": "test-efayjrq",
         "topic_count": 0,
         "post_count": 0,
         "position": 5,
         "description": null,
         "description_text": null,
         "description_excerpt": null,
-        "topic_url": "/t/about-the-test-eqionqj-category/11",
+        "topic_url": "/t/about-the-test-efayjrq-category/10",
         "read_restricted": false,
         "permission": null,
         "notification_level": 1,
@@ -79,6 +79,7 @@
           "admins",
           "moderators",
           "staff",
+          "test-group",
           "trust_level_0",
           "trust_level_1",
           "trust_level_2",

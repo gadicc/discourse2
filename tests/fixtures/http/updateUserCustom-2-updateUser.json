@@ -6,7 +6,7 @@
       "title": "a new title"
     },
     "headers": {
-      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
       "api-username": "system",
       "content-type": "application/json"
     }
@@ -19,7 +19,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Sat, 11 Oct 2025 11:48:35 GMT",
+      "date": "Sat, 11 Oct 2025 12:13:20 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -29,20 +29,20 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "ec4d6119-e17e-4e67-9b3e-016437f1cbcb",
-      "x-runtime": "0.068518",
+      "x-request-id": "f7cfb39f-444c-4831-8f53-ac072d91214b",
+      "x-runtime": "0.050081",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "success": "OK",
       "user": {
-        "id": 21,
+        "id": 4,
         "username": "test-update-custom",
         "name": "Test user to update",
         "avatar_template": "/letter_avatar_proxy/v4/letter/t/47e85d/{size}.png",
         "last_posted_at": null,
         "last_seen_at": null,
-        "created_at": "2025-10-11T11:48:34.565Z",
+        "created_at": "2025-10-11T12:13:19.989Z",
         "ignored": false,
         "muted": false,
         "can_ignore_user": true,
@@ -106,15 +106,15 @@
         "user_api_keys": null,
         "user_auth_tokens": [
           {
-            "id": 20,
+            "id": 4,
             "client_ip": "172.18.0.1",
             "location": "unknown",
             "browser": "unknown browser",
             "device": "unknown device",
             "os": "unknown operating system",
             "icon": "question",
-            "created_at": "2025-10-11T11:48:34.922Z",
-            "seen_at": "2025-10-11T11:48:34.922Z",
+            "created_at": "2025-10-11T12:13:20.376Z",
+            "seen_at": "2025-10-11T12:13:20.376Z",
             "is_active": false
           }
         ],
@@ -154,7 +154,7 @@
             "automatic": true,
             "name": "trust_level_0",
             "display_name": "trust_level_0",
-            "user_count": 2,
+            "user_count": 4,
             "mentionable_level": 0,
             "messageable_level": 0,
             "visibility_level": 1,
@@ -215,17 +215,17 @@
         "group_users": [
           {
             "group_id": 10,
-            "user_id": 21,
+            "user_id": 4,
             "notification_level": 3
           },
           {
             "group_id": 11,
-            "user_id": 21,
+            "user_id": 4,
             "notification_level": 3
           }
         ],
         "user_option": {
-          "user_id": 21,
+          "user_id": 4,
           "mailing_list_mode": false,
           "mailing_list_mode_frequency": 1,
           "email_digests": true,

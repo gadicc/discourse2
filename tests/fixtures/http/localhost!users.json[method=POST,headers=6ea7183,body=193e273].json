@@ -1,0 +1,49 @@
+{
+  "request": {
+    "url": "http://localhost/users.json",
+    "method": "POST",
+    "bodyJson": {
+      "name": "Test user to activate",
+      "email": "activate-me@example.com",
+      "password": "aFunPassw0rd",
+      "username": "test-activate-user",
+      "active": false
+    },
+    "headers": {
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sat, 11 Oct 2025 12:13:24 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "set-cookie": [
+        "_forum_session=qrXjnQjtYVKEB5hGnrFVMJ%2F4O0hcRT6px2C6%2F5Ol0v7aJaML6dWbNDPFkNMHhUcuTMcuIZ04glpr6yxLlDXL4mMtl2yLz2uQ8YX4HO7rA3kRM9J1VjNTCza%2BDKffZz5KxJBmXiH9FoXrbUojbtEsLbzsw6seCOlAGm5yUW7g331Hij3pgy1bUK0t82EC0goFvdIc4WNZ18E8vc8vrhWW5BXTYoZD2agMlYNXOFIWIDGV1A%2BMNZLHAOX5yRN7dToNGOfvdlAWvOqZ7V44eUTuVzp6SnG95I2MNCxK94ABp8lZrxJzrdxUn%2BDk2MbpEt0Ko1sVR1O%2FUOSMm%2BtWfADiQPptFM4kqqim8aYU93vWsUBE0pbq4wUIkhuPhk8eh%2FkfX6bCivyrKqROtw5gWOszIno015MpefmNvVRdQMnDUDqnm65qAUnTISL4YZ04l1827499dtMg0fx6oRsj%2FX2x3mUp%2BlxKNI0%2F%2FuVy8Ap%2FtaZbrfFJB5HHaDWGeGTvwGWLH19zAkdp4zgxIRyzb8%2BNIB8zXMhBVDtxL5jAdEnp%2BZncka1rSQ8CJjmfh8pNwLTzxsM%2FdeIiYlVTOv9E0hf0cewdNf%2Bsk0LvMp9%2F5OXlwgEbTSEb8tuZgy4%2BPzrx0uZdBS75kYw9PTB61CTQBjumhXpnAMC7wF%2F6ezxbqTwkE0H%2BOhCfXZKoM9pziN2dimPCrLnre%2B9t2RqMNXIemYtp3ztFqqK8rpx3rfMRGvXbvNtS9ufyyB6rqx%2FYkoqLExQMXNR8UsR3Orq%2BE2df0PnZ3kJR9IDnlxNA5tiPkDpFOhFuM1irdEOxr%2BHiSwRMUOVN6dfGwYmM--lD4iV21XcEekhtif--Cmhv2fUV0WiYBGnDfUFgdw%3D%3D; path=/; HttpOnly; SameSite=Lax"
+      ],
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "users/create",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "e79a42fb-8da0-42fc-b722-c6ae8a86911a",
+      "x-runtime": "0.406303",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": true,
+      "active": false,
+      "message": "<p>You’re almost done! We sent an activation mail to <b>activate-me@example.com</b>. Please follow the instructions in the mail to activate your account.</p><p>If it doesn’t arrive, check your spam folder.</p>"
+    }
+  }
+}

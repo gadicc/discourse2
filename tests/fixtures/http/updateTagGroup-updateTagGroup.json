@@ -3,10 +3,10 @@
     "url": "http://localhost/tag_groups/2.json",
     "method": "PUT",
     "bodyJson": {
-      "name": "test-dpskcbn-updated"
+      "name": "test-uoqocar-updated"
     },
     "headers": {
-      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
       "api-username": "system",
       "content-type": "application/json"
     }
@@ -19,7 +19,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
+      "date": "Sat, 11 Oct 2025 12:13:17 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -29,15 +29,15 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "4068e311-2f45-4cb5-9d19-64fb633efe77",
-      "x-runtime": "0.027062",
+      "x-request-id": "1dd68e61-4455-47cc-88c8-48c3a5922180",
+      "x-runtime": "0.020846",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "success": "OK",
       "tag_group": {
         "id": 2,
-        "name": "test-dpskcbn-updated",
+        "name": "test-uoqocar-updated",
         "tag_names": [],
         "parent_tag_name": [],
         "one_per_topic": false,

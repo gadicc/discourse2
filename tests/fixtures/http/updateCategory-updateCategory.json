@@ -3,10 +3,10 @@
     "url": "http://localhost/categories/6.json",
     "method": "PUT",
     "bodyJson": {
-      "name": "test-eqionqj-updated"
+      "name": "test-efayjrq-updated"
     },
     "headers": {
-      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
       "api-username": "system",
       "content-type": "application/json"
     }
@@ -19,7 +19,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
+      "date": "Sat, 11 Oct 2025 12:13:17 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -29,28 +29,28 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "ae0aa64d-65dc-4eed-83b2-8ab44ef31228",
-      "x-runtime": "0.054993",
+      "x-request-id": "2a9d4fc5-43bc-48f0-8075-9c39c7a4dc50",
+      "x-runtime": "0.056066",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "success": "OK",
       "category": {
         "id": 6,
-        "name": "test-eqionqj-updated",
+        "name": "test-efayjrq-updated",
         "color": "0088CC",
         "text_color": "FFFFFF",
         "style_type": "square",
         "icon": null,
         "emoji": null,
-        "slug": "test-eqionqj",
+        "slug": "test-efayjrq",
         "topic_count": 0,
         "post_count": 0,
         "position": 5,
         "description": null,
         "description_text": null,
         "description_excerpt": null,
-        "topic_url": "/t/about-the-test-eqionqj-updated-category/11",
+        "topic_url": "/t/about-the-test-efayjrq-updated-category/10",
         "read_restricted": false,
         "permission": null,
         "notification_level": 1,
@@ -80,7 +80,6 @@
           "admins",
           "moderators",
           "staff",
-          "test-delete-group",
           "trust_level_0",
           "trust_level_1",
           "trust_level_2",

@@ -1,0 +1,42 @@
+{
+  "request": {
+    "url": "http://localhost/groups/43.json",
+    "method": "PUT",
+    "bodyJson": {
+      "group": {
+        "name": "test-update-group2"
+      }
+    },
+    "headers": {
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
+      "api-username": "system",
+      "content-type": "application/json"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sat, 11 Oct 2025 12:13:18 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "groups/update",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "51d8c10b-5c7b-49ed-9090-75a8274f9b77",
+      "x-runtime": "0.081603",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "success": "OK"
+    }
+  }
+}

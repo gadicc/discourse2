@@ -3,10 +3,10 @@
     "url": "http://localhost/categories.json",
     "method": "POST",
     "bodyJson": {
-      "name": "test-ulxandf"
+      "name": "test-ymiinsk"
     },
     "headers": {
-      "api-key": "eb2a2de8f93102c896aff8a55eec4672bdbd2be123f02c4900ad6d0f6483703b",
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
       "api-username": "system",
       "content-type": "application/json"
     }
@@ -19,7 +19,7 @@
       "cache-control": "no-cache, no-store",
       "connection": "keep-alive",
       "content-type": "application/json; charset=utf-8",
-      "date": "Fri, 10 Oct 2025 13:43:38 GMT",
+      "date": "Sat, 11 Oct 2025 12:13:17 GMT",
       "referrer-policy": "strict-origin-when-cross-origin",
       "server": "nginx",
       "transfer-encoding": "chunked",
@@ -29,27 +29,27 @@
       "x-discourse-username": "system",
       "x-frame-options": "SAMEORIGIN",
       "x-permitted-cross-domain-policies": "none",
-      "x-request-id": "060c7707-82b3-4178-9054-01f899e6875e",
-      "x-runtime": "0.123283",
+      "x-request-id": "358d2087-259b-4dfb-8572-0df1f4d29069",
+      "x-runtime": "0.098668",
       "x-xss-protection": "0"
     },
     "bodyJson": {
       "category": {
         "id": 5,
-        "name": "test-ulxandf",
+        "name": "test-ymiinsk",
         "color": "0088CC",
         "text_color": "FFFFFF",
         "style_type": "square",
         "icon": null,
         "emoji": null,
-        "slug": "test-ulxandf",
+        "slug": "test-ymiinsk",
         "topic_count": 0,
         "post_count": 0,
         "position": 4,
         "description": null,
         "description_text": null,
         "description_excerpt": null,
-        "topic_url": "/t/about-the-test-ulxandf-category/9",
+        "topic_url": "/t/about-the-test-ymiinsk-category/8",
         "read_restricted": false,
         "permission": null,
         "notification_level": 1,

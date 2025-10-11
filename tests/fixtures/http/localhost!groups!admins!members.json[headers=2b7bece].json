@@ -1,0 +1,58 @@
+{
+  "request": {
+    "url": "http://localhost/groups/admins/members.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sat, 11 Oct 2025 12:13:18 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "groups/members",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "fae65e6e-3d81-44f3-af6a-8ff8f52ea368",
+      "x-robots-tag": "noindex",
+      "x-runtime": "0.020932",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "members": [
+        {
+          "id": 1,
+          "username": "admin",
+          "name": null,
+          "avatar_template": "/letter_avatar_proxy/v4/letter/a/3ec8ea/{size}.png",
+          "admin": true,
+          "moderator": true,
+          "trust_level": 0,
+          "title": null,
+          "last_posted_at": null,
+          "last_seen_at": null,
+          "added_at": "2025-10-11T12:13:13.024Z",
+          "timezone": null
+        }
+      ],
+      "owners": [],
+      "meta": {
+        "total": 1,
+        "limit": 50,
+        "offset": 0
+      }
+    }
+  }
+}

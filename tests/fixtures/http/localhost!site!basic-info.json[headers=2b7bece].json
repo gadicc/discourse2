@@ -1,0 +1,47 @@
+{
+  "request": {
+    "url": "http://localhost/site/basic-info.json",
+    "method": "GET",
+    "headers": {
+      "api-key": "d6f392f345a4b190dde39b6cfb5ad6a324bfd2ec5357facc7a9c599b52eabdca",
+      "api-username": "system"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sat, 11 Oct 2025 12:13:17 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-discourse-route": "site/basic_info",
+      "x-discourse-username": "system",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "856dfc67-7076-4ec8-ba21-869f112994ea",
+      "x-runtime": "0.015292",
+      "x-xss-protection": "0"
+    },
+    "bodyJson": {
+      "logo_url": "http://localhost/images/discourse-logo-sketch.png",
+      "logo_small_url": "http://localhost/images/discourse-logo-sketch-small.png",
+      "apple_touch_icon_url": "http://localhost/uploads/default/optimized/1X/_129430568242d1b7f853bb13ebea28b3f6af4e7_2_180x180.png",
+      "favicon_url": "http://localhost/uploads/default/optimized/1X/_129430568242d1b7f853bb13ebea28b3f6af4e7_2_32x32.png",
+      "title": "Discourse",
+      "description": "",
+      "header_primary_color": "333",
+      "header_background_color": "fff",
+      "login_required": false,
+      "locale": "en",
+      "include_in_discourse_discover": false,
+      "mobile_logo_url": "http://localhost/images/discourse-logo-sketch.png"
+    }
+  }
+}
