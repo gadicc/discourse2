@@ -6,7 +6,7 @@
   },
   "tasks": {
     "dev": "deno run --watch src/index.ts",
-    "check": "deno check",
+    "check": "deno check src tests",
     "format": "deno fmt",
     "lint": "deno lint",
     "ci": "deno task check && deno task lint && deno task format --check && deno task coverage",
