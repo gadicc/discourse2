@@ -40,12 +40,14 @@ const methods = [
 ] as Method[];
 
 (async () => {
-  let out = 'import type { operations } from "./schema.d.ts";' + "\n\n";
+  let out = 'import type { operations } from "./schema.d.ts";' + "\n" +
+    'import type { DiscourseExecOptions } from "./types.ts";' + "\n\n";
+
   out +=
     "type Prettify<T> = {\n  [K in keyof T]: T[K];\n// deno-lint-ignore ban-types\n} & {}\n\n";
   out += "export default class DiscourseAPIGenerated {\n";
   out +=
-    "  _exec<T>(_operationName: string, _params?: unknown) { throw new Error('Not implemented'); }\n\n";
+    "  _exec<T>(_operationName: string, _params?: unknown, options?: unknown) { throw new Error('Not implemented'); }\n\n";
 
   for (const [path, pathData] of objectEntries(spec.paths)) {
     for (const method of methods) {
@@ -156,6 +158,10 @@ const methods = [
         }
       }
 
+      const hasParams = types.length || methodData.requestBody;
+      methodString += (hasParams ? "," : "") +
+        "options?: Prettify<DiscourseExecOptions>";
+
       methodString += ")";
 
       let returnType = null;
@@ -204,8 +210,8 @@ const methods = [
           "']>('" +
           operationId +
           "'" +
-          (types.length || methodData.requestBody ? ", params" : "") +
-          ")" +
+          (hasParams ? ", params" : "") +
+          ", options)" +
           (returnType ? " as unknown as " + returnType : "") +
           ";\n",
       );

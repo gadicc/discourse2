@@ -3,6 +3,7 @@ import {
   describe,
   discourse,
   expect,
+  setNextCacheId,
   skipCacheOnce,
   test,
   useCache,
@@ -88,6 +89,36 @@ describe("users", () => {
     });
 
     const user = await discourse.getUser({ username: "test-update-user" });
+    await discourse.deleteUser({ id: user.user.id });
+  });
+
+  test("updateUser with custom fields", async () => {
+    setNextCacheId("updateUserCustom-1-createUser");
+    const createUserResult = await discourse.createUser({
+      name: "Test user to update",
+      email: "test-update@example.com",
+      password: "teSt1ngIsFuN",
+      username: "test-update-custom",
+      active: true,
+    });
+    expect(createUserResult).toMatchObject({ success: true });
+
+    setNextCacheId("updateUserCustom-2-updateUser");
+    const result = await discourse.updateUser({
+      username: "test-update-custom",
+      // @ts-expect-error: not in spec
+      title: "a new title",
+    }, { validateParams: false });
+    expect(result).toMatchObject({
+      success: "OK",
+      user: {
+        title: "a new title",
+      },
+    });
+
+    setNextCacheId("updateUserCustom-3-getUser");
+    const user = await discourse.getUser({ username: "test-update-custom" });
+    setNextCacheId("updateUserCustom-4-deleteUser");
     await discourse.deleteUser({ id: user.user.id });
   });
 

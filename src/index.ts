@@ -22,8 +22,17 @@ import _ajvErrors from "ajv-errors";
 import _ajvFormats from "ajv-formats";
 import type { OpenAPIV3_1 } from "openapi-types";
 
+import type { DiscourseExecOptions } from "./types.ts";
+export * from "./types.ts";
+
 import spec from "./openapi.json" with { type: "json" };
 import DiscourseAPIGenerated from "./generated.ts";
+
+const execOptionDefaults: DiscourseExecOptions = {
+  fetchOptions: {},
+  validateParams: true,
+  // validateResponse: true,
+};
 
 // Previously we imported this from ./generated.ts, but, exporting it
 // from there breaks the unwrapping.
@@ -181,9 +190,21 @@ export class HTTPError extends Error {
     url: string,
     requestInit: RequestInit,
   ) {
+    const ri = {
+      ...requestInit,
+      headers: requestInit.headers instanceof Headers
+        ? Object.fromEntries(requestInit.headers.entries())
+        : requestInit.headers as
+          | Record<string, string | string[] | undefined>
+          | undefined,
+    };
+    if (ri.headers?.["api-key"]) {
+      ri.headers["api-key"] = ri.headers["api-key"].slice(0, 7) + "...";
+    }
+
     super(
       `An error occured calling "${operationName}" at ${url}\n` +
-        `RequestInit: ${JSON.stringify(requestInit)}\n` +
+        `RequestInit: ${JSON.stringify(ri)}\n` +
         `Returned HTTP ${status}: ${body}`,
     );
     this.status = status;
@@ -251,9 +272,12 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
   override async _exec<T>(
     operationName: string,
     params = {} as Record<string, string>,
+    options: DiscourseExecOptions = {},
   ): Promise<unknown> {
     const operation = byOperationId[operationName];
     if (!operation) throw new Error("Unknown operation: " + operationName);
+
+    const opts = { ...execOptionDefaults, ...options };
 
     // console.log(operationName, params);
 
@@ -352,22 +376,40 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
     const additionalProperties = Object.keys(params);
     if (additionalProperties.length) {
-      throw new Error(
-        "Unknown parameter(s) for " +
-          operationName +
-          ": " +
-          additionalProperties.join(", "),
-      );
+      if (opts.validateParams) {
+        throw new Error(
+          "Unknown parameter(s) for " +
+            operationName +
+            ": " +
+            additionalProperties.join(", "),
+        );
+      } else {
+        if (formData) {
+          for (const key of additionalProperties) {
+            formData.append(key, params[key] as string | Blob);
+          }
+        } else if (contentType === "application/json") {
+          for (const key of additionalProperties) {
+            body[key] = params[key];
+          }
+        } else {
+          throw new Error(
+            "additionalProperties but not sure where to put them",
+          );
+        }
+      }
     }
 
-    const validate = getValidator(operationSchema(operation.data));
-    const valid = validate({ header, path, query, body });
-    if (!valid) {
-      const errors = validate.errors;
-      // console.log("errors", errors);
-      const message = ajv.errorsText(errors);
-      const error = new ParamaterValidationError(message, errors);
-      throw error;
+    if (opts.validateParams) {
+      const validate = getValidator(operationSchema(operation.data));
+      const valid = validate({ header, path, query, body });
+      if (!valid) {
+        const errors = validate.errors;
+        // console.log("errors", errors);
+        const message = ajv.errorsText(errors);
+        const error = new ParamaterValidationError(message, errors);
+        throw error;
+      }
     }
 
     // Do this after validation (of user headers)
@@ -396,6 +438,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
       method: operation.method,
       headers: new Headers(header),
       redirect: "manual",
+      ...opts.fetchOptions,
     };
 
     if (operation.data.requestBody && "content" in operation.data.requestBody) {
@@ -481,6 +524,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
         file?: File | Blob;
       }
     >,
+    options?: Prettify<DiscourseExecOptions>,
   ): Prettify<ReturnType<DiscourseAPIGenerated["createUpload"]>> {
     const file = params.file;
     if (file && !(file instanceof File || file instanceof Blob)) {
@@ -488,23 +532,25 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
     }
 
     // @ts-expect-error: intentional break of types
-    return super.createUpload(params);
+    return super.createUpload(params, options);
   }
 
   override updateTopic(
     params: Parameters<DiscourseAPIGenerated["updateTopic"]>[0],
+    options?: Prettify<DiscourseExecOptions>,
   ): ReturnType<DiscourseAPIGenerated["updateTopic"]> {
     console.warn(
       "At time of writing, updateTopic() is broken on the discourse side, see https://meta.discourse.org/t/stumped-on-api-update-of-topic/145330.",
     );
-    return super.updateTopic(params);
+    return super.updateTopic(params, options);
   }
 
   override async getTopicByExternalId(
     params: Parameters<DiscourseAPIGenerated["getTopicByExternalId"]>[0],
+    options?: Prettify<DiscourseExecOptions>,
   ): ReturnType<DiscourseAPIGenerated["getTopic"]> {
     try {
-      await super.getTopicByExternalId(params);
+      await super.getTopicByExternalId(params, options);
     } catch (error) {
       if (error instanceof HTTPError && error.status === 301) {
         const location = error.response.headers.get("location");
@@ -525,6 +571,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
 
   override getSpecificPostsFromTopic(
     params: Parameters<DiscourseAPIGenerated["getSpecificPostsFromTopic"]>[0],
+    options?: Prettify<DiscourseExecOptions>,
   ): ReturnType<DiscourseAPIGenerated["getSpecificPostsFromTopic"]> {
     const operation = byOperationId.getSpecificPostsFromTopic.data;
 
@@ -555,7 +602,7 @@ export default class DiscourseAPI extends DiscourseAPIGenerated {
       delete operation.requestBody;
     }
 
-    return super.getSpecificPostsFromTopic(params);
+    return super.getSpecificPostsFromTopic(params, options);
   }
 
   /*
